@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Documentation - Algolia for Magento</title>
+  <meta name="description" content="Power your Magento store with Algolia">
+
+  <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Raleway:300,800" />
+  <link rel="stylesheet" media="screen" href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600" />
+  <link rel="stylesheet" media="screen" href="/magento/css/main.css" />
+  <link rel="stylesheet" media="screen" href="//cdn.jsdelivr.net/fontawesome/4.4.0/css/font-awesome.min.css" />
+</head>
+
+<body>
+  <header class="site-header">
+  <nav class="navbar navbar-default  navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#instant-search-nav">
+          Menu&nbsp;&nbsp;<i class="fa fa-bars"></i>
+        </button>
+        <a class="navbar-brand " href="/magento/">
+          <img src="/magento/img/algolia-logo.svg" alt="Algolia" style="display: inline-block; height: 1.5em; margin-right: 10px" />
+          for Magento
+        </a>
+      </div>
+      <div id="instant-search-nav" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav navbar-right">
+          
+          
+          <li class="active">
+            <a href="/magento/documentation/" title="">Documentation</a>
+          </li>
+          
+          <li >
+            <a href="/magento/about/" title="">About</a>
+          </li>
+          
+          <li class="text-xl">
+            <a href="https://github.com/algolia/algoliasearch-magento" title="GitHub">
+              <i class="fa fa-github"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <div class="container main-content">
+  <div class="row">
+    <div class="col-md-9 col-md-offset-3">
+      <header class="page-header">
+        <h1 class="page-title">Documentation</h1>
+      </header>
+    </div>
+  </div>
+ <article class="page-content row">
+    <div class="col-md-3 hidden-sm hidden-xs">
+      <div class="menu">
+        </li><li><a href="#installation">Installation</a><ul><li><a href="#create-an-algolia-account">Create an Algolia account</a></li><li><a href="#install-the-extension">Install the extension</a></li><li><a href="#initial-indexing">Initial indexing</a></ul></li><li><a href="#indexing-flow">Indexing flow</a><ul><li><a href="#indexing-queue-enabled">Indexing Queue Enabled</a></li><li><a href="#indexing-queue-disabled">Indexing Queue Disabled</a></ul></li><li><a href="#uiux">UI/UX</a><ul><li><a href="#auto-completion-menu">Auto-completion menu</a></li><li><a href="#search-results-page">Search results page</a></li><li><a href="#customization">Customization</a></ul></li><li><a href="#upgrade">Upgrade</a></li><li><a href="#caveats">Caveats</a></li></ul>
+        <div class="spacer30"></div>
+        <p class="text-center">Latest version: <b>1.5.4</b></p>
+      </div>
+    </div>
+    <div class="col-md-9 documentation-content">
+      <h1 class="headline" id="installation">Installation</h1>
+
+<p>Please follow those steps to install the Algolia Search extension:</p>
+
+<h2 id="create-an-algolia-account">Create an Algolia account</h2>
+
+<ul>
+  <li>Create an <strong><a href="https://www.algolia.com">Algolia</a></strong> Account.</li>
+  <li>Choose the Algolia datacenter which is the closest to your datacenter.</li>
+  <li>Get your Algolia credentials from the “Credentials” left-menu.</li>
+</ul>
+
+<p><img src="../img/signup.png" class="img-responsive" /></p>
+
+<h2 id="install-the-extension">Install the extension</h2>
+
+<ul>
+  <li>Download and install the extension from the <a href="http://www.magentocommerce.com/magento-connect/search-algolia-instant-search.html">Magento Commerce</a> or <a href="https://github.com/algolia/algoliasearch-magento">GitHub</a>.</li>
+  <li>Configure your credentials from the <strong>System &gt; Configuration &gt; Catalog &gt; Algolia Search</strong> administration panel.</li>
+</ul>
+
+<p><img src="../img/configuration.png" class="img-responsive" /></p>
+
+<h2 id="initial-indexing">Initial indexing</h2>
+
+<ul>
+  <li>Force the re-indexing of all products &amp; categories with the <strong>System &gt; Index Management &gt; Algolia Search Products</strong> index.</li>
+  <li>Force the re-indexing of all products &amp; categories with the <strong>System &gt; Index Management &gt; Algolia Search Categories</strong> index.</li>
+  <li>Force the re-indexing of all pages with the <strong>System &gt; Index Management &gt; Algolia Search Pages</strong> index.</li>
+  <li>Force the re-indexing of all suggestions with the <strong>System &gt; Index Management &gt; Algolia Search Suggestions</strong> index.</li>
+</ul>
+
+<p><img src="../img/indexers.png" class="img-responsive" /></p>
+
+<h1 class="headline" id="indexing-flow">Indexing flow</h1>
+
+<h2 id="indexing-queue-enabled">Indexing Queue Enabled</h2>
+
+<p>If enabled, every indexing job (whole re-indexing, addition/deletion/update of products) will be queued (<code>algoliasearch_queue</code> table).</p>
+
+<div class="alert alert-warning">
+  <i class="fa fa-exclamation-triangle"></i>
+  Enabling the indexing queue is recommended for production environments.
+</div>
+
+<h3 id="with-cron">With cron</h3>
+
+<p>To asynchronously process those queued indexing jobs, configure the following cron:</p>
+
+<pre><code class="language-sh">*/5 * * * * php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_queue_runner
+</code></pre>
+
+<p>This will run <code>N</code> jobs every 5 minutes depending of your queue configuration.</p>
+
+<h3 id="without-cron">Without cron</h3>
+
+<p>If you want to process the queue manually using the command line you can run:</p>
+
+<pre><code class="language-sh">php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_queue_runner
+</code></pre>
+
+<p>If you want to process the queue entirely in one time you can run:</p>
+
+<pre><code class="language-sh">EMPTY_QUEUE=1 php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_queue_runner
+</code></pre>
+
+<h2 id="indexing-queue-disabled">Indexing Queue Disabled</h2>
+
+<p>Every indexing job (whole re-indexing, update/deletion/update of products or categories, …) will happen synchronously.</p>
+
+<div class="alert alert-danger">
+  <i class="fa fa-exclamation-triangle"></i>
+  Trying to synchronously index too many objects might trigger PHP timeouts.
+</div>
+
+<h1 class="headline" id="uiux">UI/UX</h1>
+
+<h2 id="auto-completion-menu">Auto-completion menu</h2>
+
+<p>The extension is making use of <a href="https://github.com/algolia/autocomplete.js">autocomplete.js</a> to display the as-you-type auto-completion menu. By default it suggests:</p>
+
+<ul>
+  <li>products,</li>
+  <li>categories,</li>
+  <li>pages,</li>
+  <li>and optionally popular queries.</li>
+</ul>
+
+<p>You can add new sections through the administration panel. If you want to do more customization, you’ll need to update the underlying JavaScript code.</p>
+
+<h2 id="search-results-page">Search results page</h2>
+
+<p>The extension is making use of <a href="https://github.com/algolia/instantsearch.js">instantsearch.js</a> to display the as-you-type search results page. By default it uses the following widgets:</p>
+
+<ul>
+  <li>a hits widget,</li>
+  <li>a pagination widget,</li>
+  <li>a sort widget,</li>
+  <li>and a few refinements widgets (hierarchical menu, refinement list &amp; range slider).</li>
+</ul>
+
+<p>You can add custom widgets or update those ones by updating the underlying JavaScript code.</p>
+
+<h2 id="customization">Customization</h2>
+
+<h3 id="introduction">Introduction</h3>
+
+<p>If you want to customize the look and feel of the auto-completion menu and/or the instant search results page, the two important files you will need to modify are:</p>
+
+<ul>
+  <li>the <a href="https://github.com/algolia/algoliasearch-magento/blob/master/design/frontend/template/topsearch.phtml"><code>topsearch.phtml</code></a> including the HTML templates and JavaScript code</li>
+  <li>the <a href="https://github.com/algolia/algoliasearch-magento/blob/master/skin/algoliasearch.css"><code>algoliasearch.css</code></a> defining all the look &amp; feel</li>
+</ul>
+
+<h3 id="custom-widgets">Custom widgets</h3>
+
+<p>If you want to use a widget that is not exposed in the administration panel for a particular faceted attribute you can configure it using the <code>customAttributeFacet</code> variable of the <code>topsearch.phtml</code> file. For example if you want to have a toggle widget for the <code>in_stock</code> attribute, your <code>customAttributeFacet</code> variable should look like:</p>
+
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kd">var</span> <span class="nx">customAttributeFacet</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">in_stock</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">facet</span><span class="p">,</span> <span class="nx">templates</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">instantsearch</span><span class="p">.</span><span class="nx">widgets</span><span class="p">.</span><span class="nx">toggle</span><span class="p">({</span>
+      <span class="nx">container</span><span class="o">:</span> <span class="nx">facet</span><span class="p">.</span><span class="nx">wrapper</span><span class="p">.</span><span class="nx">appendChild</span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)),</span>
+      <span class="nx">attributeName</span><span class="o">:</span> <span class="s1">&#39;in_stock&#39;</span><span class="p">,</span>
+      <span class="nx">label</span><span class="o">:</span> <span class="s1">&#39;In Stock&#39;</span><span class="p">,</span>
+      <span class="nx">values</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">on</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="nx">off</span><span class="o">:</span> <span class="mi">0</span>
+      <span class="p">},</span>
+      <span class="nx">templates</span><span class="o">:</span> <span class="nx">templates</span>
+    <span class="p">})</span>
+  <span class="p">},</span>
+  <span class="nx">categories</span><span class="o">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">facet</span><span class="p">,</span> <span class="nx">templates</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[...]</span>
+  <span class="p">}</span>
+<span class="p">};</span></code></pre></div>
+
+<h1 class="headline" id="upgrade">Upgrade</h1>
+
+<p>To upgrade from version <code>X.Y</code> to version <code>X.Z</code>, do the following steps:</p>
+
+<ol>
+  <li>Install the new version of the extension</li>
+  <li>Go to the <strong>System &gt; Configuration &gt; Catalog &gt; Algolia Search</strong> administration panel and <strong>save</strong> your configuration. (even if you didn’t change anything)</li>
+  <li>Force the re-indexing of all indexers</li>
+  <li>Follow any other guidelines specified in the <a href="https://github.com/algolia/algoliasearch-magento/blob/master/CHANGELOG.md">ChangeLog</a></li>
+</ol>
+
+<h1 class="headline" id="caveats">Caveats</h1>
+
+<h3 id="magento-hooks">Magento hooks</h3>
+
+<p>The extension is using the default hooks of Magento, if you are doing insertion or deletion of products outside of the Magento code/interface the extension won’t see it and your Algolia index will be out of sync. The best way to avoid that is to use Magento’s methods. If this is not possible you still have the possibility to call the extension indexing methods manually as soon you as do the update.</p>
+
+    </div>
+  </article>
+</div>
+
+
+  
+  <div class="spacer100 bg-white"></div>
+<footer class="site-footer">
+  <p>
+    Designed and built with <i class="fa fa-heart"></i> by <a href="https://www.algolia.com/?utm_medium=social-owned&utm_source=magento+search&utm_campaign=homepage"><img src="/magento/img/logo-algolia-dark.png" alt="Algolia" height="20"></a>
+  </p>
+  <div class="spacer50"></div>
+  <ul class="list-inline">
+    <li>Code licensed under <a href="https://github.com/algolia/algoliasearch-magento/blob/master/LICENSE.txt">MIT</a></li>
+    <li>•</li>
+    <li><a href="https://github.com/algolia/algoliasearch-magento">GitHub</a></li>
+    <li>•</li>
+    <li><a href="https://github.com/algolia/algoliasearch-magento/issues">Issues</a></li>
+    <li>•</li>
+    <li><a href="https://github.com/algolia/algoliasearch-magento/releases">Releases</a></li>
+  </ul>
+  <div class="spacer50"></div>
+  <div class="m400 m-l-r-auto">
+    <!-- Begin MailChimp Signup Form -->
+<div id="mc_embed_signup">
+  <form action="//algolia.us3.list-manage.com/subscribe/post?u=f7b8acc6ec97794a08484ca9b&amp;id=285b80e148" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" novalidate>
+    <div id="mc_embed_signup_scroll">
+    <h3>Signup for our newsletter</h3>
+    <div class="spacer20"></div>
+    <div class="input-group">
+      <span class="input-group-addon" id="sizing-addon1"><i class="fa fa-envelope text-info"></i></span>
+      <input type="email" value="" name="EMAIL" class="form-control" id="mce-EMAIL" placeholder="Email Address">
+      <span class="input-group-btn">
+        <input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="btn btn-info">
+      </span>
+    </div>
+    <div id="mce-responses" class="clear">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+      <div style="position: absolute; left: -5000px;"><input type="text" name="b_f7b8acc6ec97794a08484ca9b_285b80e148" tabindex="-1" value=""></div>
+      </div>
+  </form>
+</div>
+<!--End mc_embed_signup-->
+
+  </div>
+  <div class="spacer80"></div>
+</footer>
+
+  
+  
+
+  
+<!-- GA -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32446386-12', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- Google Tag Manager -->
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-N8JP8G"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8JP8G');</script>
+<!-- Twitter -->
+<script src="//platform.twitter.com/oct.js" type="text/javascript"></script>
+<script type="text/javascript">twttr.conversion.trackPid('ntr1j', { tw_sale_amount: 0, tw_order_quantity: 0 });</script>
+<noscript>
+  <img height="1" width="1" style="display:none;" alt="" src="https://analytics.twitter.com/i/adsct?txn_id=ntr1j&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+  <img height="1" width="1" style="display:none;" alt="" src="//t.co/i/adsct?txn_id=ntr1j&p_id=Twitter&tw_sale_amount=0&tw_order_quantity=0" />
+</noscript>
+<!-- Facebook -->
+<script>
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','//connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '1654938174769952');
+  fbq('track', "PageView");</script>
+<noscript>
+  <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1654938174769952&ev=PageView&noscript=1"/>
+</noscript>
+<!-- Addroll -->
+<script type="text/javascript">
+  adroll_adv_id = "TGR7R4XSGVGYVPX4LQBDFQ";
+  adroll_pix_id = "YQNWNHGUUBD2JMY7BVOBWM";
+  // adroll_email = "username@example.com"; // OPTIONAL: provide email to improve user identification
+  (function () {
+    var _onload = function(){
+      if (document.readyState && !/loaded|complete/.test(document.readyState)){setTimeout(_onload, 10);return}
+      if (!window.__adroll_loaded){__adroll_loaded=true;setTimeout(_onload, 50);return}
+      var scr = document.createElement("script");
+      var host = (("https:" == document.location.protocol) ? "https://s.adroll.com" : "http://a.adroll.com");
+      scr.setAttribute('async', 'true');
+      scr.type = "text/javascript";
+      scr.src = host + "/j/roundtrip.js";
+      ((document.getElementsByTagName('head') || [null])[0] ||
+        document.getElementsByTagName('script')[0].parentNode).appendChild(scr);
+    };
+    if (window.addEventListener) {window.addEventListener('load', _onload, false);}
+    else {window.attachEvent('onload', _onload)}
+  }());
+</script>
+
+
+
+  
+
+
+  <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
+  <script src="/magento/js/header.js"></script>
+</body>
+
+</html>
