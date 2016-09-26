@@ -8,6 +8,45 @@ function checkVisible(elm, threshold, mode) {
     return mode === 'above' ? above : (mode === 'below' ? below : !above && !below);
 }
 
+
+// Interactive partners map
+function p_map() {
+  var triggers = document.querySelectorAll('[data-pin]');
+  var pins = document.querySelectorAll('g[id*="pins_"]');
+
+  for ( var i = 0; i < triggers.length; i++ ) {
+    highlightPin(triggers[i]);
+  }
+
+  for ( var i = 0; i < pins.length; i++ ) {
+    highlightTrigger(pins[i]);
+  }
+
+  function highlightPin(of) {
+    of.addEventListener('mouseover', function(){
+      var company = this.getAttribute('data-pin');
+      document.getElementById('pins_' + company ).classList.add('highlight');
+    });
+
+    of.addEventListener('mouseleave', function(){
+      var company = this.getAttribute('data-pin');
+      document.getElementById('pins_' + company ).classList.remove('highlight');
+    });
+  }
+
+  function highlightTrigger(of) {
+    of.addEventListener('mouseover', function(){
+      var region = this.id.split('_')[1];
+      document.querySelector('[data-pin="'+ region +'"]').classList.add('highlight');
+    });
+
+    of.addEventListener('mouseleave', function(){
+      var region = this.id.split('_')[1];
+      document.querySelector('[data-pin="'+ region +'"]').classList.remove('highlight');
+    });
+  }
+}
+
 // Now enable the animations only when in the section
 var dist = 0;
 var demos = document.querySelector('.demos');
@@ -29,4 +68,7 @@ function animOnVisibility() {
 
 window.onload = function() {
     checkVisible(demos, dist);
+    p_map()
 }
+
+p_map()

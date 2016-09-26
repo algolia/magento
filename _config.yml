@@ -3,7 +3,7 @@ m2_version: 1.0.1
 
 # Site settings
 title: Magento Search Extension Powered by Algolia
-description: Power your Magento store search with Algolia. The fastest way to increase conversions on your site with instant search, autocomplete, and real time results. 
+description: Power your Magento store search with Algolia. The fastest way to increase conversions on your site with instant search, autocomplete, and real time results.
 
 baseurl: "/magento" # the subpath of your site, e.g. /blog/
 twitter_username: algolia

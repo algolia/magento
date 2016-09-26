@@ -1,6 +1,5 @@
 
 function sidebarFollowScroll(sidebarContainer) {
-  console.log(sidebarContainer + ' > ul')
   var positionSidebar = function positionSidebar() {
     var hero = document.querySelector('.header-section');
     var footer = document.querySelector('.ac-footer');
@@ -13,8 +12,8 @@ function sidebarFollowScroll(sidebarContainer) {
     var footerHeight = footer.offsetHeight + spacer.offsetHeight;
     var menuHeight = menu.offsetHeight;
     var currentScroll = window.pageYOffset;
-    var doc = document.querySelector('.main-content');
     var paddingDoc = 20;
+	  
     if (currentScroll > ((heroHeight - navHeight) + paddingDoc)) {
       var fold = height - footerHeight - menuHeight - paddingDoc - 100;
       if (currentScroll > fold) {
@@ -27,10 +26,11 @@ function sidebarFollowScroll(sidebarContainer) {
       sidebarContainer.classList.remove('fixed');
     }
   };
+  
   window.addEventListener('load', positionSidebar);
   document.addEventListener('DOMContentLoaded', positionSidebar);
   document.addEventListener('scroll', positionSidebar);
 }
 
-sidebarFollowScroll(document.querySelector('.menu'))
+sidebarFollowScroll(document.querySelector('.menu'));
 
