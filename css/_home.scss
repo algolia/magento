@@ -483,6 +483,8 @@ q:after {
     .col-md-6 {
       flex: 50%;
       position: relative;
+
+
     }
   }
 
@@ -502,6 +504,11 @@ q:after {
     flex-direction: row;
     align-items: center;
 
+    @media (max-width: $bp-medium ) {
+      padding: 1em;
+    }
+
+
     li {
       flex: calc(33% - 2em);
       border: 1px solid #ccc;
@@ -517,6 +524,14 @@ q:after {
       flex-wrap: wrap;
       align-items: center;
       align-self: flex-end;
+
+
+
+      @media (max-width: $bp-medium ) {
+        flex: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
 
       a {
         color: #1990C1;
@@ -555,9 +570,6 @@ q:after {
           opacity: 0.6;
           padding: 0 1em;
 
-          @media (max-width: $bp-medium + 500) {
-            padding-bottom: 1em
-          }
         }
 
         &.localization:before {
@@ -582,6 +594,10 @@ q:after {
     border-bottom-right-radius: 6px;
     // box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
     padding: 2em 0 0 2em;
+
+    @media (max-width: $bp-medium ) {
+      padding: 0;
+    }
   }
 
   @media (max-width: 960px) {
