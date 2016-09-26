@@ -554,6 +554,10 @@ q:after {
           line-height: 1.6;
           opacity: 0.6;
           padding: 0 1em;
+
+          @media (max-width: $bp-medium + 500) {
+            padding-bottom: 1em
+          }
         }
 
         &.localization:before {
@@ -602,16 +606,26 @@ q:after {
 }
 g#Pins  path {
   cursor: pointer;
+  position: relative;
+  z-index: 0;
+  transform: translateZ(0);
+  transition: opacity 0.2s ease;
+}
+g#Pins g.fade path {
+  opacity: 0;
+  transform: scale(0);
 }
 g#Pins g.highlight path,
 g#Pins g path:hover {
-  transform: scale(2.2) translateY(-35%);
+  transform: scale(2.2) translateY(-35%) translateZ(99px);
   transform-origin: 50%;
   transform-origin: center center;
   transition: transform 0.2s ease;
   fill: lighten($magento-color,1);
   stroke: #ff9b5e;
   stroke-width: 1;
+  position: absolute;
+  z-index: 99;
 }
 
 

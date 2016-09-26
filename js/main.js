@@ -26,11 +26,19 @@ function p_map() {
     of.addEventListener('mouseover', function(){
       var company = this.getAttribute('data-pin');
       document.getElementById('pins_' + company ).classList.add('highlight');
+      var notPath = document.querySelectorAll('[id*="pins_"]:not(#pins_' + company+')');
+      for ( var i = 0; i<notPath.length;i++ ) {
+        notPath[i].classList.add('fade');
+      }
     });
 
     of.addEventListener('mouseleave', function(){
       var company = this.getAttribute('data-pin');
       document.getElementById('pins_' + company ).classList.remove('highlight');
+      var notPath = document.querySelectorAll('[id*="pins_"]:not(#pins_' + company+')');
+      for ( var i = 0; i<notPath.length;i++ ) {
+        notPath[i].classList.remove('fade');
+      }
     });
   }
 
