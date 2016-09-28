@@ -10,15 +10,25 @@ h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before {
 }
 
 .menu {
-  position: fixed;
-  top: 100px;
+  position: relative;
+  top: 45px;
   width: 200px;
   list-style-type: none;
   font-size: .8em;
   a {
     display: block;
-    padding: 2px 5px;
+    padding: 5px 5px;
     border-bottom: 1px solid #ccc;
+    font-size: 14px;
+    &.getting-started {
+      font-size: 16px;
+      padding-left: 0;
+      font-weight: bold;
+    }
+    &.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
   }
 
   ul {
@@ -38,6 +48,13 @@ h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before {
       }
       padding-left: 10px;
     }
+  }
+
+  span.header {
+    display: block;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 16px;
   }
 }
 
