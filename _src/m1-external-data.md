@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: m1-documentation
 title: How to index data from outside of Magento
 permalink: /external-data/
 ---

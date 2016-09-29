@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: m1-documentation
 title: Upgrade to new version
 permalink: /upgrade/
 ---

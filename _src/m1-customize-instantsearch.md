@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: m1-documentation
 title: Instant search page customization
 permalink: /customize-instantsearch/
 ---

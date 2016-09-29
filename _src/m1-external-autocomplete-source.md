@@ -1,5 +1,5 @@
 ---
-layout: documentation
+layout: m1-documentation
 title: How to add external autocomplete source
 permalink: /external-autocomplete-source/
 ---

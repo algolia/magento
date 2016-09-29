@@ -1,6 +1,6 @@
 ---
-layout: documentation
-title: UI / UX
+layout: m1-documentation
+title: Front-end (UI / UX)
 permalink: /ui-ux/
 ---
 
