@@ -23,7 +23,7 @@ It's possible to use it for versions >= 2.1.0, but some unexpected issues might 
 
 ## Install the extension
 
-1. Install the extension from the [Magento Marketplace]([link_missing]) or via [Composer](https://getcomposer.org):
+1. Install the extension from the [Magento Marketplace](https://marketplace.magento.com/algolia-algoliasearch-magento-2.html) or via [Composer](https://getcomposer.org):
 ```
 $ composer require algolia/algoliasearch-magento-2
 ```
