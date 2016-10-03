@@ -8,14 +8,10 @@ layout: default
       <div class="menu">
         {% assign url = page.url %}
 
+        <span class="header">Setup</span>
         <ul class="getting-started">
           <li>
             <a href="{{ site.baseurl }}/m2/getting-started/" class="{% if url == '/m2/getting-started/' %}active{% endif %}">Getting started</a>
-            {% if url == '/m2/getting-started/' %}
-
-            {{ content | toc_generate }}
-
-            {% endif %}
           </li>
 
         </ul>
@@ -24,28 +20,13 @@ layout: default
         <ul class="how-it-works">
           <li>
             <a href="{{ site.baseurl }}/m2/ui-ux/" {% if url == '/m2/ui-ux/' %}class="active"{% endif %}>Frontend (UI/UX)</a>
-            {% if url == '/m2/ui-ux/' %}
-
-            {{ content | toc_generate }}
-
-            {% endif %}
           </li>
           <li>
             <a href="{{ site.baseurl }}/m2/indexing/" {% if url == '/m2/indexing/' %}class="active"{% endif %}>Indexing</a>
-            {% if url == '/m2/indexing/' %}
-            <ul>
-              {{ content | toc_generate }}
-            </ul>
-            {% endif %}
           </li>
 
           <li>
             <a href="{{ site.baseurl }}/m2/upgrade/" {% if url == '/m2/upgrade/' %}class="active"{% endif %}>Upgrade to new version</a>
-            {% if url == '/m2/upgrade/' %}
-            <ul>
-              {{ content | toc_generate }}
-            </ul>
-            {% endif %}
           </li>
         </ul>
 
@@ -53,28 +34,13 @@ layout: default
         <ul class="customize">
           <li>
             <a href="{{ site.baseurl }}/m2/customize-autocomplete/" {% if url == '/m2/customize-autocomplete/' %}class="active"{% endif %}>Autocomplete menu</a>
-            {% if url == '/m2/customize-autocomplete/' %}
-            <ul>
-              {{ content | toc_generate }}
-            </ul>
-            {% endif %}
           </li>
           <li>
             <a href="{{ site.baseurl }}/m2/customize-instantsearch/" {% if url == '/m2/customize-instantsearch/' %}class="active"{% endif %}>Instant search page</a>
-            {% if url == '/m2/customize-instantsearch/' %}
-            <ul>
-              {{ content | toc_generate }}
-            </ul>
-            {% endif %}
           </li>
 
           <li>
             <a href="{{ site.baseurl }}/m2/backend/" {% if url == '/m2/backend/' %}class="active"{% endif %}>Back-end</a>
-            {% if url == '/m2/backend/' %}
-            <ul>
-              {{ content | toc_generate }}
-            </ul>
-            {% endif %}
           </li>
         </ul>
 
@@ -108,7 +74,10 @@ layout: default
               </header>
             </div>
 
+            {{ content | toc_generate }}
+
             {{ content }}
+
           </div>
         </article>
       </div>

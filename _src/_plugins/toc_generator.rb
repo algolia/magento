@@ -15,7 +15,7 @@ module Jekyll
         level = tag.name[1].to_i
         if level > current_level
           current_level.upto(level - 1) do
-            html << '<ul>'
+            html << '<ul class="toc_menu">'
             hasChildren = true
           end
         elsif level < current_level

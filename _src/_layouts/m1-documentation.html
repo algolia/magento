@@ -8,44 +8,23 @@ layout: default
             <div class="menu">
                 {% assign url = page.url %}
 
+                <span class="header">Setup</span>
                 <ul class="getting-started">
                     <li>
                         <a href="{{ site.baseurl }}/getting-started/" {% if url == '/getting-started/' %}class="active"{% endif %}">Getting started</a>
-                        {% if url == '/getting-started/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
                 </ul>
-
 
                 <span class="header">How it works</span>
                 <ul class="how-it-works">
                     <li>
                         <a href="{{ site.baseurl }}/ui-ux/" {% if url == '/ui-ux/' %}class="active"{% endif %}>Frontend (UI/UX)</a>
-                        {% if url == '/ui-ux/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
                     <li>
                         <a href="{{ site.baseurl }}/indexing/" {% if url == '/indexing/' %}class="active"{% endif %}>Indexing</a>
-                        {% if url == '/indexing/' %}
-
-                            {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
-
                     <li>
                         <a href="{{ site.baseurl }}/upgrade/" {% if url == '/upgrade/' %}class="active"{% endif %}>Upgrade to new version</a>
-                        {% if url == '/upgrade/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
                 </ul>
 
@@ -53,28 +32,12 @@ layout: default
                 <ul class="customize">
                     <li>
                         <a href="{{ site.baseurl }}/customize-autocomplete/" {% if url == '/customize-autocomplete/' %}class="active"{% endif %}>Autocomplete menu</a>
-                        {% if url == '/customize-autocomplete/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
                     <li>
                         <a href="{{ site.baseurl }}/customize-instantsearch/" {% if url == '/customize-instantsearch/' %}class="active"{% endif %}>Instant search page</a>
-                        {% if url == '/customize-instantsearch/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
-
                     <li>
                         <a href="{{ site.baseurl }}/backend/" {% if url == '/backend/' %}class="active"{% endif %}>Back-end</a>
-                        {% if url == '/backend/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
                 </ul>
 
@@ -82,20 +45,9 @@ layout: default
                 <ul class="guides">
                     <li>
                         <a href="{{ site.baseurl }}/external-autocomplete-source/" {% if url == '/external-autocomplete-source/' %}class="active"{% endif %}>Adding autocomplete source</a>
-                        {% if url == '/external-autocomplete-source/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
-
                     <li>
                         <a href="{{ site.baseurl }}/external-data/" {% if url == '/external-data/' %}class="active"{% endif %}>Index external data</a>
-                        {% if url == '/external-data/' %}
-
-                        {{ content | toc_generate }}
-
-                        {% endif %}
                     </li>
 
                 </ul>
@@ -107,6 +59,8 @@ layout: default
                     <h1 class="page-title">{{ page.title }}</h1>
                 </header>
             </div>
+
+            {{ content | toc_generate }}
 
             {{ content }}
         </div>
