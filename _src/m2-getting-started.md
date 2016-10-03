@@ -2,6 +2,8 @@
 layout: m2-documentation
 title: Getting started
 permalink: /m2/getting-started/
+redirect_from:
+  - /m2/
 ---
 
 ## Create an Algolia account
