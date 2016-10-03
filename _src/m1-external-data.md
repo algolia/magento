@@ -4,74 +4,82 @@ title: How to index data from outside of Magento
 permalink: /external-data/
 ---
 
-There are situations when you want to add external data source to your drop-down menu. For example integrate WordPress posts to you Magento’s autocomplete. In order to do that, you just need to follow a few steps:
+To return the best results, Algolia uses all available information - information sent by users but also information about your products. This allows us to combine textual relevance (the input given by the end-user) and business relevance (the metrics you provide).
 
-## Create a new index
+To send your business metrics to Algolia, you can define them in the Custom Ranking. You can put any type of numerical or boolean value that represents the popularity/importance of your records, for example.
 
-You will need to create a new Algolia index with data you want to display in autocomplete menu. The index can be created via [Algolia’s PHP API client](https://github.com/algolia/algoliasearch-client-php), uploaded as a JSON file via [Algolia’s index explorer](https://www.algolia.com/explorer) or created by third party applications (like [WordPress](https://community.algolia.com/wordpress/), [ZenDesk](https://community.algolia.com/zendesk/), ...). You can find more information about index creation in [this guide](https://www.algolia.com/doc/guides/getting-started/quick-start#creating-your-first-index).
+In some cases, this data might be stored outside of Magento - Google Analytics visitor data, sales data in your ERP and other systems, for example. To be able to use this data in custom ranking you need to index them with your products in your products indices.
 
-## Create autocomplete template
+To index those data you will need to do a few steps and write some custom code.
 
-In order to display records from your new index you’ll need to create a template for single record. Let’s assume that each of your records in the new index has two attributes: value and url. In that case you can use [attribute.phtml](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/template/algoliasearch/autocomplete/attribute.phtml) template.
+## Enable Partial updates
 
-If you have more attributes you want to display or you want to have completely different template, you can copy attribute.phtml template, name it as you want and edit as much as needed. Be sure you change value of id attribute in the <script> tag when creating a new template.
+First of all you need to go to your Magento administration, navigate to **System > Configuration > Algolia Search > Advanced tab** and there enable [Partial updates](https://www.algolia.com/doc/guides/indexing/import-synchronize-data#incremental-updates).
+<figure>
+    <img src="../img/enable-partial-updates.png" class="img-responsive">
+    <figcaption>Enable partial updates</figcaption>
+</figure>
 
-When you have your custom template created, you need to add it to [algoliasearch.xml layout file](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/layout/algoliasearch.xml) to tell Magento to render this template to the website. You can locate
+Enabling partial updates will allow you to index different attributes from different sources without overriding rest of record’s attributes.
 
-```xml
-<!-- INSERT YOUR CUSTOM TEMPLATES HERE -->
+## Push your data from outside of Magento
+
+When you have have partial updates enabled, you need to write your own custom script to push your business data into Algolia indices. For pushing the data you can use our [PHP API client](https://www.algolia.com/doc/api-client/php/getting-started) or any other [API client](https://www.algolia.com/doc/api-client/) you are feeling comfortable with.
+
+There are two essential things you need to have in mind while writing the script:
+
+1. Update products by using [partialUpdates](https://www.algolia.com/doc/api-client/php/indexing#partial-update-objects) feature
+2. Use the same objectID of the product as the extension does
+ObjectID is the unique identifier of the record in Algolia index and the extension uses product’s ID as objectID.
+
+For create the script you’ll need to find the name of the index where your products are indexed. Index name is created like: *indexPrefix+codeOfYourStore_products*. If you have your index prefix set to *magento_* and your store code is default then your index name will be **magento_default_products**. 
+
+The precise index name you can find in [Algolia’s index explorer](https://www.algolia.com/explorer).
+
+Let’s assume you have product with **ID 1** in index **magento_default_products** and you want to push it’s visits count from Google Analytics.
+
+Then your code will look something like this:
+
+```php
+<?php
+
+// Composer autoload
+require __DIR__ . '/vendor/autoload.php';
+
+$productId = 1;
+
+$visitsCount = yourMethodToGetProductsVisitsCount($productId);
+
+$client = new \AlgoliaSearch\Client("YOUR_APP_ID", "YOUR_API_KEY");
+$index = $client->initIndex('magento_default_products');
+
+$index->partialUpdateObject(
+    [
+        'objectID' => $productId,
+        'visits'   => $visitsCount,
+    ]
+);
+
+function yourMethodToGetProductsVisitsCount($productId) {
+    // Get visits count for product by $productId
+    
+    return $visits;
+}
 ```
 
-lines and add a new line according example:
+That’s it. You successfully pushed your business data into your Algolia products index.
 
-```xml
-<!-- 
-Example: 
-<block type="core/template" template="algoliasearch/[autocomplete_or_instantsearch]/your_custom_template_name.phtml" name="algolia-your-custom-template-name"/> 
--->
-```
+## Add your business attributes to custom ranking
 
-## Create new data data source
+When you managed to index your business attribute in Algolia, there is one last step ahead of you - set the attribute as custom ranking.
 
-To create a new data source you need to edit [autocomplete.js](https://github.com/algolia/algoliasearch-magento/blob/master/js/algoliasearch/autocomplete.js) file in the extension’s JavaScript folder. There you are able to create a custom data source, append it to sources variable and pass it to autocomplete(...) call.
+To do that go to your Magento administration and navigate to **System > Configuration > Algolia search > Products tab**. There you can locate *Ranking* settings.
 
-To do so, you need to locate 
+Because your business attributes are indexed from outside of Magento, Magento cannot offer them in *Attribute* select box. What you need to do is to select **[use custom attribute]** option in the select box and the new text field will appear. In our case case we want to use attribute visits for custom ranking. So just write it’s name to the text field.
+<figure>
+    <img src="../img/custom-ranking-custom-attributes.png" class="img-responsive">
+    <figcaption>Set custom custom ranking attribute</figcaption>
+</figure>
 
-```javascript
-/**
- * ADD YOUR CUSTOM DATA SOURCE HERE
- **/
-```
 
-lines. You can put your new data source bellow those lines:
-
-```javascript
-/**
- * ADD YOUR CUSTOM DATA SOURCE HERE
- **/
-
-// new source appended to the `sources` array
-
-var yourIndex = algolia_client.initIndex("your_index_name");
-
-var customIndexOptions = {
-  hitsPerPage: 4
-};
-
-sources.push({
-  source: $.fn.autocomplete.sources.hits(yourIndex, customIndexOptions),
-  templates: {
-    suggestion: function (hit) {
-	  // id_of_your_template should be value of ID attribute 
-	  // in <script> tag of your template
-	  var template = $('#id_of_your_template').html();
-	  
-	  return algoliaBundle.Hogan.compile(template).render(hit);
-    }
-  }
-});
-```
-
-That’s it. Now you are able to search for your external data.
-
-More information about autocomplete data sources and other autocomplete.js features you can read in [this tutorial](https://www.algolia.com/doc/guides/search/auto-complete#ui).
+Now hit "Save Config" button and you are done!

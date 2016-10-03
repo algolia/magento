@@ -4,11 +4,11 @@ title: How to add external autocomplete source
 permalink: /external-autocomplete-source/
 ---
 
-There are situations when you want to add external data source to your drop-down menu. For example integrate WordPress posts to you Magento’s autocomplete. In order to do that, you just need to follow a few steps:
+There are situations when you want to add external data source to your drop-down menu. You may want to integrate WordPress posts into your Magento site’s autocomplete, for example. In order to do that, you just need to follow a few steps:
 
 ## Create a new index
 
-You will need to create a new Algolia index with data you want to display in autocomplete menu. The index can be created via [Algolia’s PHP API client](https://github.com/algolia/algoliasearch-client-php), uploaded as a JSON file via [Algolia’s index explorer](https://www.algolia.com/explorer) or created by third party applications (like [WordPress](https://community.algolia.com/wordpress/), [ZenDesk](https://community.algolia.com/zendesk/), ...). You can find more information about index creation in [this guide](https://www.algolia.com/doc/guides/getting-started/quick-start#creating-your-first-index).
+You will need to create a new Algolia index with data you want to display in autocomplete menu. The index can be created via [Algolia’s PHP API client](https://github.com/algolia/algoliasearch-client-php), uploaded as a JSON file via [Algolia’s index explorer](https://www.algolia.com/explorer), or created by third party applications (like [WordPress](https://community.algolia.com/wordpress/), [ZenDesk](https://community.algolia.com/zendesk/), ...). You can find more information about index creation in [this guide](https://www.algolia.com/doc/guides/getting-started/quick-start#creating-your-first-index).
 
 ## Create autocomplete template
 
@@ -43,30 +43,28 @@ To do so, you need to locate
  **/
 ```
 
-lines. You can put your new data source bellow those lines:
+lines. You can put your new data source below those lines:
 
 ```javascript
 /**
  * ADD YOUR CUSTOM DATA SOURCE HERE
  **/
 
-// new source appended to the `sources` array
-
-var yourIndex = algolia_client.initIndex("your_index_name");
-
+var customIndex = algolia_client.initIndex("your_index_name");
 var customIndexOptions = {
   hitsPerPage: 4
 };
 
+// id_of_your_template should be value of ID attribute
+// in <script> tag of your template
+var customTemplate = template = $('#id_of_your_template').html();
+
+// new source appended to the `sources` array
 sources.push({
-  source: $.fn.autocomplete.sources.hits(yourIndex, customIndexOptions),
+  source: $.fn.autocomplete.sources.hits(customIndex, custom_index_options),
   templates: {
     suggestion: function (hit) {
-	  // id_of_your_template should be value of ID attribute 
-	  // in <script> tag of your template
-	  var template = $('#id_of_your_template').html();
-	  
-	  return algoliaBundle.Hogan.compile(template).render(hit);
+      return algoliaBundle.Hogan.compile(customTemplate).render(hit);
     }
   }
 });

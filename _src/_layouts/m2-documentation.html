@@ -6,12 +6,11 @@ layout: default
   <article class="page-content row">
     <div class="col-md-3 hidden-sm hidden-xs">
       <div class="menu">
-        <span class="header">Get Started</span>
-
         {% assign url = page.url %}
-        <ul>
+
+        <ul class="getting-started">
           <li>
-            <a href="{{ site.baseurl }}/m2/getting-started/" class=" {% if url == '/m2/getting-started/' %}active{% endif %}">Getting started</a>
+            <a href="{{ site.baseurl }}/m2/getting-started/" class="{% if url == '/m2/getting-started/' %}active{% endif %}">Getting started</a>
             {% if url == '/m2/getting-started/' %}
 
             {{ content | toc_generate }}

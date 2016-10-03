@@ -4,7 +4,7 @@ title: Autocomplete menu customization
 permalink: /customize-autocomplete/
 ---
 
-Customize your autocomplete drop-down menu which appears underneath search bar on your Magento site.
+Customize the autocomplete drop-down menu which appears underneath the search bar on your Magento site.
 
 There are 3 folders involved in the drop-down menu customization:
 
@@ -12,11 +12,11 @@ There are 3 folders involved in the drop-down menu customization:
 2. `your-base-magento-folder/js/algoliasearch`
 3. `your-base-magento-folder/skin/frontend/base/default/algoliasearch`
 
-In the first one you can find all the extension’s templates, in the second and third one you’ll find the extension’s JavaScripts and stylesheets.
+In the first one you can find all the extension templates. In the others you’ll find the extension’s JavaScript and stylesheets.
 
 ## Search box template
 
-To change the search bar appearance navigate to templates directory and locate the [autocomplete.phtml](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/template/algoliasearch/autocomplete.phtml) file. This file is the standard Magento’s template and is used only in case you are using the default (.algolia-search-input) search box selector.
+To change the search bar appearance, navigate to the templates directory and locate the [autocomplete.phtml](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/template/algoliasearch/autocomplete.phtml) file. This file is the standard Magento template and is used only when you use the default (.algolia-search-input) search box selector.
 
 ## Drop-down templates
 

@@ -6,12 +6,11 @@ layout: default
     <article class="page-content row">
         <div class="col-md-3 hidden-sm hidden-xs">
             <div class="menu">
-                <span class="header">Get Started</span>
-
                 {% assign url = page.url %}
-                <ul>
+
+                <ul class="getting-started">
                     <li>
-                        <a href="{{ site.baseurl }}/getting-started/" class="getting-started {% if url == '/getting-started/' %}active{% endif %}">Getting started</a>
+                        <a href="{{ site.baseurl }}/getting-started/" {% if url == '/getting-started/' %}class="active"{% endif %}">Getting started</a>
                         {% if url == '/getting-started/' %}
 
                         {{ content | toc_generate }}
@@ -84,6 +83,15 @@ layout: default
                     <li>
                         <a href="{{ site.baseurl }}/external-autocomplete-source/" {% if url == '/external-autocomplete-source/' %}class="active"{% endif %}>Adding autocomplete source</a>
                         {% if url == '/external-autocomplete-source/' %}
+
+                        {{ content | toc_generate }}
+
+                        {% endif %}
+                    </li>
+
+                    <li>
+                        <a href="{{ site.baseurl }}/external-data/" {% if url == '/external-data/' %}class="active"{% endif %}>Index external data</a>
+                        {% if url == '/external-data/' %}
 
                         {{ content | toc_generate }}
 
