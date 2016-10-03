@@ -12,30 +12,53 @@ h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before {
 .menu {
   position: relative;
   top: 45px;
-  width: 200px;
+  width: calc(220px + 3em);
   list-style-type: none;
   font-size: .8em;
-  a {
-    display: block;
-    padding: 5px 5px;
-    border-bottom: 1px solid #ccc;
-    font-size: 14px;
-    &.getting-started {
-      font-size: 16px;
-      padding-left: 0;
-      font-weight: bold;
-    }
-    &.active {
-      font-weight: bold;
-      text-decoration: underline;
-    }
+  background-color: white;
+  border-radius: 3px;
+  margin: 2px;
+  margin-bottom: 8px;
+  animation-name: fadeIn;
+  animation-duration: 0.4s;
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  overflow-y: auto;
+
+  @media (max-width: $bp-big) {
+      width: calc(200px + 3em);
+
   }
 
   ul {
     list-style-type: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
+  }
+  > ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 1em;
+
+     li,
+     li:last-child:only-child {
+      border: 1px solid rgba(#c5cad8, 0.4);
+      border-left: none;
+      &:not(:last-child) {
+        border-bottom: none;
+      }
+    }
+
+    > li > ul li {
+      border-bottom: none;
+    }
+
+    &:last-of-type li {
+      border-bottom: 1px solid rgba(#c5cad8, 0.4) !important;
+    }
+
     li ul a {
+      border-left-width: 2px;
       &:before {
         content: "\f101 ";
         display: inline-block;
@@ -55,6 +78,54 @@ h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before {
     margin-top: 20px;
     font-weight: bold;
     font-size: 16px;
+    padding: 0 1em;
+  }
+
+  a {
+    display: block;
+    padding: 5px 16px;
+    border-left: 4px solid #fb366e;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    font-size: 14px;
+    color: #555;
+
+    &:hover,
+    &.active {
+      border-left-width: 6px;
+      text-decoration: none;
+    }
+
+    &.getting-started {
+      font-size: 16px;
+      padding: 0 1em;
+      font-weight: bold;
+    }
+
+    &.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+  }
+
+  ul {
+    &.how-it-works {
+      li a {
+        border-left-color: #1D96C7;
+      }
+    }
+
+    &.customize {
+      li a {
+        border-left-color: #F5A623;
+      }
+    }
+
+    &.guides {
+      li a {
+        border-left-color: #9EDE5B;
+      }
+    }
   }
 }
 
@@ -95,16 +166,6 @@ h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before {
   h2 {
     border-bottom: 1px solid $magento-orange;
     margin-top: 2em;
-    //&:before {
-    //  content: "\f29c";
-    //  display: inline-block;
-    //  font: normal normal normal 14px/1 FontAwesome;
-    //  font-size: inherit;
-    //  margin-right: 8px;
-    //  text-rendering: auto;
-    //  -webkit-font-smoothing: antialiased;
-    //  -moz-osx-font-smoothing: grayscale;
-    //}
   }
 }
 
