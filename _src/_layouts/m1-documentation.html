@@ -1,0 +1,69 @@
+---
+layout: default
+---
+
+<div class="container main-content">
+    <article class="page-content row">
+        <div class="col-md-3 hidden-sm hidden-xs">
+            <div class="menu">
+                {% assign url = page.url %}
+
+                <span class="header">Setup</span>
+                <ul class="getting-started">
+                    <li>
+                        <a href="{{ site.baseurl }}/getting-started/" {% if url == '/getting-started/' %}class="active"{% endif %}">Getting started</a>
+                    </li>
+                </ul>
+
+                <span class="header">How it works</span>
+                <ul class="how-it-works">
+                    <li>
+                        <a href="{{ site.baseurl }}/ui-ux/" {% if url == '/ui-ux/' %}class="active"{% endif %}>Frontend (UI/UX)</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/indexing/" {% if url == '/indexing/' %}class="active"{% endif %}>Indexing</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/upgrade/" {% if url == '/upgrade/' %}class="active"{% endif %}>Upgrade to new version</a>
+                    </li>
+                </ul>
+
+                <span class="header">Customize</span>
+                <ul class="customize">
+                    <li>
+                        <a href="{{ site.baseurl }}/customize-autocomplete/" {% if url == '/customize-autocomplete/' %}class="active"{% endif %}>Autocomplete menu</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/customize-instantsearch/" {% if url == '/customize-instantsearch/' %}class="active"{% endif %}>Instant search page</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/backend/" {% if url == '/backend/' %}class="active"{% endif %}>Back-end</a>
+                    </li>
+                </ul>
+
+                <span class="header">Guides</span>
+                <ul class="guides">
+                    <li>
+                        <a href="{{ site.baseurl }}/external-autocomplete-source/" {% if url == '/external-autocomplete-source/' %}class="active"{% endif %}>Adding autocomplete source</a>
+                    </li>
+                    <li>
+                        <a href="{{ site.baseurl }}/external-data/" {% if url == '/external-data/' %}class="active"{% endif %}>Index external data</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-9 documentation-content">
+            <div class="header-section" id="getStarted">
+                <header>
+                    <h1 class="page-title">{{ page.title }}</h1>
+                </header>
+            </div>
+
+            {{ content | toc_generate }}
+
+            {{ content }}
+        </div>
+    </article>
+</div>
+<div class="spacer100 bg-white"></div>

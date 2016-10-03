@@ -18,6 +18,8 @@ navigation:
    url: /about/
 
 # Build settings
+source: _src
+
 markdown: kramdown
 kramdown:
   input: GFM
@@ -28,6 +30,7 @@ kramdown:
   toc_levels:     1..6
   smart_quotes:   lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
+  syntax_highlighter: rouge
 
   coderay:
     coderay_wrap:              div
@@ -43,3 +46,6 @@ exclude:
 # Assets
 sass:
   sass_dir: css
+
+gems:
+  - jekyll-redirect-from

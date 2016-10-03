@@ -11,6 +11,7 @@ group :development, :test do
   gem 'guard'
   gem 'nokogiri'
   gem 'jekyll-contentblocks'
+  gem 'jekyll-redirect-from'
   gem 'guard-jekyll-plus'
   gem 'guard-livereload'
   gem 'guard-bundler', require: false

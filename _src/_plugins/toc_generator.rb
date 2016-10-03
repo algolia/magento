@@ -9,12 +9,14 @@ module Jekyll
       doc = Nokogiri::HTML(html)
 
       html = []
+      hasChildren = false
       current_level = 1
       doc.css(@@selector).each do |tag|
         level = tag.name[1].to_i
         if level > current_level
           current_level.upto(level - 1) do
-            html << '<ul>'
+            html << '<ul class="toc_menu">'
+            hasChildren = true
           end
         elsif level < current_level
           level.upto(current_level - 1) do
@@ -27,8 +29,10 @@ module Jekyll
         current_level = level
       end
 
-      html << '</li></ul>'
-
+      html << '</li>'
+      if hasChildren
+        html << '</ul>'
+      end
       html.join
     end
 

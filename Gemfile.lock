@@ -64,6 +64,8 @@ GEM
       jekyll
     jekyll-gist (1.3.4)
     jekyll-paginate (1.1.0)
+    jekyll-redirect-from (0.11.0)
+      jekyll (>= 2.0)
     jekyll-sass-converter (1.3.0)
       sass (~> 3.2)
     jekyll-watch (1.3.0)
@@ -120,6 +122,10 @@ DEPENDENCIES
   haml
   jekyll
   jekyll-contentblocks
+  jekyll-redirect-from
   nokogiri
   rouge
   sass
+
+BUNDLED WITH
+   1.12.5
