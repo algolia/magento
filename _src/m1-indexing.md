@@ -1,7 +1,7 @@
 ---
 layout: m1-documentation
 title: Indexing
-permalink: /doc/indexing/
+permalink: /doc/m1/indexing/
 ---
 
 In extension we try to keep your Magento store and Algolia indices synchronized. We have two types of indexing mechanism:
@@ -97,7 +97,7 @@ You can specify which attributes you want to index in your Algolia indices. This
 There you can find table where you can set the attributes you want to send to Algolia. On each attribute you are able to specify if the attribute is Searchable, Retrievable and Order setting of the attribute. For more information about these settings please read [the official Algolia documentation](https://www.algolia.com/doc/?utm_medium=social-owned&amp;utm_source=magento%20website&amp;utm_campaign=docs).
 
 <figure>
-    <img src="../../img/attributes.png" class="img-responsive">
+    <img src="../../../img/attributes.png" class="img-responsive">
     <figcaption>Configuration of attributes to index</figcaption>
 </figure>
 

@@ -1,7 +1,7 @@
 ---
 layout: m1-documentation
 title: How to index data from outside of Magento
-permalink: /doc/external-data/
+permalink: /doc/m1/external-data/
 ---
 
 To return the best results, Algolia uses all available information - information sent by users but also information about your products. This allows us to combine textual relevance (the input given by the end-user) and business relevance (the metrics you provide).
@@ -16,7 +16,7 @@ To index those data you will need to do a few steps and write some custom code.
 
 First of all you need to go to your Magento administration, navigate to **System > Configuration > Algolia Search > Advanced tab** and there enable [Partial updates](https://www.algolia.com/doc/guides/indexing/import-synchronize-data#incremental-updates).
 <figure>
-    <img src="../../img/enable-partial-updates.png" class="img-responsive">
+    <img src="../../../img/enable-partial-updates.png" class="img-responsive">
     <figcaption>Enable partial updates</figcaption>
 </figure>
 
@@ -77,7 +77,7 @@ To do that go to your Magento administration and navigate to **System > Configur
 
 Because your business attributes are indexed from outside of Magento, Magento cannot offer them in *Attribute* select box. What you need to do is to select **[use custom attribute]** option in the select box and the new text field will appear. In our case case we want to use attribute visits for custom ranking. So just write it’s name to the text field.
 <figure>
-    <img src="../../img/custom-ranking-custom-attributes.png" class="img-responsive">
+    <img src="../../../img/custom-ranking-custom-attributes.png" class="img-responsive">
     <figcaption>Set custom custom ranking attribute</figcaption>
 </figure>
 
