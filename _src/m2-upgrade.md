@@ -1,7 +1,7 @@
 ---
 layout: m2-documentation
 title: Upgrade to new version
-permalink: /m2/upgrade/
+permalink: /doc/m2/upgrade/
 ---
 
 It's strongly recommended to use [Composer](https://getcomposer.org) or [Magento Marketplace](https://www.magentocommerce.com/magento-connect/search-algolia-search.html) to install the extension. Other installation methods are not supported.

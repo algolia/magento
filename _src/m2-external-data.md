@@ -1,7 +1,7 @@
 ---
 layout: m2-documentation
 title: How to index data from outside of Magento
-permalink: /m2/external-data/
+permalink: /doc/m2/external-data/
 ---
 
 There are situations when you want to add external data source to your drop-down menu. For example integrate WordPress posts to you Magento’s autocomplete. In order to do that, you just need to follow a few steps:

@@ -1,7 +1,7 @@
 ---
 layout: m2-documentation
 title: Instant search page customization
-permalink: /m2/customize-instantsearch/
+permalink: /doc/m2/customize-instantsearch/
 ---
 
 All code for rendering instant search page can be found in [`instantsearch.js`](https://github.com/algolia/algoliasearch-magento-2/blob/master/view/frontend/web/instantsearch.js).

@@ -1,7 +1,7 @@
 ---
 layout: m1-documentation
 title: Instant search page customization
-permalink: /customize-instantsearch/
+permalink: /doc/customize-instantsearch/
 ---
 
 All code for rendering instant search page can be found in [`instantsearch.phtml`](https://github.com/algolia/algoliasearch-magento/blob/master/design/frontend/template/instantsearch.phtml).

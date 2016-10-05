@@ -1,7 +1,7 @@
 ---
 layout: m1-documentation
 title: Back-end
-permalink: /backend/
+permalink: /doc/backend/
 ---
 
 ## Custom events

@@ -1,9 +1,10 @@
 ---
 layout: m2-documentation
 title: Getting started
-permalink: /m2/getting-started/
+permalink: /doc/m2/getting-started/
 redirect_from:
   - /m2/
+  - /m2/documentation/
 ---
 
 ## Create an Algolia account
@@ -12,7 +13,7 @@ redirect_from:
 2. Once you are logged into dashboard, get your Algolia credentials from the "Credentials" left-menu.
 
 <figure>
-    <img src="../../img/signup.png" class="img-responsive">
+    <img src="../../../img/signup.png" class="img-responsive">
     <figcaption>Algolia's sign up form</figcaption>
 </figure>
 
@@ -26,7 +27,7 @@ $ composer require algolia/algoliasearch-magento-2
 3. In **Credentials & Setup** tab configure your Algolia credentials.
 
 <figure>
-    <img src="../../img/m2-configuration.png" class="img-responsive">
+    <img src="../../../img/m2-configuration.png" class="img-responsive">
     <figcaption>Extension's basic information configurations</figcaption>
 </figure>
 
