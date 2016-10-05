@@ -1,7 +1,7 @@
 ---
 layout: m2-documentation
 title: Autocomplete menu customization
-permalink: /m2/customize-autocomplete/
+permalink: /doc/m2/customize-autocomplete/
 ---
 
 Customize your autocomplete drop-down menu which appears underneath search bar on your Magento site.

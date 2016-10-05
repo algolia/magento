@@ -1,7 +1,7 @@
 ---
 layout: m1-documentation
 title: How to add external autocomplete source
-permalink: /external-autocomplete-source/
+permalink: /doc/external-autocomplete-source/
 ---
 
 There are situations when you want to add external data source to your drop-down menu. You may want to integrate WordPress posts into your Magento site’s autocomplete, for example. In order to do that, you just need to follow a few steps:

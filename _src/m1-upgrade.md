@@ -1,7 +1,7 @@
 ---
 layout: m1-documentation
 title: Upgrade to new version
-permalink: /upgrade/
+permalink: /doc/upgrade/
 ---
 
 It's strongly recommended to use [Modman](https://github.com/colinmollenhour/modman) or [Magento Connect](https://www.magentocommerce.com/magento-connect/search-algolia-search.html) to install the extension. Other installation methods are not supported.
