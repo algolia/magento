@@ -51,7 +51,15 @@
       apiKey: 'a23cdc99940ffad43a4f98733b845fdf',
       indexName: 'magento_algolia',
       inputSelector: '#doc-search',
-      debug: false // Set debug to true if you want to inspect the dropdown
+      algoliaOptions: {
+        {% if page.url contains "/m1/" %}
+            filters: "tags:m1"
+        {% endif %}
+        {% if page.url contains "/m2/" %}
+            filters: "tags:m2"
+        {% endif %}
+      },
+      debug: true // Set debug to true if you want to inspect the dropdown
   });
   </script>
 
