@@ -15,17 +15,17 @@ You will need to create a new Algolia index with data you want to display in aut
 
 ## Create autocomplete template
 
-In order to display records from your new index you’ll need to create a template for single record. Let’s assume that each of your records in the new index has two attributes: value and url. In that case you can use [attribute.phtml](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/template/algoliasearch/autocomplete/attribute.phtml) template.
+In order to display records from your new index you’ll need to create a template for a single record. Let’s assume that each of your records in the new index has two attributes: `value` and `url`. In that case you can use the [attribute.phtml](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/template/algoliasearch/autocomplete/attribute.phtml) template.
 
-If you have more attributes you want to display or you want to have completely different template, you can copy attribute.phtml template, name it as you want and edit as much as needed. Be sure you change value of id attribute in the <script> tag when creating a new template.
+If you have more attributes that you want to display or you want to have completely a different template, you can copy the attribute.phtml template, name it as you want and edit as needed. Be sure to change the value of `id` attribute in the `<script>` tag when creating a new template.
 
-When you have your custom template created, you need to add it to [algoliasearch.xml layout file](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/layout/algoliasearch.xml) to tell Magento to render this template to the website. You can locate
+Once you’ve created your custom template, you need to add it to [algoliasearch.xml layout file](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/layout/algoliasearch.xml) to tell Magento to include this template into the website. You can locate
 
 ```xml
 <!-- INSERT YOUR CUSTOM TEMPLATES HERE -->
 ```
 
-lines and add a new line according example:
+lines and add a new line (see example):
 
 ```xml
 <!-- 
@@ -36,7 +36,7 @@ Example:
 
 ## Create new data data source
 
-To create a new data source you need to edit [autocomplete.js](https://github.com/algolia/algoliasearch-magento/blob/master/js/algoliasearch/autocomplete.js) file in the extension’s JavaScript folder. There you are able to create a custom data source, append it to sources variable and pass it to autocomplete(...) call.
+To create a new data source you need to edit [autocomplete.js](https://github.com/algolia/algoliasearch-magento/blob/master/js/algoliasearch/autocomplete.js) file in the extension’s JavaScript folder. There you are able to create a custom data source, append it to `sources` variable and pass it to `autocomplete(...)` call.
 
 To do so, you need to locate 
 
