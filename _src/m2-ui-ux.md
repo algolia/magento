@@ -20,7 +20,7 @@ The extension uses [autocomplete.js](https://github.com/algolia/autocomplete.js)
 You can configure displayed data in administration section **Stores > Configuration > Algolia Search > Autocomplete**.
 There you can configure which sections and how many items should be displayed in auto-complete menu.
 
-If you need to do more customization, perhaps for auto-complete layout, you will need to update the underlying template. For more information please navigate to [Customization](/magento/m2/customize-autocomplete/) section.
+If you need to do more customization, perhaps for auto-complete layout, you will need to update the underlying template. For more information please navigate to [Customization](/magento/doc/m2/customize-autocomplete/) section.
 
 <figure>
     <img src="../../../img/m2-autocomplete-admin.png" class="img-responsive">
@@ -41,11 +41,11 @@ You can configure displayed data and set another refinements. Just navigate to *
 
 In the same way you can configure attributes for sorting your products. Be careful because each sorting creates Algolia index. For more information read [the official Algolia documentation](https://www.algolia.com/doc/?utm_medium=social-owned&amp;utm_source=magento%20website&amp;utm_campaign=docs).
 
-If you need to add another widgets or update the existing ones you will need to update the underlying template. For more information please navigate to [Customization](/magento/m2/customize-instantsearch/) section.
+If you need to add another widgets or update the existing ones you will need to update the underlying template. For more information please navigate to [Customization](/magento/doc/m2/customize-instantsearch/) section.
 
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>
-    By default instant search page is disabled, because it can break your existing layout. You can enable it in **Stores > Configuration > Algolia Search > Credentials & Setup**.
+    By default instant search page is disabled, because it can break your existing layout. You can enable it in <b>Stores > Configuration > Algolia Search > Credentials & Setup</b>.
 </div>
 
 <figure>
