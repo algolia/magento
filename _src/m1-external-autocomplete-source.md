@@ -19,7 +19,7 @@ In order to display records from your new index you’ll need to create a templa
 
 If you have more attributes that you want to display or you want to have completely a different template, you can copy the attribute.phtml template, name it as you want and edit as needed. Be sure to change the value of `id` attribute in the `<script>` tag when creating a new template.
 
-Once you’ve created your custom template, you need to add it to [algoliasearch.xml layout file](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/layout/algoliasearch.xml) to tell Magento to include this template into the website. You can locate
+Once you’ve created your custom template, you need to add it to [algoliasearch.xml layout file](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/layout/algoliasearch.xml) to tell Magento to include this template in the website. You can locate
 
 ```xml
 <!-- INSERT YOUR CUSTOM TEMPLATES HERE -->
