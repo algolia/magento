@@ -24,9 +24,9 @@ Enabling partial updates will allow you to index different attributes from diffe
 
 ## Push your data from outside of Magento
 
-When you have have partial updates enabled, you need to write your own custom script to push your business data into Algolia indices. For pushing the data you can use our [PHP API client](https://www.algolia.com/doc/api-client/php/getting-started) or any other [API client](https://www.algolia.com/doc/api-client/) you are feeling comfortable with.
+When you have have partial updates enabled, you need to write your own custom script to push your business data into Algolia indices. To do that, you can use our [PHP API client](https://www.algolia.com/doc/api-client/php/getting-started) or any other [API client](https://www.algolia.com/doc/api-client/) you are comfortable with.
 
-There are two essential things you need to have in mind while writing the script:
+There are two things you need to keep in mind when writing the script:
 
 1. Update products by using [partialUpdates](https://www.algolia.com/doc/api-client/php/indexing#partial-update-objects) feature
 2. Use the same objectID of the product as the extension does
@@ -34,7 +34,7 @@ ObjectID is the unique identifier of the record in Algolia index and the extensi
 
 For create the script you’ll need to find the name of the index where your products are indexed. Index name is created like: *indexPrefix+codeOfYourStore_products*. If you have your index prefix set to *magento_* and your store code is default then your index name will be **magento_default_products**. 
 
-The precise index name you can find in [Algolia’s index explorer](https://www.algolia.com/explorer).
+You can find the precise index name in [Algolia’s index explorer](https://www.algolia.com/explorer).
 
 Let’s assume you have product with **ID 1** in index **magento_default_products** and you want to push it’s visits count from Google Analytics.
 
@@ -71,11 +71,10 @@ That’s it. You successfully pushed your business data into your Algolia produc
 
 ## Add your business attributes to custom ranking
 
-When you managed to index your business attribute in Algolia, there is one last step ahead of you - set the attribute as custom ranking.
+Once you have indexed your business attributes in Algolia, there is one last step - set the attribute as a custom ranking.
+To do that, go to your Magento administration and navigate to **System > Configuration > Algolia search > Products tab**. There you can locate *Ranking* settings.
 
-To do that go to your Magento administration and navigate to **System > Configuration > Algolia search > Products tab**. There you can locate *Ranking* settings.
-
-Because your business attributes are indexed from outside of Magento, Magento cannot offer them in *Attribute* select box. What you need to do is to select **[use custom attribute]** option in the select box and the new text field will appear. In our case case we want to use attribute visits for custom ranking. So just write it’s name to the text field.
+Because your business attributes are indexed from outside of Magento, Magento cannot offer them in the *Attribute* select box. Select the **[use custom attribute]** option in the select box and the new text field will appear. In our case case we want to use the visits attribute for custom ranking. So just write its name in the text field.
 <figure>
     <img src="../../../img/custom-ranking-custom-attributes.png" class="img-responsive">
     <figcaption>Set custom custom ranking attribute</figcaption>
