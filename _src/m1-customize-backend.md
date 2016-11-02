@@ -42,13 +42,15 @@ Now let’s create the module itself.
 
 Create this folder structure:
 
-* app/
-    * code/
-        * local/
-            * Algolia/
-                * CustomAlgolia/
-                    * etc/
-                    * Model/
+```
+app/
+    code/
+        local/
+            Algolia/
+                CustomAlgolia/
+                    etc/
+                    Model/
+```
 
 Next, create a **config.xml** file in the `/app/code/local/Algolia/CustomAlgolia/etc/` directory.
 
