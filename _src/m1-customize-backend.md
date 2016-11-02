@@ -123,9 +123,9 @@ In the end your **config.xml** file should look like this:
 <?xml version="1.0" encoding="UTF-8"?>
 <config>
     <modules>
-        <Honza_CustomAlgolia>
+        <Algolia_CustomAlgolia>
             <version>0.1.0</version>
-        </Honza_CustomAlgolia>
+        </Algolia_CustomAlgolia>
     </modules>
     <global>
         <events>
