@@ -104,7 +104,7 @@ There’s just one more thing we need to do. Add this snippet to the **config.xm
         <algolia_index_settings_prepare>
             <observers>
                 <algolia_customalgolia>
-                    <class>algolia_customalgolia/observer</class>
+                    <class>algolia_customAlgolia_model_observer</class>
                     <method>updateSettings</method>
                 </algolia_customalgolia>
             </observers>
@@ -132,7 +132,7 @@ In the end your **config.xml** file should look like this:
             <algolia_index_settings_prepare>
                 <observers>
                     <algolia_customalgolia>
-                        <class>algolia_customalgolia/observer</class>
+                        <class>algolia_customAlgolia_model_observer</class>
                         <method>updateSettings</method>
                     </algolia_customalgolia>
                 </observers>
