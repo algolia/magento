@@ -10,13 +10,11 @@ In this guide you’ll learn how to create your own custom Magento module and at
 
 ## Create the module’s base XML file
 
-<!-- 
 <div class="alert alert-info">
     <i>
     Tip: if you don’t want to create the extension from scratch, you can download it from our <a href="https://github.com/algolia/algoliasearch-magento-extend-module-skeleton" target="_blank">GitHub repository</a> and install it manually or via Modman.
     </i>
 </div>
--->
 
 Before starting this guide, please make sure you have the [Algolia extension](https://community.algolia.com/magento/) installed into your Magento Shop.
 
