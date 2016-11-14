@@ -51,8 +51,6 @@ You can reduce the number of records by removing some sorts. This can be configu
 
 Logout and login from your Magento administration panel should fix the issue.
 
-If it doesn't work you can follow this procedure [http://fanplayr.com/resources/magento-404-error-page-not-found-in-configuration/](http://fanplayr.com/resources/magento-404-error-page-not-found-in-configuration/).
-
 ## Can I disable Algolia on some store?
 
 Yes you just need to disable indexing for the store where you do not need Algolia. Navigate to **System > Configuration > Algolia Search**, in upper left corner switch to store you want to disable from indexing. Then you can just disable indexing in the configuration. See the screenshot:
@@ -65,17 +63,17 @@ Yes you just need to disable indexing for the store where you do not need Algoli
 ## I hit "Reindex" button, but there are still no products in Algolia indices
 
 In case you have indexing queue enabled, the reindex button will "only" insert indexing jobs to queue database table and not really send them to Algolia. Please make sure you have set queue proccessing correctly and you have set reasonable number of products to be processed in one job. If you set the number od processed products too high the processing script may run out of memory and no products will be indexed.
-More information about indexing queue can be found in [documentation](/magento/documentation/#indexing-queue).
+More information about indexing queue can be found in [documentation](/magento/doc/m1/indexing/#indexing-queue).
 
 ## Some of my products do not come up during searching
 
 At first please check if those products are indexed correctly in Algolia. You can go to your [Algolia explorer](https://www.algolia.com/explorer) select your default products index and search for products which are missing on your website.
 If you can find the missing products in Algolia, check if the products have set correct visibility. If products should be visible only in "Catalog", they will not come up when searching, but only on instant search page in category.
 
-If you cannot find the products in Algolia indices, the products are not indexed in Algolia. The extension indexes only visible, enabled and "on-stock" products (only in case you have set you want to index only "on-stock" products). More information about indexing you can find in [documentation](/magento/documentation/#indexing).
+If you cannot find the products in Algolia indices, the products are not indexed in Algolia. The extension indexes only visible, enabled and "on-stock" products (only in case you have set you want to index only "on-stock" products). More information about indexing you can find in [documentation](/magento/doc/m1/indexing/).
 So please check if the products meet all the requirements for indexing. If they do you should hit "Reindex" button again and check again the Algolia index.
 
-If the issues persist you can go Algolia configuration in Magento, turn on logging and investigate log files. There you should be able to find more information about what is going on while re-indexing. More information about troubleshooting and debugging you can find in [documentation](/magento/documentation/#logging--debugging).
+If the issues persist you can go Algolia configuration in Magento, turn on logging and investigate log files. There you should be able to find more information about what is going on while re-indexing. More information about troubleshooting and debugging you can find in [documentation](/magento/doc/m1/backend/#logging--debugging).
 
 ## I cannot find my products by SKU
 
@@ -84,7 +82,8 @@ Please, make sure you are using the newest version of the extension. And make su
 ## I have deleted some products, why are they still appearing in Algolia indices even after full reindex?
 
 Please, make sure you are using the latest version of the extension. It happens when you update / delete your products directly in database and do not trigger standart Magento hooks. The full reindex then had problem with recognizing deleted products and removing them from Algolia.
-This issue was resolved in version 1.6.0. Instruction how to upgrade can be found in [documentation](/magento/documentation/#upgrade).
+
+This issue was resolved in version 1.6.0. Instruction how to upgrade can be found in [documentation](/magento/doc/m1/upgrade/).
 
 ## Why are images not showing up?
 
@@ -126,7 +125,7 @@ If that still doesn't work, you can also try:
 
 The realtime search experience implemented by the extension is done using JavaScript in your end-users browsers and therefore cannot have access to the templates of your original theme (which is rendered with PHP from your backend). Instead, it creates a search page with a default theme that you may need to adapt to fit your UI needs.
 
-But you can still customize the design of the instant search results page & the auto-complete menu. See [Customization section](/magento/documentation/#customization) in documentation.
+But you can still customize the design of the instant search results page & the auto-complete menu. See [Customization section](/magento/doc/m1/customize-autocomplete/) in documentation.
 
 ## How instant search page works?
 
@@ -135,7 +134,7 @@ Instant search page is powered by JavaScript library [instantsearch.js](https://
 But on the other hand it brings two inconveniences:
 
 - **Templates:**
-When the whole page is rendered in your client's web browser it cannot respect your Magento store's custom templates. Templates for instant search page must be customized in the extension's template file. For more information about customizing see [Customization section](/magento/documentation/#customization) in the documentation.
+When the whole page is rendered in your client's web browser it cannot respect your Magento store's custom templates. Templates for instant search page must be customized in the extension's template file. For more information about customizing see [Customization section](/magento/doc/m1/customize-instantsearch/) in the documentation.
 - **SEO:**
 The extenstion supports only backend search for regular search page and these results can be indexed by search engines like Google, Bing, etc... But because of the frontend implementantion instant search page results on category page cannot be indexed. But there is a workaround. Search parameters of the instant search page are pushed into page's URL. So it is possible to implement backend search base on the URL parameters so the instant search pages can be indexed. But the extension inself do not support this feature out of the box for now.
 
