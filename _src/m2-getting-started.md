@@ -19,12 +19,22 @@ redirect_from:
 
 ## Install the extension
 
-1. Install the extension from the [Magento Marketplace](https://marketplace.magento.com/algolia-algoliasearch-magento-2.html) or via [Composer](https://getcomposer.org):
+There are two ways how to install the extension:
+
+### 1) Magento Marketplace
+
+Navigate to [Magento Marketplace](https://marketplace.magento.com/algolia-algoliasearch-magento-2.html) and get the extension. After that navigate to your Magento administration and install the extension by following [this awesome guide](https://www.fastcomet.com/tutorials/magento2/installing-extensions){:target="_blank"}.
+
+### 2) Composer
+
 ```
 $ composer require algolia/algoliasearch-magento-2
 ```
-2. In your Magento administration navigate to **Stores > Configuration > Algolia Search** administration panel.
-3. In **Credentials & Setup** tab configure your Algolia credentials.
+
+## Configure Algolia credentials
+
+When you have the extension installed, navigate to **Stores > Configuration > Algolia Search** administration panel.
+There locate **Credentials & Setup** tab and configure your Algolia credentials:
 
 <figure>
     <img src="../../../img/m2-configuration.png" class="img-responsive">
