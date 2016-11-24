@@ -425,7 +425,7 @@ To be able to choose an attribute in the Additional Section area, you will need 
     <figcaption>Configuration of additional sections</figcaption>
 </figure>
 
-## Indexed attributes
+### Indexed attributes
 
 The extension does not offer to modify indexable attributes via the admin configuration, but they can be changed by hooking your method into the `algolia_additional_section_items_before_index` event.
 
