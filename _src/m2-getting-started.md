@@ -29,6 +29,9 @@ Navigate to [Magento Marketplace](https://marketplace.magento.com/algolia-algoli
 
 ```
 $ composer require algolia/algoliasearch-magento-2
+$ bin/magento module:enable Algolia_AlgoliaSearch
+$ bin/magento setup:upgrade
+$ bin/magento setup:static-content:deploy
 ```
 
 ## Configure Algolia credentials
