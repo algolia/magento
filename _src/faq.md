@@ -154,3 +154,13 @@ Next you will have to update your JavaScript code to target the correct index fo
 It’s definitelly not optimal solution as you would have huge amount of records in Algolia and as well it’s not good for Algolia’s performance. But this is the only way how to achieve that.
 
 But you can always limit a scope of Visual Merchandiser usage and use it only for your main categories or use the same sorting strategy across all your categories.
+
+## After installing the Magento 2 extension I'm getting "Fatal error: Class 'AlgoliaSearch\Version' not found in ... /AlgoliaHelper.php on line ..."
+
+This means you didn't install the extension in a correct way. There are two supported ways how to install the extension:
+
+- via Composer
+- via Component Manager
+
+Both ways how to install the extension are decribed in [the documentation](/magento/doc/m2/getting-started/#install-the-extension). 
+ Please, reinstall the extension.
