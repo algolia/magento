@@ -64,6 +64,47 @@ EMPTY_QUEUE=1 php -f /absolute/path/to/magento/shell/indexer.php -- -reindex alg
 	When the indexing queue is not enabled every indexing job <i>(complete re-indexing, update/deletion/update of products or categories, etc.)</i> will occur synchronously. Trying to synchronously index too many objects at a time may trigger PHP timeouts.
 </div>
 
+### Automatic indexing
+
+By default, the extension indexes each change or deletion of product or category and this change is propagated to Algolia immediately. It's usefull as it keeps the data in Algolia in sync with what is in your Magento. But if you want to prevent this behaviour, you can do it by changing the indexer's mode to "Manual Update".
+This change will prevent the indexer to index every single change of a product or a category immediately.
+
+When you switch the mode to "Manual Indexing", you'll need to run full product and category reindex on a regular basis, for example every night, to keep your data synchronized with Algolia.
+
+### Manual reindexing
+
+If you want to completely reindex your catalog, you can do it in two ways:
+
+#### Via administation interface
+
+In your Magento administration navigate to **System > Index Management** and there hit **Reindex** button right next to the indexers you want to reindex:
+
+<figure>
+    <img src="../../../img/indexers.png" class="img-responsive">
+    <figcaption>Algolia indexers</figcaption>
+</figure>
+
+#### Via command line
+
+You can run the full reindex also from command line anduse the command for example in a cron job.
+
+Command for the complete product reindex:
+
+```sh
+php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_search_indexer
+```
+
+You can use more than one indexer name in the command. 
+
+Names of other Algolia indexers:
+
+- `algolia_search_indexer` - reindexes all products
+- `algolia_search_indexer_cat` - reindex all categories
+- `algolia_search_indexer_pages` - reindexes all CMS pages
+- `search_indexer_suggest` - reindexes all search query suggestions
+- `search_indexer_addsections` - reindexes all data from additional sections
+- `algolia_queue_runner` - process jobs in indexing queue
+
 ## Products
 
 Exact, up-to-date product data is essential to a successful ecommerce implementation. To accommodate many different product data scenarios, the extension provides a high degree of indexing and search configuration.
