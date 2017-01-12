@@ -1,3 +1,15 @@
+function setLatestVersions() {
+	$.getJSON('https://api.github.com/repos/algolia/algoliasearch-magento/releases/latest', function(payload) {
+		var latestVersion = payload.name;
+		$('.m1_version').text(latestVersion);
+	});
+	
+	$.getJSON('https://api.github.com/repos/algolia/algoliasearch-magento-2/releases/latest', function(payload) {
+		var latestVersion = payload.name;
+		$('.m2_version').text(latestVersion);
+	});
+}
+
 function checkVisible(elm, threshold, mode) {
     threshold = threshold || 0;
     mode = mode || 'visible';
@@ -77,6 +89,8 @@ function animOnVisibility() {
 window.onload = function() {
     checkVisible(demos, dist);
     p_map()
-}
+};
 
-p_map()
+p_map();
+
+setLatestVersions();
