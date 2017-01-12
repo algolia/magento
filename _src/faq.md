@@ -164,3 +164,7 @@ This means you didn't install the extension in a correct way. There are two supp
 
 Both ways how to install the extension are decribed in [the documentation](/magento/doc/m2/getting-started/#install-the-extension). 
  Please, reinstall the extension.
+ 
+## The indexed URLs from my Magento 2 store are wrong, there is additional **magento/** in the middle of indexed URLs
+
+Navigate to **Stores > Configuration > General > Web > Search Engine Optimilization** and there set the field **Use Web Server Rewrites** to **Yes**. Then please reindex your catalog.
