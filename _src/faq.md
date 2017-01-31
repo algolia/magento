@@ -171,10 +171,10 @@ Navigate to **Stores > Configuration > General > Web > Search Engine Optimilizat
 
 ## My Magento generates a lot of delete operations, how can I prevent that?
 
-The solution is to enable [the indexing queue](https://community.algolia.com/magento/doc/m1/indexing/#indexing-queue).
+The solution is to enable [the indexing queue](/magento/doc/m1/indexing/#indexing-queue).
 
 When the reindex is performed with disabled queue, ALL products (even disabled, invisible, ...) are processed and if the product is disabled/invisible/out-of-stock the delete operation is perfomed in Algolia no matter if the product is actually present in Algolia. It happens because the extension makes sure that only correct (indexable) products are present in index.
 
 It does no happen when you are performing the reindex with queue enabled. If the queue is enabled, only active (indexable) products are processed and pushed to Algolia. With indexing queue enabled we can use temp indexes mechanism when only active products are indexed into temporary index. And when all products are index, the original production index is replaced by the temporary one and only correct products are present in Algolia.
 
-More information about indexing you can find in [Indexing documentation](https://community.algolia.com/magento/doc/m1/indexing/).
+More information about indexing you can find in [Indexing documentation](/magento/doc/m1/indexing/).
