@@ -483,8 +483,6 @@ q:after {
     .col-md-6 {
       flex: 50%;
       position: relative;
-
-
     }
   }
 
@@ -531,6 +529,7 @@ q:after {
         flex: 100%;
         margin-left: 0;
         margin-right: 0;
+        padding: 2em;
       }
 
       a {
@@ -593,18 +592,21 @@ q:after {
     border-top-right-radius: 6px;
     border-bottom-right-radius: 6px;
     // box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
-    padding: 2em 0 0 2em;
-
     @media (max-width: $bp-medium ) {
-      padding: 0;
+      &:not(.quote) {
+        padding: 0;
+      }
     }
   }
 
   @media (max-width: 960px) {
-    .col-md-6:nth-child(1) {
+    .col-md-6.quote {
+      flex: 100%;
       width: 100%;
+      max-width: 100%;
     }
-    .col-md-6:nth-child(2) {
+
+    .map-container {
       display: none;
     }
   }
