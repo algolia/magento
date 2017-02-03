@@ -46,7 +46,7 @@ There locate **Credentials & Setup** tab and configure your Algolia credentials:
 
 ## Initial indexing
 
-Force the re-indexing of all sections you want to synchronize with Algolia. In your console run command: 
+Force the re-indexing of all sections you want to synchronize with Algolia. In your console run command:
 
 ```sh
 $ bin/magento indexer:reindex algolia_products algolia_categories algolia_pages algolia_suggestions algolia_additional_sections
