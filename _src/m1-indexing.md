@@ -105,7 +105,7 @@ Names of other Algolia indexers:
 - `search_indexer_addsections` - reindexes all data from additional sections
 - `algolia_queue_runner` - process jobs in indexing queue
 
-## Products
+## Products indexing
 
 Exact, up-to-date product data is essential to a successful ecommerce implementation. To accommodate many different product data scenarios, the extension provides a high degree of indexing and search configuration.
 
@@ -255,7 +255,7 @@ The index settings for products managed by the extension are:
 
 Additional index settings can be managed in the Algolia dashboard or via extension’s `algolia_products_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
 
-## Categories
+## Categories indexing
 
 In order to reduce the number of Algolia operations and records, the extension indexes only active categories.
 
@@ -327,7 +327,7 @@ The index settings for categories managed by the extension are:
 
 Additional index settings can be managed in the Algolia dashboard or via extension’s `algolia_categories_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
 
-## Pages
+## Pages indexing
 
 The extension supports indexing CMS pages, which will allow your customers to search for them in an autocomplete menu. By default all active pages are indexed, but you are able to exclude any that you don’t want to appear in search results (e.g. error pages).
 
@@ -386,7 +386,7 @@ The extension always sends the same settings to Algolia for the pages index:
 
 Additional index settings can be managed in the Algolia dashboard or via extension’s `algolia_pages_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
 
-## Suggestions
+## Suggestions indexing
 
 Data is recorded in the Magento database about each query that is processed by the Magento backend. The query, number of results, and number of searches of that query are all recorded automatically in the `catalogsearch_query` by Magento without any involvement from the extension.
 
@@ -455,7 +455,7 @@ The extension always sends the same settings to Algolia for the suggestions inde
 
 Additional index settings can be managed in the Algolia dashboard or via the extension’s `algolia_suggestions_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
 
-## Additional sections
+## Additional sections indexing
 
 In the autocomplete menu you can display other sections like color and brands. This feature requires that the instant search page has been enabled. The *Additional Sections* area requires this to work properly.
 
