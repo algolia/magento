@@ -10,6 +10,7 @@ group :development, :test do
   gem 'sass'
   gem 'guard'
   gem 'nokogiri'
+  gem 'html-proofer'
   gem 'jekyll-contentblocks'
   gem 'jekyll-redirect-from'
   gem 'guard-jekyll-plus'

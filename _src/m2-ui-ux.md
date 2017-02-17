@@ -23,7 +23,7 @@ There you can configure which sections and how many items should be displayed in
 If you need to do more customization, perhaps for auto-complete layout, you will need to update the underlying template. For more information please navigate to [Customization](/magento/doc/m2/customize-autocomplete/) section.
 
 <figure>
-    <img src="../../../img/m2-autocomplete-admin.png" class="img-responsive">
+    <img src="../../../img/m2-autocomplete-admin.png" class="img-responsive" alt="Autocomplete configuration">
     <figcaption>Extension's autocomplete feature configuration</figcaption>
 </figure>
 
@@ -49,6 +49,6 @@ If you need to add another widgets or update the existing ones you will need to 
 </div>
 
 <figure>
-    <img src="../../../img/m2-instantsearch-admin.png" class="img-responsive">
+    <img src="../../../img/m2-instantsearch-admin.png" class="img-responsive" alt="Instant search configuration">
     <figcaption>Extension's instant search feature configuration</figcaption>
 </figure>

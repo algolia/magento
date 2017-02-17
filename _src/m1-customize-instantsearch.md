@@ -4,8 +4,8 @@ title: Instant search page customization
 permalink: /doc/m1/customize-instantsearch/
 ---
 
-All code for rendering instant search page can be found in [`instantsearch.phtml`](https://github.com/algolia/algoliasearch-magento/blob/master/design/frontend/template/instantsearch.phtml).
-If you want to use a widget that is not exposed in the administration panel for a particular faceted attribute you can configure it using the `customAttributeFacet` variable of the `instantsearch.phtml` file. For example if you want to have a toggle widget for the `in_stock` attribute, your `customAttributeFacet` variable should look like:
+All temlates for rendering instant search page are located in [`instantsearch`](https://github.com/algolia/algoliasearch-magento/tree/master/app/design/frontend/base/default/template/algoliasearch/instantsearch) folder and the JS code handling instant search page sits in [`instantsearch.js`](https://github.com/algolia/algoliasearch-magento/blob/master/js/algoliasearch/instantsearch.js) file.
+If you want to use a widget that is not exposed in the administration panel for a particular faceted attribute you can configure it using the `customAttributeFacet` variable in the `instantsearch.js` file. For example if you want to have a toggle widget for the `in_stock` attribute, your `customAttributeFacet` variable should look like:
 
 {% highlight js %}
 var customAttributeFacet = {

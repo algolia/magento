@@ -85,7 +85,7 @@ You can specify which attributes you want to index in your Algolia indices. This
 There you can find table where you can set the attributes you want to send to Algolia. On each attribute you are able to specify if the attribute is Searchable, Retrievable and Order setting of the attribute. For more information about these settings please read [the official Algolia documentation](https://www.algolia.com/doc/?utm_medium=social-owned&amp;utm_source=magento%20website&amp;utm_campaign=docs).
 
 <figure>
-    <img src="../../../img/m2-attributes.png" class="img-responsive">
+    <img src="../../../img/m2-attributes.png" class="img-responsive" alt="Attributes to index">
     <figcaption>Configuration of attributes to index</figcaption>
 </figure>
 
