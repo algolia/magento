@@ -43,7 +43,7 @@ You'll have 100 * 2 + 100 * 2 * 5 * 2 + 100 * 2 * 2 = 2600 Algolia records.
 You can reduce the number of records by removing some sorts. This can be configured in the extension administration panel. See the screenshot below:
 
 <figure>
-    <img src="../img/sorts.png" class="img-responsive">
+    <img src="../img/sorts.png" class="img-responsive" alt="Sorting strategies">
     <figcaption>Sorting configuration</figcaption>
 </figure>
 
@@ -56,7 +56,7 @@ Logout and login from your Magento administration panel should fix the issue.
 Yes you just need to disable indexing for the store where you do not need Algolia. Navigate to **System > Configuration > Algolia Search**, in upper left corner switch to store you want to disable from indexing. Then you can just disable indexing in the configuration. See the screenshot:
 
 <figure>
-    <img src="../img/disable-indexing.png" class="img-responsive">
+    <img src="../img/disable-indexing.png" class="img-responsive" alt="Enable indexing">
     <figcaption>Enable indexing setting</figcaption>
 </figure>
 
@@ -112,7 +112,7 @@ In almost all cases it's due to memory issue or directory permissions.
 Enable logging in System > Configuration > Algolia Search > Credentials and setup. After enabling the option, the extension will generate an algolia.log file in the /path/to/magento/var/log/ folder. After a full reindexing if you have some thumbnails issue you should see the issue/error in this file.
 
 <figure>
-    <img src="../img/logging.png" class="img-responsive">
+    <img src="../img/logging.png" class="img-responsive" alt="Logging configuration">
     <figcaption>Logging configuration</figcaption>
 </figure>
 

@@ -22,7 +22,7 @@ Or please follow those few steps to get started Algolia Search extension:
 2. Once you are logged into dashboard, get your Algolia credentials from the "Credentials" left-menu.
 
 <figure>
-    <img src="../../../img/signup.png" class="img-responsive">
+    <img src="../../../img/signup.png" class="img-responsive" alt="Algolia's sign up form">
     <figcaption>Algolia's sign up form</figcaption>
 </figure>
 
@@ -33,7 +33,7 @@ Or please follow those few steps to get started Algolia Search extension:
 3. In **Credentials & Setup** tab configure your Algolia credentials.
 
 <figure>
-    <img src="../../../img/configuration.png" class="img-responsive">
+    <img src="../../../img/configuration.png" class="img-responsive" alt="Configuration">
     <figcaption>Extension's basic information configurations</figcaption>
 </figure>
 
@@ -47,7 +47,7 @@ Force the re-indexing of all sections you want to synchronize with Algolia. In y
 - Algolia Search Suggestions
 
 <figure>
-    <img src="../../../img/indexers_new.png" class="img-responsive">
+    <img src="../../../img/indexers_new.png" class="img-responsive" alt="Magento store's indexers">
     <figcaption>Magento store's indexers</figcaption>
 </figure>
 

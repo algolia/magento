@@ -13,7 +13,7 @@ redirect_from:
 2. Once you are logged into dashboard, get your Algolia credentials from the "Credentials" left-menu.
 
 <figure>
-    <img src="../../../img/signup.png" class="img-responsive">
+    <img src="../../../img/signup.png" class="img-responsive" alt="Sign up form">
     <figcaption>Algolia's sign up form</figcaption>
 </figure>
 
@@ -40,7 +40,7 @@ When you have the extension installed, navigate to **Stores > Configuration > Al
 There locate **Credentials & Setup** tab and configure your Algolia credentials:
 
 <figure>
-    <img src="../../../img/m2-configuration.png" class="img-responsive">
+    <img src="../../../img/m2-configuration.png" class="img-responsive" alt="Configuration">
     <figcaption>Extension's basic information configurations</figcaption>
 </figure>
 

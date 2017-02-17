@@ -16,7 +16,7 @@ To index those data you will need to do a few steps and write some custom code.
 
 First of all you need to go to your Magento administration, navigate to **System > Configuration > Algolia Search > Advanced tab** and there enable [Partial updates](https://www.algolia.com/doc/guides/indexing/import-synchronize-data#incremental-updates).
 <figure>
-    <img src="../../../img/enable-partial-updates.png" class="img-responsive">
+    <img src="../../../img/enable-partial-updates.png" class="img-responsive" alt="Enable partial updates">
     <figcaption>Enable partial updates</figcaption>
 </figure>
 
@@ -76,7 +76,7 @@ To do that, go to your Magento administration and navigate to **System > Configu
 
 Because your business attributes are indexed from outside of Magento, Magento cannot offer them in the *Attribute* select box. Select the **[use custom attribute]** option in the select box and the new text field will appear. In our case case we want to use the visits attribute for custom ranking. So just write its name in the text field.
 <figure>
-    <img src="../../../img/custom-ranking-custom-attributes.png" class="img-responsive">
+    <img src="../../../img/custom-ranking-custom-attributes.png" class="img-responsive" alt="Set custom custom ranking attribute">
     <figcaption>Set custom custom ranking attribute</figcaption>
 </figure>
 

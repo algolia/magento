@@ -80,7 +80,7 @@ If you want to completely reindex your catalog, you can do it in two ways:
 In your Magento administration navigate to **System > Index Management** and there hit **Reindex** button right next to the indexers you want to reindex:
 
 <figure>
-    <img src="../../../img/indexers.png" class="img-responsive">
+    <img src="../../../img/indexers.png" class="img-responsive" alt="Indexers">
     <figcaption>Algolia indexers</figcaption>
 </figure>
 
@@ -131,7 +131,7 @@ Here you can find a table of the attributes that you want to send to Algolia. Fo
 For each attribute you can also specify if you want to index an empty value. Usually the right value is "No". This comes in handy for attributes to be used for faceting, because you can avoid having a useless value of “No” in the faceting list.
 
 <figure>
-    <img src="../../../img/attributes.png" class="img-responsive">
+    <img src="../../../img/attributes.png" class="img-responsive" alt="Attributes">
     <figcaption>Configuration of attributes to index</figcaption>
 </figure>
 
@@ -195,7 +195,7 @@ The attributes specified as facets are automatically indexed as retrievable but 
 There are 3 facets by default - **price**, **categories** and **color**.
 
 <figure>
-    <img src="../../../img/facets.png" class="img-responsive">
+    <img src="../../../img/facets.png" class="img-responsive" alt="Facets">
     <figcaption>Configuration of facets</figcaption>
 </figure>
 
@@ -210,7 +210,7 @@ The attributes you specify for sorting are automatically indexed as retrievable 
 There are 3 sorting strategies by default in addition to relevancy - from lowest price to highest, from highest price to lowest, and from newest to oldest.
 
 <figure>
-    <img src="../../../img/sorts.png" class="img-responsive">
+    <img src="../../../img/sorts.png" class="img-responsive" alt="Sorting strategies">
     <figcaption>Configuration of sorting strategies</figcaption>
 </figure>
 
@@ -262,7 +262,7 @@ In order to reduce the number of Algolia operations and records, the extension i
 You can choose to index other categories if you’d like them to appear in search results.
 
 <figure>
-    <img src="../../../img/show_categories.png" class="img-responsive">
+    <img src="../../../img/show_categories.png" class="img-responsive" alt="Show categories">
     <figcaption>Show categories that are not included in navigation menu configuration</figcaption>
 </figure>
 
@@ -275,7 +275,7 @@ You can specify which attributes you want to be searchable in your Algolia indic
 Here you can find a table of the attributes that you want to send to Algolia. For each attribute you can specify if the attribute is Searchable, Retrievable or Ordered. By default all attributes are set to be searched as Unordered. In general this value is better for relevance and we don’t recommend to change it without a specific reason. For more information about this setting and others please read [the official Algolia documentation](https://www.algolia.com/doc/?utm_medium=social-owned&utm_source=magento%20website&utm_campaign=docs).
 
 <figure>
-    <img src="../../../img/categories_attributes.png" class="img-responsive">
+    <img src="../../../img/categories_attributes.png" class="img-responsive" alt="Categories attributes">
     <figcaption>Configuration of categories' searchable attributes</figcaption>
 </figure>
 
@@ -332,14 +332,14 @@ Additional index settings can be managed in the Algolia dashboard or via extensi
 The extension supports indexing CMS pages, which will allow your customers to search for them in an autocomplete menu. By default all active pages are indexed, but you are able to exclude any that you don’t want to appear in search results (e.g. error pages).
 
 <figure>
-    <img src="../../../img/excluded_pages.png" class="img-responsive">
+    <img src="../../../img/excluded_pages.png" class="img-responsive" alt="Excluded pages">
     <figcaption>Configuration of excluded pages</figcaption>
 </figure>
 
 If want to disable the indexing of pages, you can remove them in the Additional Sections configuration.
 
 <figure>
-    <img src="../../../img/additional_sections.png" class="img-responsive">
+    <img src="../../../img/additional_sections.png" class="img-responsive" alt="Additional sections">
     <figcaption>Configuration of additional sections</figcaption>
 </figure>
 
@@ -398,7 +398,7 @@ Data is recorded in the Magento database about each query that is processed by t
 When you enable the indexing of suggestions, the extension fetches queries from `catalogsearch_query`, filters the results according your settings (minimal number of results, minimal popularity, etc.) and pushes filtered queries into your Algolia suggestions index.
 
 <figure>
-    <img src="../../../img/suggestion_configuration.png" class="img-responsive">
+    <img src="../../../img/suggestion_configuration.png" class="img-responsive" alt="Suggestions configuration">
     <figcaption>Configuration of suggestions</figcaption>
 </figure>
 
@@ -462,7 +462,7 @@ In the autocomplete menu you can display other sections like color and brands. T
 To be able to choose an attribute in the Additional Section area, you will need to set it as an attribute for faceting in Algolia.
 
 <figure>
-    <img src="../../../img/additional_sections_2.png" class="img-responsive">
+    <img src="../../../img/additional_sections_2.png" class="img-responsive" alt="Configuration of additional sections">
     <figcaption>Configuration of additional sections</figcaption>
 </figure>
 
