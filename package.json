@@ -18,7 +18,7 @@
     "url": "https://github.com/algolia/magento/issues"
   },
   "dependencies": {
-    "algolia-components": "git+ssh://git@github.com/JonasBa/algolia-components.git"
+    "algolia-components": "git+ssh://git@github.com/algolia/algolia-components.git"
   },
   "homepage": "https://github.com/algolia/magento#readme"
 }

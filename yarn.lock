@@ -34,9 +34,9 @@ ajv@^4.7.0, ajv@^4.9.1:
     co "^4.6.0"
     json-stable-stringify "^1.0.1"
 
-"algolia-components@git+ssh://git@github.com/JonasBa/algolia-components.git":
+"algolia-components@git+ssh://git@github.com/algolia/algolia-components.git":
   version "1.0.1"
-  resolved "git+ssh://git@github.com/JonasBa/algolia-components.git#1dfa4eed4cb667ce6fb6cb8c3139bf937c395f0b"
+  resolved "git+ssh://git@github.com/algolia/algolia-components.git#1dfa4eed4cb667ce6fb6cb8c3139bf937c395f0b"
   dependencies:
     babel-cli "^6.23.0"
     babel-core "^6.23.1"
