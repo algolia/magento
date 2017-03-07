@@ -9,6 +9,9 @@ dev:
 
 release:
 	rm -rf _site && \
+	rm -rf node_modules \
+	yarn && \
+	node buildComponents.js && \
 	bundle install && \
 	JEKYLL_ENV=production bundle exec jekyll build && \
 	cd _site && \
