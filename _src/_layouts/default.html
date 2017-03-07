@@ -39,7 +39,7 @@
   {% contentblock site-footer %}
 
   <script src="//cdn.jsdelivr.net/jquery/2.1.4/jquery.min.js"></script>
-  <script src="{{ "/js/header.js" | prepend: site.baseurl }}"></script>
+  <script src="{{ "/js/communityHeader.js" | prepend: site.baseurl }}"></script>
   <script src="{{ "/js/dropdown.js" | prepend: site.baseurl }}"></script>
   <script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
   {% if page.title == 'Documentation' %}
@@ -47,21 +47,6 @@
   {% endif %}
 
   <script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js"></script>
-  <script type="text/javascript"> docsearch({
-      apiKey: 'a23cdc99940ffad43a4f98733b845fdf',
-      indexName: 'magento_algolia',
-      inputSelector: '#doc-search',
-      algoliaOptions: {
-        {% if page.url contains "/m1/" %}
-            filters: "tags:m1"
-        {% endif %}
-        {% if page.url contains "/m2/" %}
-            filters: "tags:m2"
-        {% endif %}
-      },
-      debug: true // Set debug to true if you want to inspect the dropdown
-  });
-  </script>
 
   <svg style="display:none;visibility:hidden">
     <defs>

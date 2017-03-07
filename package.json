@@ -1,0 +1,24 @@
+{
+  "name": "magento",
+  "version": "1.0.0",
+  "description": "Magento Community Website",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algolia/magento.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/algolia/magento/issues"
+  },
+  "dependencies": {
+    "algolia-components": "git+ssh://git@github.com/JonasBa/algolia-components.git"
+  },
+  "homepage": "https://github.com/algolia/magento#readme"
+}
