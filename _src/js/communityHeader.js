@@ -6,13 +6,34 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
  * Main header function with docsearch
  * @param  {Object} docSearch config
  */
-var communityHeader = function communityHeader(docSearch) {
+var communityHeader = function communityHeader(docSearchCredentials, docSearch) {
 
   var hasDocSearchRendered = document.querySelector('.algc-navigation .algc-search__input--docsearch');
-  var enableDocSearch = docSearch.apiKey && docSearch.indexName && docSearch.inputSelector ? true : false;
+  var enableDocSearch = docSearchCredentials && docSearchCredentials.apiKey && docSearchCredentials.indexName && docSearchCredentials.inputSelector ? true : false;
+
+  var docSearchInit = void 0;
+
+  if (docSearch) {
+    docSearchInit = docSearch;
+  } else {
+
+    if (typeof docsearch === "function") {
+      docSearchInit = docsearch || null;
+    }
+  }
+
+  var searchIcon = void 0,
+      cancelIcon = void 0,
+      searchContainer = void 0,
+      searchInput = void 0;
 
   if (!enableDocSearch && hasDocSearchRendered) {
-    throw new Error('You need to pass docSearch: { api_key, index_name, input_selector } to communityHeader function in order to initialise docSearch');
+    throw new Error('You need to pass docSearch: { apiKey, indexName, inputSelector } to communityHeader function in order to initialise docSearch');
+  } else if (enableDocSearch && hasDocSearchRendered) {
+    searchIcon = document.querySelector('#search');
+    cancelIcon = document.querySelector('#cancel');
+    searchContainer = document.querySelector('.algc-search__input').parentNode;
+    searchInput = document.querySelector(docSearchCredentials.inputSelector);
   }
 
   var navRoot = document.querySelector('.algc-dropdownroot');
@@ -29,7 +50,7 @@ var communityHeader = function communityHeader(docSearch) {
   var mobileMenuButton = document.querySelector('.algc-openmobile ');
   var mobileMenu = document.querySelector('.algc-mobilemenu');
 
-  var subList = document.querySelectorAll('.algc-menu--hassublist .algc-menu--sublistlink');
+  var subList = document.querySelectorAll('.algc-menu--sublistlink');
   var subListHolders = [].concat(_toConsumableArray(subList)).map(function (node) {
     return node.parentNode;
   });
@@ -157,11 +178,6 @@ var communityHeader = function communityHeader(docSearch) {
     mobileMenu.classList.toggle('algc-mobilemenu--open');
   };
 
-  var searchIcon = document.querySelector('#search');
-  var cancelIcon = document.querySelector('#cancel');
-  var searchContainer = document.querySelector('.algc-search__input').parentNode;
-  var searchInput = document.querySelector(docSearch.inputSelector);
-
   // Search
   var docSearchToggling = function docSearchToggling() {
     function openSearchInput() {
@@ -219,21 +235,32 @@ var communityHeader = function communityHeader(docSearch) {
     searchLoop();
   };
 
-  if (enableDocSearch) {
+  if (enableDocSearch && typeof docSearchInit === "function") {
     docSearchToggling();
     catchSearchShortcuts();
 
-    docsearch(docSearch);
+    docSearchInit(docSearchCredentials);
+  } else if (docSearch === "lazy") {
+    docSearchToggling();
+    catchSearchShortcuts();
+    var s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.async = true;
+    document.body.appendChild(s);
+    s.onload = function () {
+      docsearch(docSearchCredentials);
+    };
+    s.src = "https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js";
   }
 
   function openSubList(event) {
     event.preventDefault();
     event.stopPropagation();
     subListHolders.forEach(function (holder) {
-      if (holder.classList.contains('open') && holder === event.target.parentNode) {
-        holder.classList.remove('open');
-      } else {
+      if (holder === event.target.parentNode && !event.target.parentNode.classList.contains('open')) {
         holder.classList.add('open');
+      } else {
+        holder.classList.remove('open');
       }
     });
   }
