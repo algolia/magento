@@ -9,7 +9,7 @@ branches:
 
 before_install:
   # install newer NodeJS
-  # - sudo apt-get purge nodejs npm
+  - sudo apt-get purge nodejs npm
   # - wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
   # - sudo apt-get install nodejs
   - sudo apt-get install npm
