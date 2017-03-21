@@ -101,7 +101,7 @@ window.onload = function() {
     options.filters = "tags:" + versionTest[1]
   }
 
-  communityHeader({
+  var header = new communityHeader({
     apiKey: "a23cdc99940ffad43a4f98733b845fdf",
     indexName: "magento_algolia",
     inputSelector: "#searchbox",

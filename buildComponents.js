@@ -1,5 +1,5 @@
 const fs = require('fs');
-const algoliaComponents = require('algolia-components');
+const algoliaComponents = require('algolia-frontend-components');
 
 const output = algoliaComponents.communityHeader({
   menu: {
@@ -52,7 +52,7 @@ const output = algoliaComponents.communityHeader({
   ]
 });
 
-const file = fs.readFileSync('node_modules/algolia-components/dist/_communityHeader.js');
+const file = fs.readFileSync('node_modules/algolia-frontend-components/dist/_communityHeader.js');
 
 try {
   fs.writeFileSync('_src/_includes/header.html', output, 'utf-8');

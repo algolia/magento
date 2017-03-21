@@ -18,7 +18,7 @@
     "url": "https://github.com/algolia/magento/issues"
   },
   "dependencies": {
-    "algolia-components": "git+ssh://git@github.com/algolia/algolia-components.git"
+    "algolia-frontend-components": "^0.0.18"
   },
   "homepage": "https://github.com/algolia/magento#readme"
 }
