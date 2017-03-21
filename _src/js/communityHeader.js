@@ -1,296 +1,313 @@
 'use strict';
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
  * Main header function with docsearch
  * @param  {Object} docSearch config
  */
-var communityHeader = function communityHeader(docSearchCredentials, docSearch) {
 
-  var hasDocSearchRendered = document.querySelector('.algc-navigation .algc-search__input--docsearch');
-  var enableDocSearch = docSearchCredentials && docSearchCredentials.apiKey && docSearchCredentials.indexName && docSearchCredentials.inputSelector ? true : false;
+var communityHeader = function () {
+  function communityHeader(docSearchCredentials, docSearch) {
+    var _this = this;
 
-  var docSearchInit = void 0;
+    _classCallCheck(this, communityHeader);
 
-  if (docSearch) {
-    docSearchInit = docSearch;
-  } else {
+    this.docSearchCredentials = docSearchCredentials;
+    this.docSearch = docSearch;
 
-    if (typeof docsearch === "function") {
-      docSearchInit = docsearch || null;
-    }
-  }
-
-  var searchIcon = void 0,
-      cancelIcon = void 0,
-      searchContainer = void 0,
-      searchInput = void 0;
-
-  if (!enableDocSearch && hasDocSearchRendered) {
-    throw new Error('You need to pass docSearch: { apiKey, indexName, inputSelector } to communityHeader function in order to initialise docSearch');
-  } else if (enableDocSearch && hasDocSearchRendered) {
-    searchIcon = document.querySelector('#search');
-    cancelIcon = document.querySelector('#cancel');
-    searchContainer = document.querySelector('.algc-search__input').parentNode;
-    searchInput = document.querySelector(docSearchCredentials.inputSelector);
-  }
-
-  var navRoot = document.querySelector('.algc-dropdownroot');
-  var dropdownRoot = document.querySelector('.algc-navigation__dropdown-holder');
-  var navItems = document.querySelectorAll('a[data-enabledropdown="true"]');
-  var navContainer = document.querySelector('.algc-dropdownroot__dropdowncontainer');
-
-  var menuContainer = document.querySelector('.algc-navigation__container');
-  var navBg = document.querySelector('.algc-dropdownroot__dropdownbg');
-  var navArrow = document.querySelector('.algc-dropdownroot__dropdownarrow');
-  var dropDownContainer = document.querySelector('.algc-dropdownroot__dropdowncontainer');
-  var menuTriggers = document.querySelectorAll('[data-enabledropdown="true"]');
-
-  var mobileMenuButton = document.querySelector('.algc-openmobile ');
-  var mobileMenu = document.querySelector('.algc-mobilemenu');
-
-  var subList = document.querySelectorAll('.algc-menu--sublistlink');
-  var subListHolders = [].concat(_toConsumableArray(subList)).map(function (node) {
-    return node.parentNode;
-  });
-
-  // State of menus
-  var state = {
-    isOpen: false,
-    isOpenMobile: false
-  };
-
-  var menuDropdowns = {};
-
-  [].forEach.call(document.querySelectorAll('[data-dropdown-content]'), function (item) {
-    menuDropdowns[item.dataset.dropdownContent] = {
-      parent: item.parentNode,
-      content: item
-    };
-  });
-
-  var INIT_VAL = {
-    WIDTH: 490,
-    HEIGHT: 360
-  };
-
-  var disableTransitionTimeout = void 0;
-
-  var triggerMenu = function triggerMenu(event) {
-
-    var dropdown = event.target.dataset.dropdown;
-    var newTarget = menuDropdowns[dropdown].content;
-    var newContent = menuDropdowns[dropdown].parent;
-
-    var navItem = _utils.calculatePosition(event.target);
-    var newTargetCoordinates = _utils.calculatePosition(newTarget);
-    var menuContainerOffset = _utils.calculatePosition(menuContainer);
-    var leftDistance = void 0;
-
-    var scaleFactors = {
-      X: newTargetCoordinates.realWidth / INIT_VAL.WIDTH,
-      Y: newTargetCoordinates.realHeight / INIT_VAL.HEIGHT
+    this.menuState = {
+      isOpen: false,
+      isOpenMobile: false
     };
 
-    if (navItem.center < menuContainerOffset.center / 2) {
-      leftDistance = "calc(50% - 36px)";
-    } else {
-      leftDistance = navItem.center - menuContainerOffset.left + "px";
-    }
+    this.INIT_VAL = {
+      WIDTH: 490,
+      HEIGHT: 360
+    };
 
-    if (window.innerWidth < 576) {
-      leftDistance = "0";
-    }
+    this.disableTransitionTimeout;
 
-    navBg.style.cssText = '\n      transform: translateX(' + leftDistance + ') scale(' + scaleFactors.X + ', ' + scaleFactors.Y + ')';
+    this.searchIcon = document.querySelector('#search');
+    this.cancelIcon = document.querySelector('#cancel');
+    this.searchContainer = document.querySelector('.algc-search__input').parentNode;
+    this.navRoot = document.querySelector('.algc-dropdownroot');
+    this.dropdownRoot = document.querySelector('.algc-navigation__dropdown-holder');
+    this.navItems = document.querySelectorAll('a[data-enabledropdown="true"]');
+    this.navContainer = document.querySelector('.algc-dropdownroot__dropdowncontainer');
+    this.menuContainer = document.querySelector('.algc-navigation__container');
+    this.navBg = document.querySelector('.algc-dropdownroot__dropdownbg');
+    this.navArrow = document.querySelector('.algc-dropdownroot__dropdownarrow');
+    this.dropDownContainer = document.querySelector('.algc-dropdownroot__dropdowncontainer');
+    this.menuTriggers = document.querySelectorAll('[data-enabledropdown="true"]');
+    this.mobileMenuButton = document.querySelector('.algc-openmobile ');
+    this.mobileMenu = document.querySelector('.algc-mobilemenu');
+    this.subList = document.querySelectorAll('.algc-menu--sublistlink');
+    this.subListHolders = [].concat(_toConsumableArray(this.subList)).map(function (node) {
+      return node.parentNode;
+    });
+    this.menuDropdowns = {};
 
-    navArrow.style.cssText = '\n      transform: translateX(' + leftDistance + ') rotate(45deg)';
-
-    dropDownContainer.style.cssText = '\n      transform: translateX(' + leftDistance + ');\n      width: ' + newTargetCoordinates.realWidth + 'px;\n      height: ' + (newTargetCoordinates.realHeight + 10) + 'px;';
-
-    dropdownRoot.style.pointerEvents = "auto";
-
-    Object.keys(menuDropdowns).forEach(function (key) {
-      if (key === dropdown) {
-        menuDropdowns[key].parent.classList.add('active');
-      } else {
-        menuDropdowns[key].parent.classList.remove('active');
-      }
+    [].forEach.call(document.querySelectorAll('[data-dropdown-content]'), function (item) {
+      _this.menuDropdowns[item.dataset.dropdownContent] = {
+        parent: item.parentNode,
+        content: item
+      };
     });
 
-    if (!state.isOpen) {
-      setTimeout(function () {
-        navRoot.className = "algc-dropdownroot activeDropdown";
+    this.shouldInitDocSearch = this.shouldInitDocSearch.bind(this);
+    this.docSearchInit = this.checkDocSearch(docSearch);
+    this.enableDocSearch = this.verifyDocSearchParams(docSearchCredentials);
+    this.hasDocSearchRendered = document.querySelector('.algc-navigation .algc-search__input--docsearch');
+    this.triggerMenu = this.triggerMenu.bind(this);
+    this.shouldTriggerMenu = this.shouldTriggerMenu.bind(this);
+    this.closeMenu = this.closeMenu.bind(this);
+    this.toggleMobileMenu = this.toggleMobileMenu.bind(this);
+    this.docSearchToggling = this.docSearchToggling.bind(this);
+    this.initDocSearchStrategy = this.initDocSearchStrategy.bind(this);
+    this.openSublist = this.openSublist.bind(this);
+    this.closeSubLists = this.closeSubLists.bind(this);
+    this.bindListeners = this.bindListeners.bind(this);
+
+    this.calculatePosition = this.calculatePosition.bind(this);
+
+    this.verifyDocSearchParams();
+    this.shouldInitDocSearch();
+    this.checkDocSearch();
+    this.initDocSearchStrategy();
+    this.bindListeners();
+  }
+
+  _createClass(communityHeader, [{
+    key: 'calculatePosition',
+    value: function calculatePosition(sourceNode) {
+      var box = sourceNode.getBoundingClientRect();
+      var realWidth = sourceNode.offsetWidth;
+      var realHeight = sourceNode.offsetHeight;
+
+      return {
+        left: box.left,
+        top: box.top,
+        width: box.width,
+        height: box.height,
+        realWidth: realWidth,
+        realHeight: realHeight,
+        center: box.left + box.width / 2
+      };
+    }
+  }, {
+    key: 'shouldInitDocSearch',
+    value: function shouldInitDocSearch() {
+      if (!this.enableDocSearch && this.hasDocSearchRendered) {
+        throw new Error('You need to pass docSearch: { apiKey, indexName, inputSelector } to communityHeader function in order to initialise docSearch');
+      } else if (this.enableDocSearch && this.hasDocSearchRendered) {}
+    }
+  }, {
+    key: 'checkDocSearch',
+    value: function checkDocSearch() {
+      var docSearch = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
+
+
+      if (docSearch) return docSearch;else if (typeof docsearch === "function") {
+        return docsearch;
+      }
+    }
+  }, {
+    key: 'verifyDocSearchParams',
+    value: function verifyDocSearchParams(docSearchCredentials) {
+      return docSearchCredentials && docSearchCredentials.apiKey && docSearchCredentials.indexName && docSearchCredentials.inputSelector ? true : false;
+    }
+  }, {
+    key: 'triggerMenu',
+    value: function triggerMenu(event) {
+      var _this2 = this;
+
+      var dropdown = event.target.dataset.dropdown;
+      var newTarget = this.menuDropdowns[dropdown].content;
+      var newContent = this.menuDropdowns[dropdown].parent;
+
+      var navItem = this.calculatePosition(event.target);
+      var newTargetCoordinates = this.calculatePosition(newTarget);
+      var menuContainerOffset = this.calculatePosition(this.menuContainer);
+      var leftDistance = void 0;
+
+      var scaleFactors = {
+        X: newTargetCoordinates.realWidth / this.INIT_VAL.WIDTH,
+        Y: newTargetCoordinates.realHeight / this.INIT_VAL.HEIGHT
+      };
+
+      leftDistance = navItem.center - menuContainerOffset.left + "px";
+
+      if (menuContainerOffset.left < 20) {
+        leftDistance = "calc(50% - 36px)";
+      }
+
+      this.navBg.style.cssText = '\n      transform: translateX(' + leftDistance + ') scale(' + scaleFactors.X + ', ' + scaleFactors.Y + ')';
+
+      this.navArrow.style.cssText = '\n      transform: translateX(' + leftDistance + ') rotate(45deg)';
+
+      this.dropDownContainer.style.cssText = '\n      transform: translateX(' + leftDistance + ');\n      width: ' + newTargetCoordinates.realWidth + 'px;\n      height: ' + (newTargetCoordinates.realHeight + 10) + 'px;';
+
+      this.dropdownRoot.style.pointerEvents = "auto";
+
+      Object.keys(this.menuDropdowns).forEach(function (key) {
+        if (key === dropdown) {
+          _this2.menuDropdowns[key].parent.classList.add('active');
+        } else {
+          _this2.menuDropdowns[key].parent.classList.remove('active');
+        }
+      });
+
+      if (!this.menuState.isOpen) {
+        setTimeout(function () {
+          _this2.navRoot.className = "algc-dropdownroot activeDropdown";
+        }, 50);
+      }
+
+      window.clearTimeout(this.disableTransitionTimeout);
+      this.menuState.isOpen = true;
+    }
+  }, {
+    key: 'shouldTriggerMenu',
+    value: function shouldTriggerMenu(event) {
+      var _this3 = this;
+
+      if (this.menuState.isOpen) {
+        this.triggerMenu(event);
+      } else {
+        this.triggerMenuTimeout = setTimeout(function () {
+          _this3.triggerMenu(event);
+        }, 200);
+      }
+    }
+  }, {
+    key: 'closeMenu',
+    value: function closeMenu(event) {
+      var _this4 = this;
+
+      window.clearTimeout(this.triggerMenuTimeout);
+      this.menuState.isOpen = false;
+      this.disableTransitionTimeout = setTimeout(function () {
+        _this4.dropdownRoot.style.pointerEvents = "none";
+        _this4.navRoot.className = "algc-dropdownroot notransition";
       }, 50);
     }
-
-    window.clearTimeout(disableTransitionTimeout);
-    state.isOpen = true;
-  };
-
-  var closeMenu = function closeMenu(event) {
-    state.isOpen = false;
-    disableTransitionTimeout = setTimeout(function () {
-      dropdownRoot.style.pointerEvents = "none";
-      navRoot.className = "algc-dropdownroot notransition";
-    }, 50);
-  };
-
-  var _utils = {};
-
-  _utils.calculatePosition = function (sourceNode) {
-    var box = sourceNode.getBoundingClientRect();
-    var realWidth = sourceNode.offsetWidth;
-    var realHeight = sourceNode.offsetHeight;
-
-    return {
-      left: box.left,
-      top: box.top,
-      width: box.width,
-      height: box.height,
-      realWidth: realWidth,
-      realHeight: realHeight,
-      center: box.left + box.width / 2
-    };
-  };
-
-  _utils.setClassNames = function (id) {
-    var nodeCount = Object.keys(refs);
-    nodeCount.forEach(function (ref, index) {
-      var node = refs[ref].nodes[1];
-      if (index < id) {
-        node.className = 'algc-dropdownroot__section left';
-      } else if (index === id) {
-        node.className = 'algc-dropdownroot__section active';
-      } else {
-        node.className = 'algc-dropdownroot__section right';
-      }
-    });
-  };
-
-  _utils.getCoordinates = function (target) {
-    var box = target.getBoundingClientRect();
-  };
-
-  var toggleMobileMenu = function toggleMobileMenu(event) {
-    mobileMenuButton.classList.toggle('algc-openmobile--open');
-    mobileMenu.classList.toggle('algc-mobilemenu--open');
-  };
-
-  // Search
-  var docSearchToggling = function docSearchToggling() {
-    function openSearchInput() {
-      searchContainer.classList.add('open');
-      searchInput.focus();
+  }, {
+    key: 'toggleMobileMenu',
+    value: function toggleMobileMenu(event) {
+      this.mobileMenuButton.classList.toggle('algc-openmobile--open');
+      this.mobileMenu.classList.toggle('algc-mobilemenu--open');
     }
 
-    function closeSearchInput() {
-      searchInput.blur();
-      searchContainer.classList.remove('open');
+    // Search
+
+  }, {
+    key: 'docSearchToggling',
+    value: function docSearchToggling() {
+      var _this5 = this;
+
+      this.searchInput = document.querySelector(this.docSearchCredentials.inputSelector);
+      var openSearchInput = function openSearchInput() {
+        _this5.searchContainer.classList.add('open');
+        _this5.searchInput.focus();
+      };
+
+      var closeSearchInput = function closeSearchInput() {
+        _this5.searchInput.blur();
+        _this5.searchContainer.classList.remove('open');
+      };
+
+      var emptySearchInput = function emptySearchInput() {
+        if (_this5.searchInput.value !== '') {
+          _this5.searchInput.value = '';
+        } else {
+          closeSearchInput();
+        }
+      };
+      this.searchInput.setAttribute('value', '');
+      this.searchIcon.addEventListener('click', openSearchInput);
+      this.cancelIcon.addEventListener('click', emptySearchInput);
     }
+  }, {
+    key: 'initDocSearch',
+    value: function initDocSearch() {
+      this.docSearchToggling();
+      this.docSearchInit(this.docSearchCredentials);
+    }
+  }, {
+    key: 'initDocSearchStrategy',
+    value: function initDocSearchStrategy() {
+      var _this6 = this;
 
-    function emptySearchInput() {
-      if (searchInput.value !== '') {
-        searchInput.value = '';
-      } else {
-        closeSearchInput();
+      if (this.enableDocSearch && typeof this.docSearchInit === "function") {
+        this.initDocSearch();
+      } else if (this.docSearch === "lazy") {
+
+        var docSearchScript = document.createElement('script');
+        docSearchScript.type = 'text/javascript';
+        docSearchScript.async = true;
+        document.body.appendChild(docSearchScript);
+
+        docSearchScript.onload = function () {
+          _this6.docSearchInit = docsearch;
+          _this6.initDocSearch();
+        };
+
+        docSearchScript.src = "https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js";
       }
     }
-    searchInput.setAttribute('value', '');
-    searchIcon.addEventListener('click', openSearchInput);
-    cancelIcon.addEventListener('click', emptySearchInput);
-  };
+  }, {
+    key: 'openSublist',
+    value: function openSublist(event) {
+      event.preventDefault();
+      event.stopPropagation();
 
-  // If the user type :"s" or "/", open the searchbox
-  var catchSearchShortcuts = function catchSearchShortcuts() {
-    var keyPressed = {};
+      this.subListHolders.forEach(function (holder) {
+        if (holder === event.target.parentNode && !event.target.parentNode.classList.contains('open')) {
+          holder.classList.add('open');
+        } else {
+          holder.classList.remove('open');
+        }
+      });
+    }
+  }, {
+    key: 'closeSubLists',
+    value: function closeSubLists(event) {
+      this.subListHolders.forEach(function (holder) {
+        return holder.classList.remove('open');
+      });
+    }
+  }, {
+    key: 'bindListeners',
+    value: function bindListeners() {
+      var _this7 = this;
 
-    document.addEventListener('keydown', function (e) {
-      keyPressed[e.keyCode] = true;
-    }, false);
-    document.addEventListener('keyup', function (e) {
-      keyPressed[e.keyCode] = false;
-    }, false);
+      this.subList.forEach(function (link) {
+        link.addEventListener('click', _this7.openSublist);
+      });
 
-    var searchLoop = function searchLoop(event) {
-      if (keyPressed['83'] || keyPressed['191']) {
-        document.querySelector('.algc-search__input').parentNode.classList.add('open');
-        searchInput.focus();
+      this.menuTriggers.forEach(function (item) {
+        item.addEventListener('mouseenter', _this7.shouldTriggerMenu);
+        item.addEventListener('focus', _this7.triggerMenu);
+      });
 
-        setTimeout(function () {
-          keyPressed = {};
-        }, 500);
-      } else if (keyPressed['27']) {
-        document.querySelector('.algc-search__input').parentNode.classList.remove('open');
-        searchInput.blur();
+      this.navItems.forEach(function (item) {
+        item.addEventListener('mouseleave', _this7.closeMenu);
+      });
 
-        setTimeout(function () {
-          keyPressed = {};
-        }, 500);
-      }
-      setTimeout(searchLoop, 5);
-    };
+      this.navContainer.addEventListener('mouseenter', function () {
+        clearTimeout(_this7.disableTransitionTimeout);
+      });
 
-    searchLoop();
-  };
+      this.mobileMenuButton.addEventListener('click', this.toggleMobileMenu);
+      document.addEventListener('click', this.closeSubLists);
+      document.querySelector('.algc-dropdownroot__dropdowncontainer').addEventListener('mouseleave', this.closeMenu);
+    }
+  }]);
 
-  if (enableDocSearch && typeof docSearchInit === "function") {
-    docSearchToggling();
-    catchSearchShortcuts();
-
-    docSearchInit(docSearchCredentials);
-  } else if (docSearch === "lazy") {
-    docSearchToggling();
-    catchSearchShortcuts();
-    var s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.async = true;
-    document.body.appendChild(s);
-    s.onload = function () {
-      docsearch(docSearchCredentials);
-    };
-    s.src = "https://cdn.jsdelivr.net/docsearch.js/2/docsearch.min.js";
-  }
-
-  function openSubList(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    subListHolders.forEach(function (holder) {
-      if (holder === event.target.parentNode && !event.target.parentNode.classList.contains('open')) {
-        holder.classList.add('open');
-      } else {
-        holder.classList.remove('open');
-      }
-    });
-  }
-
-  function closeSubLists(event) {
-    subListHolders.forEach(function (holder) {
-      return holder.classList.remove('open');
-    });
-  }
-
-  subList.forEach(function (link) {
-    return link.addEventListener('click', openSubList);
-  });
-
-  // Assign event listeners
-  menuTriggers.forEach(function (item) {
-    item.addEventListener('mouseenter', triggerMenu);
-    item.addEventListener('focus', triggerMenu);
-  });
-
-  navItems.forEach(function (item) {
-    item.addEventListener('mouseleave', closeMenu);
-  });
-
-  navContainer.addEventListener('mouseenter', function () {
-    clearTimeout(disableTransitionTimeout);
-  });
-
-  document.addEventListener('click', closeSubLists);
-  document.querySelector('.algc-dropdownroot__dropdowncontainer').addEventListener('mouseleave', closeMenu);
-
-  mobileMenuButton.addEventListener('click', toggleMobileMenu);
-};
+  return communityHeader;
+}();

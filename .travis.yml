@@ -1,24 +1,21 @@
 dist: trusty
 sudo: required
 
-language: ruby
-
-rvm:
-  - 2.3.1
+language: node_js
+node_js:
+  - "node"
 
 branches:
   only:
     - master
 
 before_install:
-  - sudo npm cache clean -f
-  - sudo npm install -g n
-  - sudo n stable
-  - node -v
-
-script:
+  - rvm install 2.3.1
+  - bundle install
   - yarn install && node buildComponents.js
   - bundle exec jekyll build
+
+script:
   - bundle exec htmlproofer ./_site --url-swap "^/magento:" --only-4xx --allow-hash-href
 
 env:
