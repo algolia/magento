@@ -9,6 +9,8 @@ branches:
   only:
     - master
 
+cache: bundler
+
 before_install:
   - rvm install 2.3.1
   - bundle install
