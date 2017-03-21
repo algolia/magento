@@ -262,12 +262,13 @@ var communityHeader = function () {
     }
   }, {
     key: 'openSublist',
-    value: function openSublist(event) {
+    value: function openSublist(node) {
       event.preventDefault();
       event.stopPropagation();
-
+      var parent = node.parentNode;
       this.subListHolders.forEach(function (holder) {
-        if (holder === event.target.parentNode && !event.target.parentNode.classList.contains('open')) {
+        console.log(holder === parent, !parent.classList.contains('open'));
+        if (holder === parent && !parent.classList.contains('open')) {
           holder.classList.add('open');
         } else {
           holder.classList.remove('open');
@@ -286,8 +287,11 @@ var communityHeader = function () {
     value: function bindListeners() {
       var _this7 = this;
 
+      var that = this;
       this.subList.forEach(function (link) {
-        link.addEventListener('click', _this7.openSublist);
+        link.addEventListener('click', function (event) {
+          that.openSublist(this);
+        });
       });
 
       this.menuTriggers.forEach(function (item) {

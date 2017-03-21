@@ -39,7 +39,24 @@ const output = algoliaComponents.communityHeader({
         }
       ]
     },
-    { name: "FAQ", url: "/magento/faq/" }
+    { name: "FAQ", url: "/magento/faq/" },
+    { 
+      name: "Github",
+      url: "#",
+      image: "<img src='/magento/img/icon-github.svg' alt='View on Github'/>",
+      dropdownItems: [
+        { 
+          name: "Magento 1",
+          url: "https://github.com/algolia/algoliasearch-magento",
+          target: "_blank"
+        },
+        {
+          name: "Magento 2",
+          url: "https://github.com/algolia/algoliasearch-magento-2",
+          target: "_blank"
+        }
+      ]
+    },
   ],
   mobileMenu: [
     { name: "Home", url: "/magento/" },
