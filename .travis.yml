@@ -10,6 +10,12 @@ branches:
   only:
     - master
 
+before_install:
+  - sudo npm cache clean -f
+  - sudo npm install -g n
+  - sudo n stable
+  - node -v
+
 script:
   - yarn install && node buildComponents.js
   - bundle exec jekyll build
