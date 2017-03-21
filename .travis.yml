@@ -1,14 +1,23 @@
-language: ruby
+dist: trusty
+sudo: required
 
-rvm:
-  - 2.3.1
+language: node_js
+node_js:
+  - "node"
 
 branches:
   only:
     - master
 
-script:
+cache: bundler
+
+before_install:
+  - rvm install 2.3.1
+  - bundle install
+  - yarn install && node buildComponents.js
   - bundle exec jekyll build
+
+script:
   - bundle exec htmlproofer ./_site --url-swap "^/magento:" --only-4xx --allow-hash-href
 
 env:

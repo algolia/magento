@@ -1,0 +1,23 @@
+{
+  "name": "magento",
+  "version": "1.0.0",
+  "description": "Magento Community Website",
+  "main": "index.js",
+  "dependencies": {
+    "algolia-frontend-components": "^0.0.20"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/algolia/magento.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/algolia/magento/issues"
+  },
+  "homepage": "https://github.com/algolia/magento#readme"
+}
