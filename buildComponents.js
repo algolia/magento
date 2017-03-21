@@ -5,7 +5,7 @@ const output = algoliaComponents.communityHeader({
   menu: {
     project: {
       label: "Magento",
-      url: "/magento/"
+      url: "https://community.algolia.com/magento/"
     }
   },
   sideMenu: [
