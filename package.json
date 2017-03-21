@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Magento Community Website",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "algolia-frontend-components": "^0.0.19"
+  },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,9 +18,6 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/algolia/magento/issues"
-  },
-  "dependencies": {
-    "algolia-frontend-components": "^0.0.18"
   },
   "homepage": "https://github.com/algolia/magento#readme"
 }
