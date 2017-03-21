@@ -9,7 +9,7 @@ dev:
 
 release:
 	rm -rf _site && \
-	rm -rf node_modules \
+	rm -rf node_modules && \
 	yarn && \
 	node buildComponents.js && \
 	bundle install && \
