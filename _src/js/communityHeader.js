@@ -265,8 +265,6 @@ var communityHeader = function () {
   }, {
     key: 'openSublist',
     value: function openSublist(node) {
-      event.preventDefault();
-      event.stopPropagation();
       var parent = node.parentNode;
       this.subListHolders.forEach(function (holder) {
         if (holder === parent && !parent.classList.contains('open')) {
@@ -291,6 +289,8 @@ var communityHeader = function () {
       var that = this;
       this.subList.forEach(function (link) {
         link.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
           that.openSublist(this);
         });
       });
