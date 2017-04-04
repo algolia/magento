@@ -4,7 +4,7 @@
   "description": "Magento Community Website",
   "main": "index.js",
   "dependencies": {
-    "algolia-frontend-components": "^0.0.26"
+    "algolia-frontend-components": "^0.0.31"
   },
   "devDependencies": {},
   "scripts": {
