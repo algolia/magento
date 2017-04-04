@@ -34,7 +34,8 @@ var communityHeader = function () {
 
     this.searchIcon = document.querySelector('#search');
     this.cancelIcon = document.querySelector('#cancel');
-    this.searchContainer = document.querySelector('.algc-search__input').parentNode;
+    this.searchInputContainer = document.querySelector('.algc-search__input');
+    this.searchContainer = this.searchInputContainer ? this.searchInputContainer.parentNode : null;
     this.navRoot = document.querySelector('.algc-dropdownroot');
     this.dropdownRoot = document.querySelector('.algc-navigation__dropdown-holder');
     this.navItems = document.querySelectorAll('a[data-enabledropdown="true"]');
@@ -111,11 +112,9 @@ var communityHeader = function () {
       var docSearch = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
 
       if (docSearch) return docSearch;
-      if (typeof docsearch === "function") {
+
+      if (typeof window.docsearch === "function" || typeof docsearch === "function") {
         return docsearch;
-      }
-      if (docsearch.default && typeof docsearch.default === "function") {
-        return docsearch.default;
       }
     }
   }, {
