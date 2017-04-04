@@ -6,6 +6,46 @@ const output = algoliaComponents.communityHeader({
     project: {
       label: "Magento",
       url: "https://community.algolia.com/magento/"
+    },
+    community: {
+      dropdownItems:[
+        {
+          "name": "Wordpress",
+          "url": "https://community.algolia.com/wordpress",
+          "logo": "https://community.algolia.com/wordpress/img/icons/wp-icon.svg",
+          "backgroundColor": "linear-gradient(to bottom right, #4041B2, #516ED1)"
+        },
+        {
+          "name": "Shopify",
+          "url": "https://community.algolia.com/shopify",
+          "logo": "shopify",
+          "backgroundColor": "linear-gradient(to bottom left, #29D98D, #03A8F6 450%)"
+        },
+        {
+          "name": "React InstantSearch",
+          "url": "https://community.algolia.com/instantsearch.js/react",
+          "logo": "InstantSearchReact",
+          "backgroundColor": "linear-gradient(to bottom left, #2C5EE2 0%, #17204F 150%)"
+        },
+        {
+          "name": "instantsearch.js",
+          "url": "https://community.algolia.com/instantsearch.js/",
+          "logo": "https://community.algolia.com/img/logo-is.svg",
+          "backgroundColor": "#385D72"
+        },
+        {
+          "name": "places.js",
+          "url": "https://community.algolia.com/places/",
+          "logo": "https://community.algolia.com/places/images/svg/places-illustration-65745839.svg",
+          "backgroundColor": "#3a5395"
+        },
+        {
+          "name": "Helper.js",
+          "url": "https://community.algolia.com/algoliasearch-helper-js/",
+          "logo": "https://community.algolia.com/img/logo-helper.svg",
+          "backgroundColor": "#FDBD57"
+        }
+      ]
     }
   },
   sideMenu: [
