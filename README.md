@@ -9,6 +9,7 @@ To run the website locally, you can do:
 
 ```sh
 $ bundle install
+$ npm install
 $ bundle exec guard
 $ open http://localhost:4000/magento/
 ```
