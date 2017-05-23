@@ -141,15 +141,15 @@ The extenstion supports only backend search for regular search page and these re
 ## Can I have different ordering of products on category pages with instant search? (e.g. with Visual Merchandiser)
 
 Yes, this is definitelly doable, but you have to be aware that you'll need to create more records in Algolia indices.
-Algolia is designed for searching and for providing the best relevancy on search queries. With this being said there are some limitations regarding sorting the results according specific attributes. 
+Algolia is designed for searching and for providing the best relevancy on search queries. With this being said there are some limitations regarding sorting the results according specific attributes.
 
 First, you need to create a custom attribute with Virtual Merchandiser position which reflects the product's ranking with it's category. And push it to Algolia within products' records.
 In case you have each product in only one category you can push to Algolia this attribute and then you can just set this attribute as the very first attribute for custom ranking and you are done.
 
-If you have product in multiple categories and within each category it has a different ranking it becomes a bit tricky. 
-This use-case can be handled only by slave indices when you have one index per category and in each of these indices you have a different ranking strategy. 
+If you have product in multiple categories and within each category it has a different ranking it becomes a bit tricky.
+This use-case can be handled only by slave indices when you have one index per category and in each of these indices you have a different ranking strategy.
 To achieve that you need to create a custom attribute with Virtual Merchandiser position for each category. Then you should create as many sort / slave indices as many VM custom attributes you have.
-Next you will have to update your JavaScript code to target the correct index for each browsed category. 
+Next you will have to update your JavaScript code to target the correct index for each browsed category.
 
 It’s definitelly not optimal solution as you would have huge amount of records in Algolia and as well it’s not good for Algolia’s performance. But this is the only way how to achieve that.
 
@@ -162,12 +162,24 @@ This means you didn't install the extension in a correct way. There are two supp
 - via Composer
 - via Component Manager
 
-Both ways how to install the extension are decribed in [the documentation](/magento/doc/m2/getting-started/#install-the-extension). 
+Both ways how to install the extension are decribed in [the documentation](/magento/doc/m2/getting-started/#install-the-extension).
  Please, reinstall the extension.
- 
+
 ## The indexed URLs from my Magento 2 store are wrong, there is additional **magento/** in the middle of indexed URLs
 
 Navigate to **Stores > Configuration > General > Web > Search Engine Optimilization** and there set the field **Use Web Server Rewrites** to **Yes**. Then please reindex your catalog.
+
+## In Magento2, the indexed image URLs have /pub/ at the beginning
+
+This happens when your server is set use the `/pub/` directory as your root directory. This is
+usually considered a good practice but their can be some drawbacks. When Algolia extension generates
+URLs for your images, there is no way to know if you use the root Magento folder or the pub folder as
+your root directory.
+
+The best way is to [set your server](https://gist.github.com/julienbourdeau/ad4fadd9bbf9f99c46f8f8e28fb14ffc) to ignore this `/pub/` in the URLs.
+
+There is also an option in the extension which will fix this without any server configuration.
+Navigate to **Stores > Configuration > Advanced > Remove /pub/ from image URLs** and set the field to **Yes**. Then please reindex your catalog.
 
 ## My Magento generates a lot of delete operations, how can I prevent that?
 
