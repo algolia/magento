@@ -15,7 +15,7 @@ There are 3 folders involved in the drop-down menu customization:
 In the first one you can find all the extension templates. In the others you’ll find the extension’s JavaScript and stylesheets.
 
 <div class="alert alert-warning">
-    Make sure you aren't modifying but <strong>overriding</strong> these files. You can learn how to do that by reading <a href="{{ site.baseurl }}/doc/m1/customize-extension/">"How to customize the extension"</a> first.
+    Make sure you aren't modifying but <strong>overriding</strong> these files. You can learn how to do that by reading <a href="/magento/doc/m1/customize-extension/">"How to customize the extension"</a> first.
 </div>
 
 ## Search box template
@@ -37,13 +37,21 @@ In there you will find the templates used to render the drop-down menu:
 
 ## Customize the integration (JavaScript)
 
-You can adjust all the logic of the autocomplete.js integration by overriding the file of the same name located in the [JavaScript folder](https://github.com/algolia/algoliasearch-magento/blob/master/js/algoliasearch/autocomplete.js).
+You can adjust all the logic of the autocomplete.js integration by writing your own custom method `algoliaHookBeforeAutocompleteStart(sources, options)` in your own JS file.
+If this method is defined in your code, it will be called by the extension right before it initialize the autocomplete feature.
 
-Feel free to:
+In this method you can modify the [datasources](https://github.com/algolia/autocomplete.js#datasets) and [options](https://github.com/algolia/autocomplete.js#options) used by autocomplete menu.
 
-* Add custom sources,
-* Customize templates,
-* Customize the behavior.
+Example of the method:
+
+```js
+function algoliaHookBeforeAutocompleteStart(sources, options) {
+	
+	// modify default sources and options as you want
+	
+	return [sources, options];
+}
+```
 
 ## Look & feel
 
