@@ -37,7 +37,7 @@ In there you will find the templates used to render the drop-down menu:
 
 ## Customize the integration (JavaScript)
 
-You can adjust all the logic of the autocomplete.js integration by writing your own custom method `algoliaHookBeforeAutocompleteStart(sources, options)` in your own JS file.
+You can adjust all the logic of the autocomplete.js integration by writing your own custom method `algoliaHookBeforeAutocompleteStart(sources, options, algoliaClient)` in your own JS file.
 If this method is defined in your code, it will be called by the extension right before it initialize the autocomplete feature.
 
 In this method you can modify the [datasources](https://github.com/algolia/autocomplete.js#datasets) and [options](https://github.com/algolia/autocomplete.js#options) used by autocomplete menu.
@@ -45,7 +45,7 @@ In this method you can modify the [datasources](https://github.com/algolia/autoc
 Example of the method:
 
 ```js
-function algoliaHookBeforeAutocompleteStart(sources, options) {
+function algoliaHookBeforeAutocompleteStart(sources, options, algoliaClient) {
 	
 	// modify default sources and options as you want
 	
