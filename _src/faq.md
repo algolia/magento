@@ -73,7 +73,7 @@ If you can find the missing products in Algolia, check if the products have set 
 If you cannot find the products in Algolia indices, the products are not indexed in Algolia. The extension indexes only visible, enabled and "on-stock" products (only in case you have set you want to index only "on-stock" products). More information about indexing you can find in [documentation](/magento/doc/m1/indexing/).
 So please check if the products meet all the requirements for indexing. If they do you should hit "Reindex" button again and check again the Algolia index.
 
-If the issues persist you can go Algolia configuration in Magento, turn on logging and investigate log files. There you should be able to find more information about what is going on while re-indexing. More information about troubleshooting and debugging you can find in [documentation](/magento/doc/m1/backend/#logging--debugging).
+If the issues persist you can go Algolia configuration in Magento, turn on logging and investigate log files. There you should be able to find more information about what is going on while re-indexing. More information about troubleshooting and debugging you can find in [documentation](/magento/doc/m1/logging-and-debugging/).
 
 ## I cannot find my products by SKU
 
