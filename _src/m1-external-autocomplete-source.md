@@ -36,41 +36,39 @@ Example:
 
 ## Create new data data source
 
-To create a new data source you need to edit [autocomplete.js](https://github.com/algolia/algoliasearch-magento/blob/master/js/algoliasearch/autocomplete.js) file in the extension’s JavaScript folder. There you are able to create a custom data source, append it to `sources` variable and pass it to `autocomplete(...)` call.
+To create a new data source you need to define a `algoliaHookBeforeAutocompleteStart` method in your JS file.
 
-To do so, you need to locate 
+<div class="alert alert-info">
+	How to create a new JS file and load it to your Magento store you find in <a href="/magento/doc/m1/customize-extension/">"How to customize the extension"</a> tutorial.
+</div>
 
-```javascript
-/**
- * ADD YOUR CUSTOM DATA SOURCE HERE
- **/
-```
+This method is called before initialization of autocomplete feature and accepts two parameters: `sources` and `options`.
 
-lines. You can put your new data source below those lines:
+To add a new datasource using this method, you can specify the method like:
 
-```javascript
-/**
- * ADD YOUR CUSTOM DATA SOURCE HERE
- **/
-
-var customIndex = algolia_client.initIndex("your_index_name");
-var customIndexOptions = {
-  hitsPerPage: 4
-};
-
-// id_of_your_template should be value of ID attribute
-// in <script> tag of your template
-var customTemplate = template = $('#id_of_your_template').html();
-
-// new source appended to the `sources` array
-sources.push({
-  source: $.fn.autocomplete.sources.hits(customIndex, custom_index_options),
-  templates: {
-    suggestion: function (hit) {
-      return algoliaBundle.Hogan.compile(customTemplate).render(hit);
-    }
-  }
-});
+```js
+function algoliaHookBeforeAutocompleteStart(sources, options, algoliaClient) {
+    var customIndex = algoliaClient.initIndex("your_index_name");
+    var customIndexOptions = {
+        hitsPerPage: 4
+    };
+    
+    // id_of_your_template should be value of ID attribute
+    // in <script> tag of your template
+    var customTemplate = $('#id_of_your_template').html();
+    
+    // new source appended to the `sources` array
+    sources.push({
+        source: $.fn.autocomplete.sources.hits(customIndex, customIndexOptions),
+        templates: {
+            suggestion: function (hit) {
+                return algoliaBundle.Hogan.compile(customTemplate).render(hit);
+            }
+        }
+    });
+    
+    return [sources, options];
+}
 ```
 
 That’s it. Now you are able to search for your external data.
