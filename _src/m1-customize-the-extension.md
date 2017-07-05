@@ -88,9 +88,41 @@ The important part here is that you reference the correct name of the template. 
 <block type="core/template" template="algoliasearch/autocomplete/page.phtml" name="algolia-autocomplete-page"/>
 ```
 
+## Adding a new JavaScript file
 
+Via the custom extension you can add a new JavaScript file to your store.
+In this file you can define [custom methods](/magento/doc/m1/frontend-events/), which can be used to modify instant search or autocomplete functionality.
 
-## Overriding JavaScript
+### Step 1: Create your new file
+
+Create a new file `js/customalgolia/custom_js.js`. You can now modify the new file according to your needs.
+
+### Step 2: Let Magento know about it
+
+Open up the configuration file `customalgolia.xml` and add the following code block. It will register the new file.
+
+```xml
+<layout>
+    <algolia_search_handle>
+        <reference name="head">
+
+            <!-- [...] -->
+
+            <action method="addJs">
+                <script>customalgolia/custom_js.js</script>
+            </action>
+
+        </reference>
+    </algolia_search_handle>
+</layout>
+```
+<div class="alert alert-info">
+    Adding a new JS file and using
+    <a href="{{ site.baseurl }}/doc/m1/frontend-events/">the front-end custom events</a>
+    is prefered way to modify the front-end functionality before overriding JS files.
+</div>
+
+## Overriding a JavaScript file
 
 Overriding JavaScript works very much the same way as overriding a template.
 
@@ -98,7 +130,7 @@ In this example we're going to override the `instantsearch.js` file which declar
 
 ### Step 1: Create your new file
 
-Copy the original file `js/algoliasearch/autocomplete.js` to `js/customalgolia/autocomplete.js`. You can now modify the new file according to your needs.
+Copy the original file `js/algoliasearch/instantsearch.js` to `js/customalgolia/instantsearch.js`. You can now modify the new file according to your needs.
 
 ### Step 2: Let Magento know about it
 
@@ -113,11 +145,11 @@ Open up the configuration file `customalgolia.xml` and add the following code bl
 
             <action method="removeItem">
                 <type>js</type>
-                <name>algoliasearch/autocomplete.js</name>
+                <name>algoliasearch/instantsearch.js</name>
             </action>
 
             <action method="addJs">
-                <script>customalgolia/autocomplete.js</script>
+                <script>customalgolia/instantsearch.js</script>
             </action>
 
         </reference>
