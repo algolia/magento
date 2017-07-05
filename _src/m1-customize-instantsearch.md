@@ -66,7 +66,7 @@ function algoliaHookBeforeWidgetInitialization(allWidgetConfiguration) {
     var wrapper = document.getElementById('instant-search-facets-container');
     
     var widget = {
-        container: wrapper.appendChild(createISWidgetContainer(ratingAttr)),
+        container: wrapper.appendChild(createISWidgetContainer('in_stock')),
         attributeName: 'in_stock',
         label: 'In Stock',
         values: {
