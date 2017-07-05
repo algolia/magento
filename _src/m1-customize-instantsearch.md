@@ -36,7 +36,7 @@ In there you will find the templates used to render the drop-down menu:
 
 ## Customize the integration (JavaScript)
 
-You can adjust all the logic of the instantsearch.js integration by couple of custom JS methods:
+You can adjust all the logic of the InstantSearch.js integration by couple of custom JS methods:
 
 - `algoliaHookBeforeInstantsearchInit(instantsearchOptions)`
 	- can be used to modify default [instant search options](https://community.algolia.com/instantsearch.js/documentation/#initialization)
@@ -47,7 +47,7 @@ You can adjust all the logic of the instantsearch.js integration by couple of cu
 - `algoliaHookAfterInstantsearchStart(search)`
     - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/documentation/#initialization) after call of [`start()`](https://community.algolia.com/instantsearch.js/documentation/#start) method
 
-By defining this method(s) in your JS file, you can directly modify it's parameter which needs to be then returned back from the method.
+By defining this method(s) in your JS file, you can directly modify it's parameter which must be returned back from the method.
 
 Example of `algoliaHookBeforeInstantsearchInit(instantsearchOptions)` method:
 
