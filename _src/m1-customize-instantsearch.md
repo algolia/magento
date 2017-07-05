@@ -27,7 +27,7 @@ To change the layout of the page, navigate to the templates directory and locate
 
 To edit all templates used on instant search result page navigate to the extension’s template folder and there to [instantsearch](https://github.com/algolia/algoliasearch-magento/tree/master/app/design/frontend/base/default/template/algoliasearch/instantsearch) folder.
 
-In there you will find the templates used to render the drop-down menu:
+In there you will find the templates used to render the instant search page:
 
 * [hit.phtml](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/template/algoliasearch/instantsearch/hit.phtml) - template of a single product
 * [refinementsItem.phtml](https://github.com/algolia/algoliasearch-magento/blob/master/app/design/frontend/base/default/template/algoliasearch/instantsearch/refinementsItem.phtml) - template of a filter
