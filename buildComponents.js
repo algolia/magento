@@ -100,8 +100,8 @@ const output = algoliaComponents.communityHeader({
   ],
   mobileMenu: [
     { name: "Home", url: "/magento/" },
-    { name: "Install Magento 1" ,url: "https://www.magentocommerce.com/magento-connect/search-algolia-search.html", target: "_blank"},
-    { name: "Install Magento 2" ,url: "https://marketplace.magento.com/algolia-algoliasearch-magento-2.html", target: "_blank"},
+    { name: "Install Magento 1" ,url: "https://community.algolia.com/magento/doc/m1/getting-started/", target: "_blank"},
+    { name: "Install Magento 2" ,url: "https://community.algolia.com/magento/doc/m2/getting-started/", target: "_blank"},
     { name: "Magento 1 Docs", url: "https://community.algolia.com/magento/doc/m1/getting-started/" },
     { name: "Magento 2 Docs", url: "https://community.algolia.com/magento/doc/m2/getting-started/" },
     { name: "Discourse", url: "https://discourse.algolia.com/c/magento", target: "_blank"},
