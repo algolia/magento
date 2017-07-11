@@ -55,12 +55,12 @@ const output = algoliaComponents.communityHeader({
       dropdownItems: [ 
         {
           name: "Magento 1",
-          url: "https://www.magentocommerce.com/magento-connect/search-algolia-search.html",
+          url: "https://community.algolia.com/magento/doc/m1/getting-started/",
           target: "_blank"
         },
         { 
           name: "Magento 2",
-          url: "https://marketplace.magento.com/algolia-algoliasearch-magento-2.html",
+          url: "https://community.algolia.com/magento/doc/m2/getting-started/",
           target: "_blank"
         }
       ],
