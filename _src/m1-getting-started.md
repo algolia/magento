@@ -10,9 +10,9 @@ redirect_from:
 
 For getting started you can watch our video where we will show you how to setup our Magento extension:
 
-<div style="text-align: center; margin-bottom: 30px;">
+<!-- <div style="text-align: center; margin-bottom: 30px;">
     <iframe width="640" height="480" src="https://www.youtube.com/embed/DUuv9ALS5cM?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
+</div> -->
 
 Or please follow those few steps to get started Algolia Search extension:
 
@@ -28,10 +28,15 @@ Or please follow those few steps to get started Algolia Search extension:
 
 ## Install the extension
 
-1. Install the extension from the [Magento Commerce](http://www.magentocommerce.com/magento-connect/search-algolia-instant-search.html) or download it from [GitHub](https://github.com/algolia/algoliasearch-magento).
+1. Install the extension via [modman](https://github.com/colinmollenhour/modman) by:
+`$ cd /path/to/your/magento/directory`
+`$ modman init`
+`$ modman clone https://github.com/algolia/algoliasearch-magento.git`
+
 2. In your Magento administration navigate to **System > Configuration > Catalog > Algolia Search** administration panel.
 3. In **Credentials & Setup** tab configure your Algolia credentials.
 
+<!-- 1. Install the extension from the [Magento Commerce](http://www.magentocommerce.com/magento-connect/search-algolia-instant-search.html) or download it from [GitHub](https://github.com/algolia/algoliasearch-magento). -->
 <figure>
     <img src="../../../img/configuration.png" class="img-responsive" alt="Configuration">
     <figcaption>Extension's basic information configurations</figcaption>
