@@ -2,6 +2,7 @@
 layout: m2-documentation
 title: How to add external autocomplete source
 permalink: /doc/m2/external-autocomplete-source/
+description: Learn how to plug external data source to autocomplete menu in Algolia extension for Magento 2
 ---
 
 There are situations when you want to add external data source to your drop-down menu. For example integrate WordPress posts to you Magento’s autocomplete. In order to do that, you just need to follow a few steps:

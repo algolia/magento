@@ -2,6 +2,7 @@
 layout: m2-documentation
 title: Caveats
 permalink: /doc/m2/caveats/
+description: What the extension for Magento 2 relies on
 ---
 
 ###  Magento hooks

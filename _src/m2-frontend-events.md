@@ -2,6 +2,7 @@
 layout: m2-documentation
 title: Front-end custom events
 permalink: /doc/m2/frontend-events/
+description: Learn how use frontend custom events to be able to modify autocomplete menu and instant search results page in Algolia extension for Magento 2
 ---
 
 ## Autocomplete menu events

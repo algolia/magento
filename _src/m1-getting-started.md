@@ -6,6 +6,7 @@ redirect_from:
   - /doc/
   - /doc/getting-started/
   - /documentation/
+description: Learn how to get started with Algolia extension for Magento
 ---
 
 For getting started you can watch our video where we will show you how to setup our Magento extension:

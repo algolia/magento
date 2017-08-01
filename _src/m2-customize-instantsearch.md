@@ -2,6 +2,7 @@
 layout: m2-documentation
 title: Instant search page customization
 permalink: /doc/m2/customize-instantsearch/
+description: Learn how to customize the features and design of instant search results page in Algolia extension for Magento 2
 ---
 
 Customize the instant search results page.

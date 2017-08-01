@@ -2,6 +2,7 @@
 layout: m2-documentation
 title: Custom events
 permalink: /doc/m2/backend/
+description: The Algolia extension for Magento 2 provides custom events to modify the extension's behaviour
 ---
 
 For developers the extension provides custom events to hook custom code on top of Algolia Search extension.

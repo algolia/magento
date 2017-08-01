@@ -2,6 +2,7 @@
 layout: m2-documentation
 title: Logging and debugging
 permalink: /doc/m2/logging-and-debugging/
+description: Learn how to debug issues with Algolia extension for Magento 2
 ---
 
 Sometimes may happen that not everything run smoothly. In may be caused by millions of reasons. That is why we impletemented logging into Algolia's Magento extension.
