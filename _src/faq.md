@@ -62,7 +62,7 @@ Yes you just need to disable indexing for the store where you do not need Algoli
 
 ## I hit "Reindex" button, but there are still no products in Algolia indices
 
-In case you have indexing queue enabled, the reindex button will "only" insert indexing jobs to queue database table and not really send them to Algolia. Please make sure you have set queue proccessing correctly and you have set reasonable number of products to be processed in one job. If you set the number od processed products too high the processing script may run out of memory and no products will be indexed.
+In case you have indexing queue enabled, the reindex button will "only" insert indexing jobs to queue database table and not really send them to Algolia. Please make sure you have set queue processing correctly and you have set reasonable number of products to be processed in one job. If you set the number od processed products too high the processing script may run out of memory and no products will be indexed.
 More information about indexing queue can be found in [documentation](/magento/doc/m1/indexing/#indexing-queue).
 
 ## Some of my products do not come up during searching
@@ -81,7 +81,7 @@ Please, make sure you are using the newest version of the extension. And make su
 
 ## I have deleted some products, why are they still appearing in Algolia indices even after full reindex?
 
-Please, make sure you are using the latest version of the extension. It happens when you update / delete your products directly in database and do not trigger standart Magento hooks. The full reindex then had problem with recognizing deleted products and removing them from Algolia.
+Please, make sure you are using the latest version of the extension. It happens when you update / delete your products directly in database and do not trigger standard Magento hooks. The full reindex then had problem with recognizing deleted products and removing them from Algolia.
 
 This issue was resolved in version 1.6.0. Instruction how to upgrade can be found in [documentation](/magento/doc/m1/upgrade/).
 
@@ -129,29 +129,29 @@ But you can still customize the design of the instant search results page & the 
 
 ## How instant search page works?
 
-Instant search page is powered by JavaScript library [instantsearch.js](https://community.algolia.com/instantsearch.js/). This means that all the search is handled in your customer's web browser and nothing is going through Magento itself. The instant search fetches results directly from Algolia's API and renders them into the page. That said, instant search do not fetch the results from Magento engine and nothing is proccessed on your Magento server. This is one of the reasons why the searching in your catalog can be that fast and convenient.
+Instant search page is powered by JavaScript library [instantsearch.js](https://community.algolia.com/instantsearch.js/). This means that all the search is handled in your customer's web browser and nothing is going through Magento itself. The instant search fetches results directly from Algolia's API and renders them into the page. That said, instant search do not fetch the results from Magento engine and nothing is processed on your Magento server. This is one of the reasons why the searching in your catalog can be that fast and convenient.
 
 But on the other hand it brings two inconveniences:
 
 - **Templates:**
 When the whole page is rendered in your client's web browser it cannot respect your Magento store's custom templates. Templates for instant search page must be customized in the extension's template file. For more information about customizing see [Customization section](/magento/doc/m1/customize-instantsearch/) in the documentation.
 - **SEO:**
-The extenstion supports only backend search for regular search page and these results can be indexed by search engines like Google, Bing, etc... But because of the frontend implementantion instant search page results on category page cannot be indexed. But there is a workaround. Search parameters of the instant search page are pushed into page's URL. So it is possible to implement backend search base on the URL parameters so the instant search pages can be indexed. But the extension inself do not support this feature out of the box for now.
+The extension supports only backend search for regular search page and these results can be indexed by search engines like Google, Bing, etc... But because of the frontend implementation instant search page results on category page cannot be indexed. But there is a workaround. Search parameters of the instant search page are pushed into page's URL. So it is possible to implement backend search base on the URL parameters so the instant search pages can be indexed. But the extension itself do not support this feature out of the box for now.
 
 ## Can I have different ordering of products on category pages with instant search? (e.g. with Visual Merchandiser)
 
-Yes, this is definitelly doable, but you have to be aware that you'll need to create more records in Algolia indices.
+Yes, this is definitely doable, but you have to be aware that you'll need to create more records in Algolia indices.
 Algolia is designed for searching and for providing the best relevancy on search queries. With this being said there are some limitations regarding sorting the results according specific attributes.
 
 First, you need to create a custom attribute with Virtual Merchandiser position which reflects the product's ranking with it's category. And push it to Algolia within products' records.
 In case you have each product in only one category you can push to Algolia this attribute and then you can just set this attribute as the very first attribute for custom ranking and you are done.
 
 If you have product in multiple categories and within each category it has a different ranking it becomes a bit tricky.
-This use-case can be handled only by slave indices when you have one index per category and in each of these indices you have a different ranking strategy.
-To achieve that you need to create a custom attribute with Virtual Merchandiser position for each category. Then you should create as many sort / slave indices as many VM custom attributes you have.
+This use-case can be handled only by replica indices when you have one index per category and in each of these indices you have a different ranking strategy.
+To achieve that you need to create a custom attribute with Virtual Merchandiser position for each category. Then you should create as many sort / replica indices as many VM custom attributes you have.
 Next you will have to update your JavaScript code to target the correct index for each browsed category.
 
-It’s definitelly not optimal solution as you would have huge amount of records in Algolia and as well it’s not good for Algolia’s performance. But this is the only way how to achieve that.
+It’s definitely not optimal solution as you would have huge amount of records in Algolia and as well it’s not good for Algolia’s performance. But this is the only way how to achieve that.
 
 But you can always limit a scope of Visual Merchandiser usage and use it only for your main categories or use the same sorting strategy across all your categories.
 
@@ -162,12 +162,12 @@ This means you didn't install the extension in a correct way. There are two supp
 - via Composer
 - via Component Manager
 
-Both ways how to install the extension are decribed in [the documentation](/magento/doc/m2/getting-started/#install-the-extension).
+Both ways how to install the extension are described in [the documentation](/magento/doc/m2/getting-started/#install-the-extension).
  Please, reinstall the extension.
 
 ## The indexed URLs from my Magento 2 store are wrong, there is additional **magento/** in the middle of indexed URLs
 
-Navigate to **Stores > Configuration > General > Web > Search Engine Optimilization** and there set the field **Use Web Server Rewrites** to **Yes**. Then please reindex your catalog.
+Navigate to **Stores > Configuration > General > Web > Search Engine Optimization** and there set the field **Use Web Server Rewrites** to **Yes**. Then please reindex your catalog.
 
 ## In Magento2, the indexed image URLs have /pub/ at the beginning
 
@@ -185,7 +185,7 @@ Navigate to **Stores > Configuration > Advanced > Remove /pub/ from image URLs**
 
 The solution is to enable [the indexing queue](/magento/doc/m1/indexing/#indexing-queue).
 
-When the reindex is performed with disabled queue, ALL products (even disabled, invisible, ...) are processed and if the product is disabled/invisible/out-of-stock the delete operation is perfomed in Algolia no matter if the product is actually present in Algolia. It happens because the extension makes sure that only correct (indexable) products are present in index.
+When the reindex is performed with disabled queue, ALL products (even disabled, invisible, ...) are processed and if the product is disabled/invisible/out-of-stock the delete operation is performed in Algolia no matter if the product is actually present in Algolia. It happens because the extension makes sure that only correct (indexable) products are present in index.
 
 It does no happen when you are performing the reindex with queue enabled. If the queue is enabled, only active (indexable) products are processed and pushed to Algolia. With indexing queue enabled we can use temp indexes mechanism when only active products are indexed into temporary index. And when all products are index, the original production index is replaced by the temporary one and only correct products are present in Algolia.
 
