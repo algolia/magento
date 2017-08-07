@@ -2,6 +2,7 @@
 layout: m2-documentation
 title: Front-end (UI / UX)
 permalink: /doc/m2/ui-ux/
+description: Learn how the frontend code works in Algolia extension for Magento 2
 ---
 
 ## Custom theme

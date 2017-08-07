@@ -2,6 +2,7 @@
 layout: m1-documentation
 title: How to customize backend by using extension's events
 permalink: /doc/m1/customize-backend/
+description: Learn how to use backend custom events of Algolia extension for Magento
 ---
 
 Algolia is a powerful tool that opens the door to a variety of search features. Some of these features are for specific use cases and it would not be practical to implement them all directly in the extension. For this reason, the extension offers a series of hooks that you can use to take advantage of many extra things that Algolia offers.

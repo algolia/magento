@@ -2,6 +2,7 @@
 layout: faq
 title: FAQ
 permalink: /faq/
+description: See all the frequently asked questions about Algolia extension for Magento
 ---
 
 ## How many records does the Magento extension create?

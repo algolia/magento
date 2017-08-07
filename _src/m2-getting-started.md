@@ -5,6 +5,7 @@ permalink: /doc/m2/getting-started/
 redirect_from:
   - /m2/
   - /m2/documentation/
+description: Learn how to get started with Algolia extension for Magento 2
 ---
 
 ## Create an Algolia account

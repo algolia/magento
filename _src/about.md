@@ -2,6 +2,7 @@
 layout: page
 title: About Algolia
 permalink: /about/
+description: What is Algolia?
 ---
 
 Founded in 2012, Algolia is a privately held company created by developers, veterans in the fields of algorithms, search engines and text mining. We develop a search-as-a-service API to help developers deliver an intuitive search-as-you-type experience in their applications and websites.

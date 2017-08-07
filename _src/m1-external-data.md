@@ -2,6 +2,7 @@
 layout: m1-documentation
 title: How to index data from outside of Magento
 permalink: /doc/m1/external-data/
+description: Learn how to index data from outside of Magento and use it together with Algolia extension for Magento
 ---
 
 To return the best results, Algolia uses all available information - information sent by users but also information about your products. This allows us to combine textual relevance (the input given by the end-user) and business relevance (the metrics you provide).

@@ -2,6 +2,7 @@
 layout: m1-documentation
 title: Indexing
 permalink: /doc/m1/indexing/
+description: Learn how the indexing works in Algolia extension for Magento
 ---
 
 Before it can be searched, your data must be uploaded to Algolia. The process is called indexing and the extension will do this for you automatically.

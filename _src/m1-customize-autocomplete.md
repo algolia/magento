@@ -2,6 +2,7 @@
 layout: m1-documentation
 title: Autocomplete menu customization
 permalink: /doc/m1/customize-autocomplete/
+description: Learn how to customize the features and design of autocomplete menu in Algolia extension for Magento
 ---
 
 Customize the autocomplete drop-down menu which appears underneath the search bar on your Magento site.
