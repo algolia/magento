@@ -64,6 +64,22 @@ q:after {
   margin-right: 0.25em;
   vertical-align: -0.4em;
 }
+/* HIRING
+// ------------------------- */
+.hiring {
+  text-align: center;
+  background-color: #3a5395;
+  color: #FFF;
+  font-weight: 200;
+  border-bottom: 2px solid #FFF;
+  p {
+    margin: 13px 0 8px 0;
+    font-size: 0.9em;
+    a {
+      font-weight:bold;
+    }
+  }
+}
 /* JUMBOTRON
 // ------------------------- */
 .jumbotron {
