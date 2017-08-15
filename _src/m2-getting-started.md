@@ -32,9 +32,9 @@ Install the extension via [Composer](https://getcomposer.org/):
 
 ```
 $ composer require algolia/algoliasearch-magento-2
-$ bin/magento module:enable Algolia_AlgoliaSearch
-$ bin/magento setup:upgrade
-$ bin/magento setup:static-content:deploy
+$ php bin/magento module:enable Algolia_AlgoliaSearch
+$ php bin/magento setup:upgrade
+$ php bin/magento setup:static-content:deploy
 ```
 
 ## Configure Algolia credentials
@@ -52,7 +52,7 @@ There locate **Credentials & Setup** tab and configure your Algolia credentials:
 Force the re-indexing of all sections you want to synchronize with Algolia. In your console run command:
 
 ```sh
-$ bin/magento indexer:reindex algolia_products algolia_categories algolia_pages algolia_suggestions algolia_additional_sections
+$ php bin/magento indexer:reindex algolia_products algolia_categories algolia_pages algolia_suggestions algolia_additional_sections
 ```
 
 This command will trigger reindexing on all your content.
