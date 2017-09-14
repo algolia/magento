@@ -5,9 +5,11 @@ permalink: /doc/m2/indexing/
 description: Learn how the indexing works in Algolia extension for Magento 2
 ---
 
-So, you've installed your extension, followed all of the steps - setup your data, added settings, configured a number of things in the magento console, added the search bar - but nothing shows up - you search and nothing appears ... quick question, did your click *reindex* or enable *queueing*? If not, please read on ...
+<div class="alert alert-warning">
+You've <a href="http://localhost:4000/magento/doc/m2/getting-started/">installed your extension and followed all of the steps</a> - configured your data, chose your settings, and added a search bar to your site - but nothing shows up. You search and nothing appears ... Quick questions - Did you *upload your data*? Did you *reindex*? and enable *queueing*? If not, please read on, as this subject is  ...
+</div>
 
-Before it can be searched, your data must be uploaded to Algolia. The process is called indexing and the extension will do this for you automatically.
+Before your data can be searched, it must be uploaded to Algolia. This process is called indexing, which the extension does automatically.
 
 On this page you will find information about the default indexing process and how it works for different types of data.
 <!-- If you need to modify the default behaviour, you can to do it programmatically by using the extension’s events. To learn more, see this guide: [Using extension’s events](https://community.algolia.com/magento/doc/m1/customize-backend/). -->
