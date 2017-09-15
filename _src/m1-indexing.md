@@ -337,7 +337,7 @@ The extension supports indexing CMS pages, which will allow your customers to se
     <figcaption>Configuration of excluded pages</figcaption>
 </figure>
 
-If want to disable the indexing of pages, you can remove them in the Additional Sections configuration.
+If you want to disable the indexing of pages, you can remove them from the Additional Sections configuration:
 
 <figure>
     <img src="../../../img/additional_sections.png" class="img-responsive" alt="Additional sections">
