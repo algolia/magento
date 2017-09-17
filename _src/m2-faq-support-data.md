@@ -9,9 +9,9 @@ You're getting an error with your data or search results. It may be an error tha
 
 The types of errors vary, affecting both new and long-time users. And while many problems can be serious, they often require only a few simple steps to resolve.
 
-<div class="alert alert-info" style="white-space: pre-wrap">If you haven't yet installed the extension, or followed the steps in <a href="https://community.algolia.com/magento/doc/m2/getting-started/">getting started</a>, please do so before continuing.
+<div class="alert alert-info" style="white-space: pre-wrap">If you haven't yet installed the extension, or followed the steps in <a href="/magento/doc/m2/getting-started">getting started</a>, please do so before continuing.
 
-Also, if you are still having troubles after having gone through this page, please check out our <img style="display:inline-block;width:25px;" src="../../../img/algolia-logo-new.svg" class="img-responsive" alt="">search bar above to find more answers. You can also browse our sidebar, or check out our <a href="https://community.algolia.com/magento/faq/">Magento FAQ</a>, or the <a href="https://www.algolia.com/doc/">Algolia docs</a>.
+Also, if you are still having troubles after having gone through this page, please check out our <img style="display:inline-block;width:25px;" src="../../../img/algolia-logo-new.svg" class="img-responsive" alt="">search bar above to find more answers. You can also browse our sidebar, or check out our <a href="/magento/faq">Magento FAQ</a>, or the <a href="https://www.algolia.com/doc">Algolia docs</a>.
 </div>
 
 ---
@@ -119,9 +119,11 @@ When you add a new attribute to your facets, you need to reindex your products s
 
 > Some products are filtered out of your indexes - Check the products attributes ...
 
-The extension comes with a product-level filter that removes all out of stock or disabled products from your search results.  So no invisible products will be indexed. Can you please make sure that all of your products are enabled, visible, and in stock?
+The extension comes with a product-level filter that removes all out-of-stock and disabled products from your search results.  No invisible products will be indexed either. For more information, see our discussion about [Product Indexing](/magento/doc/m2/indexing/#products-indexing).
 
-If they are still not showing up, take a look at the logic below. This is what we use to filter out products. Maybe your products will be filtered?
+Can you therefore please make sure that all of your products are enabled, visible, and in stock?
+
+If they are still not showing up, take a look at the logic below. This is what we use to filter-out products. Maybe your products will be filtered?
 
 ```PHP
 // Remove product from index if: deleted, disabled, out of stock, not visible
