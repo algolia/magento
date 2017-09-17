@@ -1,6 +1,6 @@
 ---
 layout: m2-documentation
-title: Having troubles but don't know what to look for ?
+title: Other questions about the extension
 permalink: /doc/m2/faq-support-misc/
 description: FAQ on errors linked to things other than data, indexing, and queueing
 ---

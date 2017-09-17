@@ -1,6 +1,6 @@
 ---
 layout: m2-documentation
-title: Having troubles with your data, indexes, or queue ?
+title: Questions about your data, indexes, or queue
 permalink: /doc/m2/faq-support-data/
 description: FAQ on errors linked to data, indexing, and queueing
 ---
@@ -68,7 +68,7 @@ One thing to keep in mind is that with queueing, all indexing is <b>asynchronous
 ## My data is too large
 
 ### Data needs to be broken up into 10K chunks
-This is also discussed below related to timeouts and memory limits: Large indexes *will* cause problems if queueing is not enabled because **Algolia has a 10K size limit to all uploads.** 
+This is also discussed below related to timeouts and memory limits: Large indexes *will* cause problems if queueing is not enabled because **Algolia has a 10K size limit to all uploads.**
 
 Enabling the queue resolves this problem by breaking the index into 10K chunks, and sending each chunk one at a time.
 
