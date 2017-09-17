@@ -67,10 +67,12 @@ One thing to keep in mind is that with queueing, all indexing is <b>asynchronous
 
 ## My data is too large
 
-
 ### Data needs to be broken up into 10K chunks
-Explain
+This is also discussed below related to timeouts and memory limits: Large indexes *will* cause problems if queueing is not enabled because **Algolia has a 10K size limit to all uploads.** 
 
+Enabling the queue resolves this problem by breaking the index into 10K chunks, and sending each chunk one at a time.
+
+But it is important to note that, while queueing will solve the problem of large indexes, it will inevitably slow down the indexing. This is only natural. If you have 100K index, this means that 10 trips will be needed before your products are fully updated. If the cron job runs every 5 minutes, that means the 10 trips will take 5 minutes*10K = 50 minutes.
 
 ## Common errors
 
@@ -79,7 +81,7 @@ Explain
 First off, please confirm that you have indeed enabled indexing and your cron job is running. Not doing this correctly is the most common cause of error.
 
 <div class="alert alert-info">
-And don't forget: Even if your indexing fails, the next time the cron job runs, the process will start where it had left off - and this time, there might not be any error. So, one solution to an error is to have queueing enabled, because it is self-correcting.
+And don't forget: Even if your indexing fails, the next time the cron job runs, the process will start where it had left off - and this time it might not fail. So, the best solution to an error is to have queueing enabled, because it is self-correcting.
 </div>
 
 Let's look at some possible errors.
@@ -87,8 +89,13 @@ Let's look at some possible errors.
 ### Network errors
 Timeouts, outages. Usually, these are the kinds of errors automatically fixed thanks to the queueing process. So the next run may not have the same problem. However, if this error persists, please see if there is not some kind of lmarger issue affecting your infrastructure.
 
+### Running out of memory
+Large indexes, as discussed immediately below, will commonly cause memory problems. For one, Magento has some problems with memory leaks which cause errors when memory usage increases. Secondly, with Algolia, memory usage increases when you send Algolia an index that exceeds 10K. We not only suggest, but in fact we require that all indexes be no greater than 10K. Queueing resolves this problem, because the cron job will break up large indexes into 10K chunks, ensuring success. Without the cron job, and with EMPTY_QUEUE=1, there is no check on the index size.
+
 ### Too many products
-Many times a reindex stops because you have too many products. The result is that your data will not be complete - some data will be missing, or not updated, or not all of your facets will be present. The indexing process has to finish before your data will be complete.
+As already stated, Algolia only accepts 10K index sizes. If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
+
+So, knowing this - that a reindex will stop because you have too many products - the result is that your data will not be complete until the whole index is uploaded to Algolia - and this might take some time. In the meantime, some data will be missing, or not updated, or not all of your facets will be present. The indexing process has to finish before your data will be complete.
 
 How do you know if the indexing process has failed?
 
