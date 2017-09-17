@@ -5,7 +5,7 @@ permalink: /doc/m2/faq-support-misc/
 description: FAQ on errors linked to things other than data, indexing, and queueing
 ---
 
-You're getting an error but have no idea where to start looking! Well, we've put together here a page that tries to address all kinds of problems - unrelated to data and search.
+Behind the extension, there is coding ... customization ... do not be wary ...
 
 <div class="alert alert-info" style="white-space: pre-wrap">If you haven't already read our <a href="https://community.algolia.com/magento/doc/m2/faq-support-data/">data-based FAQ</a>, please do so before continuing. Many problems can be solved by setting up your data, indexes, and queue properly.
 
@@ -18,6 +18,14 @@ Lastly, if you are still having troubles after having gone through this page, pl
 
 ## Development Environment
 
-f you are not live, you can use the production index in development.
+If you are just beginning and not yet live, you can use the production index in development.
+
 If you are live and can't afford a testing index, I fear there is a problem with the business case.
+
 Anyway, adding an attribute to the index shouldn't affect other index users.
+
+We do not provide a sandbox...
+
+## Customizing in General
+
+## Common problems with customizing

@@ -1,44 +1,38 @@
 ---
 layout: m2-documentation
-title: Index Queue
+title: Indexing Queue
 permalink: /doc/m2/indexing-queue/
-description: Learn how the index queue works in Algolia extension for Magento 2
+description: Learn how the indexing queue works in Algolia extension for Magento 2
 ---
 
 <div class="alert alert-warning">
-Before continuing with this page, let's see where you are. You've <a href="/magento/doc/m2/getting-started">installed your extension</a> and configured your data, chose your settings, and added a search bar to your site. But you search and nothing appears, or your data is not up to date ... Quick question - Did you <i>upload your data</i>, or <i>reindex</i>, or enable the <i>queue</i>? If not, check out our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>.
+If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>
 </div>
 
-**Indexing:** Before your data can be searched, it must be uploaded to Algolia. This process is called indexing, which the extension does automatically.
+The **index queue** manages all uploads to Algolia. Before your data can be searched, it must be uploaded to Algolia. This process is called indexing, which the extension does automatically - via the queue.
 
-On this page you will find information about the default indexing process and how it works for different types of data.
-<!-- If you need to modify the default behavior, you can to do it programmatically by using the extension’s events. To learn more, see this guide: [Using extension’s events](https://community.algolia.com/magento/doc/m1/customize-backend/). -->
+The extension uses the queue to keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. This provides the best, most up-to-date search experience for your customers.
 
-## Indexing in general
+Queue operations run asynchronously, allowing the administrator to continue working while the queue refreshes Algolia in the background.
 
-The extension tries to keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. This provides the best, most up-to-date search experience for your customers.
+## The Indexing Queue
 
-The extension provides two types of indexing mechanisms:
+To enable the indexing queue, navigate to **System > Configuration > Algolia Search > Indexing Queue / Cron** in your Magento administration.
 
-* **Section re-index**
-An entire section of your catalog (products, categories, etc.) is pushed to Algolia and reindexed.
+All queued operations will appear in a database table called `algoliasearch_queue`. You can see your indexes here:  **System > Index Management**
 
-* **Single item re-index**
-A single item is pushed to Algolia and reindexed whenever it changes (addition or deletion, update of products or categories, etc.).
+You can also set how many jobs will be processed at a time. The default number of jobs is 10. You can adjust this number to fit your catalog and the server your Magento store runs on.
 
-By default, these operations run synchronously and the administrator has to wait for them to finish before continuing to work. This is not very convenient and can cause [unexpected issues](/magento/doc/m2/faq-support-data#my-data-is-missing-or-it-is-not-up-to-date). The indexing queue is designed to alleviate these issues by performing indexing in the background.
-
-## The Index Queue
-
-To enable the indexing queue, navigate to **Stores > Configuration > Algolia Search > Indexing Queue / Cron** in your Magento administration. Once you have enabled the queue, all queued operations will appear in a database table called `algoliasearch_queue`.
-
-Once the indexing queue is enabled, you can set how many jobs will be processed at a time. The default number of jobs is 10. You can adjust this number to fit your catalog and the server your Magento store runs on.
+<div class="alert alert-warning">
+    <i class="fa fa-exclamation-triangle"></i>
+    Enabling the indexing queue is recommended for production environments.
+</div>
 
 Once the queue is enabled, you need to set up the process that will run it. There are several ways to do this.
 
-#### With cron
+## With cron
 
-To process queued jobs at a regular time interval, configure the following crontab entry:
+The standard set up is to process queued jobs at a regular time interval. To do this, configure the following crontab entry:
 
 ```sh
 */5 * * * * php absolute/path/to/magento/bin/magento indexer:reindex algolia_queue_runner
@@ -46,7 +40,7 @@ To process queued jobs at a regular time interval, configure the following cront
 
 This will run N jobs every 5 minutes depending on your queue configuration.
 
-#### Without cron
+## Without cron
 
 You can also process the queue manually from the command line:
 
@@ -54,46 +48,57 @@ You can also process the queue manually from the command line:
 php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
 ```
 
-If you want to process the entire queue in one pass you can run:
+This will execute a single instance of a cron job. Note that this will not always empty the queue, as there might be more jobs than one instance can handle.
 
-```sh
-EMPTY_QUEUE=1 php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
-```
+## Full section reindexing
+
+### With the indexing queue enabled
+
+When the indexing queue is enabled, products are reindexed by using temporary indices. Instead of being sent to the production index (which could cause temporary duplication or inconsistency), the products are uploaded to a temporary index. Then, only when all the products are pushed, the temporary index is changed to become the production index. This approach has several advantages:
+
+1. Higher re-indexing speed
+2. Avoid potential inaccuracies with deleted products
+3. Lower number of operations needed
+
+All changes done by re-indexing will be visible in search results once the whole process has completed and the production indices have been replaced.
+
+### With the indexing queue disabled
+
+When the indexing queue is disabled, the full product re-index has to process whole catalog synchronously. Updates must be pushed to Algolia as well as deletes to remove inactive products.
+
+This takes more time and more resources. It is also a little bit less reliable as some deleted products may not be processed and removed from Algolia’s indices.
 
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>
-    Enabling the indexing queue is recommended for production environments.
+    Enabling the indexing queue is highly recommended for doing any full reindexing on large catalogs.
 </div>
 
 <div class="alert alert-danger">
 	<i class="fa fa-exclamation-triangle"></i>
-	When the indexing queue is not enabled every indexing job <i>(complete re-indexing, update/deletion/update of products or categories, etc.)</i> will occur synchronously. Trying to synchronously index too many objects at a time may trigger PHP timeouts.
+	When the indexing queue is not enabled, every indexing job <i>(complete re-indexing, update/deletion/update of products or categories, etc.)</i> will run synchronously. Trying to synchronously index too many objects at a time may trigger PHP timeouts. See more about <a href="/magento/doc/m2/faq-support-data/#my-data-is-too-large">large indexes</a>.
 </div>
 
-### Automatic indexing
+## Automatic indexing
 
-By default, the extension indexes each change or deletion of product or category and this change is propagated to Algolia immediately. It's usefull as it keeps the data in Algolia in sync with what is in your Magento. But if you want to prevent this behaviour, you can do it by changing the indexer's mode to "Manual Update".
+By default, the extension indexes each change and deletion of product or category and this change is propagated to Algolia immediately. It's useful, as it keeps the data in Algolia in sync with what your Magento data. But if you want to prevent this behavior, you can do it by changing the indexer's mode to "Manual Update".
+
 This change will prevent the indexer to index every single change of a product or a category immediately.
 
-When you switch the mode to "Manual Indexing", you'll need to run full product and category reindex on a regular basis, for example every night, to keep your data synchronized with Algolia.
+When you switch the mode to "Manual Indexing", you'll need to run full product and category reindex on a regular basis - for example every night - to keep your data synchronized with Algolia.
 
-### Manual reindexing
+## Manual reindexing
 
-If you want to completely reindex your catalog, you can do it in two ways:
+If you want to completely reindex your catalog, you can use the command line.
 
-#### Via command line
-
-You can run the full reindex also from command line anduse the command for example in a cron job.
-
-Command for the complete product reindex:
+For example, here is the command for a complete product reindex:
 
 ```sh
 $ php path/to/magento/bin/magento indexer:reindex algolia_products
 ```
 
-You can use more than one indexer name in the command.
+You can use more do the same for the other indexes.
 
-Names of other Algolia indexers:
+Names of other Algolia indexes:
 
 - `algolia_products` - reindexes all products
 - `algolia_categories` - reindex all categories
@@ -101,3 +106,12 @@ Names of other Algolia indexers:
 - `algolia_suggestions` - reindexes all search query suggestions
 - `algolia_additional_sections` - reindexes all data from additional sections
 - `algolia_queue_runner` - process jobs in indexing queue
+
+## Emptying the queue
+
+If you want to clear the queue in one instance, you will need to bypass the cron and process the entire queue in one pass:
+
+```sh
+EMPTY_QUEUE=1 php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
+```
+Running this will attempt to empty the queue. However, it might not always be successful. Errors can occur - network timeouts, or more often, your data is too large for one job. In that case, the job will fail, the queue will not be empty, and therefore some of your data will not have been sent to Algolia. Please go here how to resolve [indexing errors](/magento/doc/m2/faq-support-data/#common-errors).

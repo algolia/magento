@@ -74,6 +74,8 @@ Enabling the queue resolves this problem by breaking the index into 10K chunks, 
 
 But it is important to note that, while queueing will solve the problem of large indexes, it will inevitably slow down the indexing. This is only natural. If you have 100K index, this means that 10 trips will be needed before your products are fully updated. If the cron job runs every 5 minutes, that means the 10 trips will take 5 minutes*10K = 50 minutes.
 
+To learn more about record size limits please see the official [Algolia documentation](www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
+
 ## Common errors
 
 > *Ok, you've done everything correct - set up your data, enabled the queue, and started the cron job - but your data is still not there!! Hang on, maybe there was an error?*
@@ -94,6 +96,8 @@ Large indexes, as discussed immediately below, will commonly cause memory proble
 
 ### Too many products
 As already stated, Algolia only accepts 10K index sizes. If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
+
+To learn more about record size limits please see the official [Algolia documentation](www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
 
 So, knowing this - that a reindex will stop because you have too many products - the result is that your data will not be complete until the whole index is uploaded to Algolia - and this might take some time. In the meantime, some data will be missing, or not updated, or not all of your facets will be present. The indexing process has to finish before your data will be complete.
 
