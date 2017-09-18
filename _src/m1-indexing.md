@@ -76,7 +76,7 @@ When you switch the mode to "Manual Indexing", you'll need to run full product a
 
 If you want to completely reindex your catalog, you can do it in two ways:
 
-#### Via administation interface
+#### Via administration interface
 
 In your Magento administration navigate to **System > Index Management** and there hit **Reindex** button right next to the indexers you want to reindex:
 
@@ -95,7 +95,7 @@ Command for the complete product reindex:
 php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_search_indexer
 ```
 
-You can use more than one indexer name in the command. 
+You can use more than one indexer name in the command.
 
 Names of other Algolia indexers:
 
@@ -217,7 +217,7 @@ There are 3 sorting strategies by default in addition to relevancy - from lowest
 
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>
-    Each sorting strategy will multiply the number of records that will be indexed in Algolia. This will increase the usage against your Algolia plan. For more information see <a href="https://community.algolia.com/magento/faq/#how-many-records-does-the-magento-extension-create">this FAQ entry</a>. 
+    Each sorting strategy will multiply the number of records that will be indexed in Algolia. This will increase the usage against your Algolia plan. For more information see <a href="https://community.algolia.com/magento/faq/#how-many-records-does-the-magento-extension-create">this FAQ entry</a>.
 </div>
 
 ### Full section reindex
