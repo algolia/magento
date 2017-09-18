@@ -1,6 +1,6 @@
 ---
 layout: m2-documentation
-title: Questions about your data, indexes, or queue
+title: Troubleshooting data, index, or queue issues
 permalink: /doc/m2/faq-support-data/
 description: FAQ on errors linked to data, indexing, and queueing
 ---

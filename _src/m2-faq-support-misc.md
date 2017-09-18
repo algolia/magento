@@ -1,8 +1,8 @@
 ---
 layout: m2-documentation
-title: Other questions about the extension
+title: Troubleshooting customizing the extension
 permalink: /doc/m2/faq-support-misc/
-description: FAQ on errors linked to things other than data, indexing, and queueing
+description: FAQ on errors linked to customizing the extension
 ---
 
 Behind the extension, there is coding ... customization ... do not be wary ...
