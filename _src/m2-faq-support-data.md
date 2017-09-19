@@ -59,7 +59,10 @@ Note that enabling the queue doesn’t mean that you have set up the cron job. Y
 
 > Why do we suggest using a queue?
 
-Because ...
+- The queue is **asynchronous**. This means that it is non-blocking. Whether you reindexing via code or the console, you will be able to do other things while the queue is reindexing in the background.
+- The queue is more **reliable**. Because if the job fails, the next run of the queue will retry. Also, because the queue breaks up the index into smaller *jobs*, this will result in less failure: the most common error is attempting to send a too-large index. By breaking up a large index into smaller jobs, this will no longer be a problem, as discussed here[here](/doc/m2/faq-support-data/#my-data-is-too-large).
+- runs the jobs **chronologically**.
+- The queue uses an advanced technique to ensure that indexing does not cause any downtime on your site. This is achieved by the queue's use of temporary indexes.
 
 <div class="alert alert-info">
 One thing to keep in mind is that with queueing, all indexing is <b>asynchronous</b> - meaning that every time you need to reindex, you will need to wait for the cron job to run. This means that even if you <i>manually</i> reindex, your request will nonetheless be placed on the queue and wait for the next job to run.
@@ -68,11 +71,19 @@ One thing to keep in mind is that with queueing, all indexing is <b>asynchronous
 ## My data is too large
 
 ### Data needs to be broken up into 10K chunks
-This is also discussed below related to timeouts and memory limits: Large indexes *will* cause problems if queueing is not enabled because **Algolia has a 10K size limit to all uploads.**
+This is also discussed below related to timeouts and memory limits: Large indexes *will* cause problems if queueing is not enabled because of the way it breaks up your Magento data.
 
-Enabling the queue resolves this problem by breaking the index into 10K chunks, and sending each chunk one at a time.
+Behind the scenes, it might be interesting for you to know that **Algolia has a 10K size limit to all uploads**.
 
-But it is important to note that, while queueing will solve the problem of large indexes, it will inevitably slow down the indexing. This is only natural. If you have 100K index, this means that 10 trips will be needed before your products are fully updated. If the cron job runs every 5 minutes, that means the 10 trips will take 5 minutes*10K = 50 minutes.
+The extension hides this from you. So whether you use the queue or not, every time you reindex, behind the scenes, the extension breaks up your data to ensure that it complies with Algolia's size limit.
+
+So the extension does the following: for every reindex, the extension pushes only 1000 products at a time. Therefore, if you have 5,000 records, the extension will break up your index into 5 smaller index chunks.
+
+Now without the queue, the PHP code will attempt to push your 5 smaller chunks one after the other, which will take a long time and can possibly result in a timeout or an out of memory error.
+
+So the queue resolves this by breaking up your indexes in 5 *jobs*, where each job contains 1000 records. This way, the queue will send each job, one at a time. With this approach, there is little chance of running out of memory or timing out. And even if there is an error, the next time the cron runs, it will retry the job that failed.
+
+But it is important to note that, while queueing will solve the problem of large indexes, it will inevitably slow down the indexing. This is only natural. If you have 10K product index, this means that 10 trips will be needed before your products are fully updated. If the cron job runs every 5 minutes, that means the 5 trips will take 5 minutes*10 jobs = 50 minutes.
 
 To learn more about record size limits please see the official [Algolia documentation](www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
 
