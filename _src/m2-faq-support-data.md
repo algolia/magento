@@ -5,7 +5,7 @@ permalink: /doc/m2/faq-support-data/
 description: FAQ on errors linked to data, indexing, and queueing
 ---
 
-You're getting an error with your data or search results. It may be an error that other Magento/Algolia users experience. We've put together here a page of solutions and background understanding to the most common problems users have.
+Let's say you're getting an error with your data or search results. It may be an error that other Magento/Algolia users experience. We've put together here a page of solutions and background understanding to the most common problems users have.
 
 The types of errors vary, affecting both new and long-time users. And while many problems can be serious, they often require only a few simple steps to resolve.
 
@@ -39,7 +39,11 @@ Algolia indices are created immediately when you save an Algolia configuration i
 
 > *So you might want to check your credentials. Are your **APP ID** and **API Key** correct?*
 
+Go here to see [how to set up credentials](/magento/doc/m2/getting-started/#configure-algolia-credentials).
+
 If your credential are fine, can you check to see if you've set up automatic indexing (i.e. enabled the queue)? Without the queue, your changes will not take effect unless you reindex manually, which we don't normally suggest. It's always better to have a queue.
+
+Go here to see [how to set up the queue](/magento/doc/m2/indexing-queue/#the-indexing-queue).
 
 However, if the indexing *did* occur, and you still have data problems - check to see if the reindexing failed. You'll need to check for errors.
 
@@ -57,15 +61,16 @@ The way the queue works is that:
 Note that enabling the queue doesn’t mean that you have set up the cron job. You also need to start CRON. So, if you  need your data to be sent immediately to Algolia, you will need to *first* disable the queue and then manually run the indexing process. Don't forget to re-enable the queue once that is done.!
 </div>
 
+Go here to see [how to start cron](/magento/doc/m2/indexing-queue/#with-cron).
+
 > Why do we suggest using a queue?
 
-- The queue is **asynchronous**. This means that it is non-blocking. Whether you reindexing via code or the console, you will be able to do other things while the queue is reindexing in the background.
-- The queue is more **reliable**. Because if the job fails, the next run of the queue will retry. Also, because the queue breaks up the index into smaller *jobs*, this will result in less failure: the most common error is attempting to send a too-large index. By breaking up a large index into smaller jobs, this will no longer be a problem, as discussed here[here](/doc/m2/faq-support-data/#my-data-is-too-large).
-- runs the jobs **chronologically**.
-- The queue uses an advanced technique to ensure that indexing does not cause any downtime on your site. This is achieved by the queue's use of temporary indexes.
+- The queue is **asynchronous**. This means that it is non-blocking. Whether you are reindexing via code or the console, you will be able to do move around on the console, or your code can do other things, while the queue is reindexing in the background.
+- The queue is more **reliable**. For 2 reasons. (1) Because if the job fails, the next run of the queue will automatically retry. (2) Because of how the the queue breaks up your index - see [below](/magento/doc/m2/faq-support-data/#my-data-is-too-large).
+- **No downtime**: The queue uses an advanced technique to ensure that indexing does not cause any downtime on your site. This is achieved by the queue's use of temporary indexes.
 
 <div class="alert alert-info">
-One thing to keep in mind is that with queueing, all indexing is <b>asynchronous</b> - meaning that every time you need to reindex, you will need to wait for the cron job to run. This means that even if you <i>manually</i> reindex, your request will nonetheless be placed on the queue and wait for the next job to run.
+One thing to keep in mind is that with queueing, all indexing is <b>asynchronous</b> - meaning every time you need to reindex, you will need to wait for the cron job to run. So even if you reindex via the command line, or programmatically, or via the console - in all situations, you will need to wait for the cron job to run the process. This is not a serious problem because the cron job runs every 5 minutes.
 </div>
 
 ## My data is too large
@@ -103,10 +108,10 @@ Let's look at some possible errors.
 Timeouts, outages. Usually, these are the kinds of errors automatically fixed thanks to the queueing process. So the next run may not have the same problem. However, if this error persists, please see if there is not some kind of lmarger issue affecting your infrastructure.
 
 ### Running out of memory
-Large indexes, as discussed immediately below, will commonly cause memory problems. For one, Magento has some problems with memory leaks which cause errors when memory usage increases. Secondly, with Algolia, memory usage increases when you send Algolia an index that exceeds 10K. We not only suggest, but in fact we require that all indexes be no greater than 10K. Queueing resolves this problem, because the cron job will break up large indexes into 10K chunks, ensuring success. Without the cron job, and with EMPTY_QUEUE=1, there is no check on the index size.
+Large indexes, as discussed immediately below, will commonly cause memory problems. For one, Magento has some problems with memory leaks which cause errors when memory usage increases. Secondly, with Algolia, memory usage increases when you send Algolia an index that exceeds 10K. We not only suggest, but in fact we require that all indexes be no greater than 10K. Queueing resolves this problem, because the cron job will break up large indexes into 10K chunks, ensuring success. Without the cron job, and with [EMPTY_QUEUE=1](/magento/doc/m2/indexing-queue/#emptying-the-queue), there is no check on the index size.
 
 ### Too many products
-As already stated, Algolia only accepts 10K index sizes. If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
+As already stated, [Algolia only accepts 10K index sizes](/magento/doc/m2/faq-support-data/#my-data-is-too-large). If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
 
 To learn more about record size limits please see the official [Algolia documentation](www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
 
@@ -115,7 +120,7 @@ So, knowing this - that a reindex will stop because you have too many products -
 How do you know if the indexing process has failed?
 
 1. You can see it from the front end - the data is not correct.
-2. or it you can check the algoliasearch_queue table and see if there are unfinished jobs.
+2. or it you can check the [algoliasearch_queue table](/magento/doc/m2/indexing/#indexing-queue) and see if there are unfinished jobs.
 
 Whenever reindexing fails, it will need to be restarted - but the good news is that all "restarts" continue where it had left off. You have 2 ways to restart an index:
 
@@ -128,7 +133,7 @@ Again, enabling the Queue is the preferred solution.
 
 > It is searching categories but not products - partial indexing - can be solved by checking for errors or setting up your queue
 
-When you add a new attribute to your facets, you need to reindex your products so that the new attribute is included in your Algolia data and therefore present as a facet in your search results.
+When you [add a new attribute to your facets](/magento/doc/m2/indexing/#additional-sections-indexing), you need to reindex your products so that the new attribute is included in your Algolia data and therefore present as a facet in your search results.
 
 ### Some products are invisible (not showing up)
 

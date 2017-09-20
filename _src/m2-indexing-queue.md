@@ -6,12 +6,16 @@ description: Learn how the indexing queue works in Algolia extension for Magento
 ---
 
 <div class="alert alert-warning">
-If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>
+If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>;
 </div>
 
 The **index queue** manages all uploads to Algolia. Before your data can be searched, it must be uploaded to Algolia. This process is called indexing, which the extension does automatically - via the queue.
 
-The extension uses the queue to keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. Note that by real-time, we are referring to the mechanism by which every update to your Magento data will trigger an event in the extension which will in turn initiate a reindex. This provides the best, most up-to-date search experience for your customers.
+<div class="alert alert-warning">
+Also, if you want to know more about indexing in general, please check out our <a href="/magento/doc/m2/indexing">Indexing overview</a>;
+</div>
+
+The extension uses the **queue** to keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. Note that by real-time, we are referring to the mechanism by which every update to your Magento data will trigger an event in the extension which will in turn initiate a reindex. This provides the best, most up-to-date search experience for your customers.
 
 Queue operations run asynchronously, allowing the administrator to continue working while the queue refreshes Algolia in the background.
 

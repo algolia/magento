@@ -7,9 +7,13 @@ description: Learn about indexes in the Algolia extension for Magento 2
 
 ## Indexing in general
 
-In order to provide fast and relevant search, Algolia restructures your data in a special way, via Indexing. The extension does this for you, by first restructuring your data: The extension runs through all of your data - products, categories, and pages - and indexes your data. These indexes are then uploaded to the Algolia servers, either automatically via the extension's queue, or manually via the Magento console or the command line. Once pushed to the Algolia server, the indexes go through an indexing process that transforms them into searchable data.
+In order to provide fast and relevant search, Algolia restructures your data in a special way, via Indexing. The extension does this for you - it runs through all of your data - products, categories, and pages - and indexes your data. These indexes are then uploaded to the Algolia servers, either automatically via the extension's queue, or manually via the Magento console or the command line. Once pushed to the Algolia server, the indexes go through an indexing process that transforms them into searchable data.
 
 For more information on this process, please see [Algolia docs](www.algolia.com/doc/guides/indexing/indexing-overview/).
+
+<div class="alert alert-warning">
+If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>
+</div>
 
 The extension can keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. This provides the best, most up-to-date search experience for your customers.
 
