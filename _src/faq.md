@@ -191,3 +191,11 @@ When the reindex is performed with disabled queue, ALL products (even disabled, 
 It does no happen when you are performing the reindex with queue enabled. If the queue is enabled, only active (indexable) products are processed and pushed to Algolia. With indexing queue enabled we can use temp indexes mechanism when only active products are indexed into temporary index. And when all products are index, the original production index is replaced by the temporary one and only correct products are present in Algolia.
 
 More information about indexing you can find in [Indexing documentation](/magento/doc/m1/indexing/).
+
+## There are "No" values in my filters, how can I get rid of those?
+
+If a product doesn't have assigned a parameter value, Magento automatically assigns "No" value for this parameter.
+
+You can turn off indexing of "No" values in administration in table where you specify [attributes for indexing](/magento/doc/m1/indexing/#searchable-attributes). There in column "Index empty value" you can select "No" for attributes where you don't want to index an empty value.
+
+Don't forget to reindex your data after you save the configuration.
