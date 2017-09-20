@@ -75,7 +75,7 @@ One thing to keep in mind is that with queueing, all indexing is <b>asynchronous
 
 ## My data is too large
 
-### Data needs to be broken up into 10K chunks
+### Data needs to be broken up into smaller chunks
 This is also discussed below related to timeouts and memory limits: Large indexes *will* cause problems if queueing is not enabled because of the way it breaks up your Magento data.
 
 Behind the scenes, it might be interesting for you to know that **Algolia has a 10K size limit to all uploads**.
