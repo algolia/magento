@@ -11,7 +11,7 @@ The types of errors vary, affecting both new and long-time users. And while many
 
 <div class="alert alert-info" style="white-space: pre-wrap">If you haven't yet installed the extension, or followed the steps in <a href="/magento/doc/m2/getting-started">getting started</a>, please do so before continuing.
 
-Also, if you are still having troubles after having gone through this page, please check out our <img style="display:inline-block;width:25px;" src="../../../img/algolia-logo-new.svg" class="img-responsive" alt="">search bar above to find more answers. You can also browse our sidebar, or check out our <a href="/magento/faq">Magento FAQ</a>, or the <a href="https://www.algolia.com/doc">Algolia docs</a>.
+Also, if you are still having troubles after having gone through this page, please check out our <img style="display:inline-block; width:25px;" src="../../../img/algolia-logo-new.svg" class="img-responsive" alt="Algolia logo">search bar above to find more answers. You can also browse our sidebar, or check out our <a href="/magento/faq">Magento FAQ</a>, or the <a href="https://www.algolia.com/doc">Algolia docs</a>.
 </div>
 
 ---
@@ -90,7 +90,7 @@ So the queue resolves this by breaking up your indexes in 5 *jobs*, where each j
 
 But it is important to note that, while queueing will solve the problem of large indexes, it will inevitably slow down the indexing. This is only natural. If you have 10K product index, this means that 10 trips will be needed before your products are fully updated. If the cron job runs every 5 minutes, that means the 5 trips will take 5 minutes*10 jobs = 50 minutes.
 
-To learn more about record size limits please see the official [Algolia documentation](www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
+To learn more about record size limits please see the official [Algolia documentation](https://www.algolia.com/doc/guides/indexing/formatting-your-data#size-limit).
 
 ## Common errors
 
@@ -113,14 +113,14 @@ Large indexes, as discussed immediately below, will commonly cause memory proble
 ### Too many products
 As already stated, [Algolia only accepts 10K index sizes](/magento/doc/m2/faq-support-data/#my-data-is-too-large). If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
 
-To learn more about record size limits please see the official [Algolia documentation](www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
+To learn more about record size limits please see the official [Algolia documentation](https://www.algolia.com/doc/guides/indexing/formatting-your-data#size-limit).
 
 So, knowing this - that a reindex will stop because you have too many products - the result is that your data will not be complete until the whole index is uploaded to Algolia - and this might take some time. In the meantime, some data will be missing, or not updated, or not all of your facets will be present. The indexing process has to finish before your data will be complete.
 
 How do you know if the indexing process has failed?
 
 1. You can see it from the front end - the data is not correct.
-2. or it you can check the [algoliasearch_queue table](/magento/doc/m2/indexing/#indexing-queue) and see if there are unfinished jobs.
+2. or it you can check the [algoliasearch_queue table](/magento/doc/m2/indexing-queue/) and see if there are unfinished jobs.
 
 Whenever reindexing fails, it will need to be restarted - but the good news is that all "restarts" continue where it had left off. You have 2 ways to restart an index:
 

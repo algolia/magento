@@ -9,7 +9,7 @@ description: Learn about indexes in the Algolia extension for Magento 2
 
 In order to provide fast and relevant search, Algolia restructures your data in a special way, via Indexing. The extension does this for you - it runs through all of your data - products, categories, and pages - and indexes your data. These indexes are then uploaded to the Algolia servers, either automatically via the extension's queue, or manually via the Magento console or the command line. Once pushed to the Algolia server, the indexes go through an indexing process that transforms them into searchable data.
 
-For more information on this process, please see [Algolia docs](www.algolia.com/doc/guides/indexing/indexing-overview/).
+For more information on this process, please see [Algolia docs](http://www.algolia.com/doc/guides/indexing/indexing-overview/).
 
 <div class="alert alert-warning">
 If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>
@@ -271,7 +271,7 @@ The admin configuration does not support modifying indexable page attributes, bu
 
 Records in Algolia must be smaller than 10 kilobytes. Therefore, if the content of the page is longer than 10,000 characters the content will not be indexed. In this case, the search will be performed only in the page’s name which could have an impact on relevance.
 
-To learn more about record size limits please see the official [Algolia documentation](www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
+To learn more about record size limits please see the official [Algolia documentation](http://www.algolia.com/doc/guides/indexing/formatting-your-data#size-limit).
 
 ### Index settings
 
