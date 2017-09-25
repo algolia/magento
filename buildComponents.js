@@ -50,22 +50,6 @@ const output = algoliaComponents.communityHeader({
   },
   sideMenu: [
     { 
-      name: "Install", 
-      url: "#",
-      dropdownItems: [ 
-        {
-          name: "Magento 1",
-          url: "https://community.algolia.com/magento/doc/m1/getting-started/",
-          target: "_blank"
-        },
-        { 
-          name: "Magento 2",
-          url: "https://community.algolia.com/magento/doc/m2/getting-started/",
-          target: "_blank"
-        }
-      ],
-    },
-    { 
       name: "Documentation",
       url: "#",
       dropdownItems: [
@@ -76,6 +60,11 @@ const output = algoliaComponents.communityHeader({
         {
           name: "Documentation for Magento 2",
           url: "https://community.algolia.com/magento/doc/m2/getting-started/",
+        },
+        {
+          name: "Discourse (forum)",
+          url: "https://discourse.algolia.com/c/magento",
+          target: "_blank"
         }
       ]
     },
@@ -106,7 +95,10 @@ const output = algoliaComponents.communityHeader({
     { name: "Magento 2 Docs", url: "https://community.algolia.com/magento/doc/m2/getting-started/" },
     { name: "Discourse", url: "https://discourse.algolia.com/c/magento", target: "_blank"},
     { name: "FAQ", url: "/magento/faq/" }
-  ]
+  ],
+  docSearch: {
+	input_selector_placeholder: "Search for indexing, indexing queue, customization ..."
+  }
 });
 
 const file = fs.readFileSync('node_modules/algolia-frontend-components/dist/_communityHeader.js');
