@@ -35,6 +35,21 @@ module Jekyll
       end
       html.join
     end
+    
+    def toc_events(html)
+        doc = Nokogiri::HTML(html)
+	    html = []
+	    
+	    html << '<ul class="toc_menu">'
+	    doc.css('h4').each do |tag|
+	      print tag
+	      html << "<li><a href=\"##{tag['id']}\">#{tag.text}</a></li>"
+	    end
+	
+	    html << '</ul>'
+	    
+	    html.join
+    end
 
     def toc_generate_menu(html)
       doc = Nokogiri::HTML(html)

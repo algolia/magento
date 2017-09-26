@@ -98,7 +98,7 @@ const output = algoliaComponents.communityHeader({
   ],
   docSearch: {
 	input_selector_placeholder: "Search documentation ...",
-	  input_open_on_init: true
+    input_open_on_init: true
   }
 });
 
