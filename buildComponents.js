@@ -97,7 +97,8 @@ const output = algoliaComponents.communityHeader({
     { name: "FAQ", url: "/magento/faq/" }
   ],
   docSearch: {
-	input_selector_placeholder: "Search for indexing, indexing queue, customization ..."
+	input_selector_placeholder: "Search documentation ...",
+	  input_open_on_init: true
   }
 });
 
