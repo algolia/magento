@@ -102,7 +102,11 @@ isMagento2: true
               </header>
             </div>
 
-            {{ content | toc_generate }}
+            {% if url == '/doc/m2/backend/' %}
+                {{ content | toc_events }}
+            {% else %}
+                {{ content | toc_generate }}
+            {% endif %}
 
             {{ content }}
 

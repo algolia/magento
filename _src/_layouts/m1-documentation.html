@@ -80,7 +80,11 @@ layout: default
                 </header>
             </div>
 
-            {{ content | toc_generate }}
+            {% if url == '/doc/m1/backend/' %}
+                {{ content | toc_events }}
+            {% else %}
+                {{ content | toc_generate }}
+            {% endif %}
 
             {{ content }}
         </div>
