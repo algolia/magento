@@ -117,9 +117,26 @@ q:after {
 
   .buttons {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 16px;
     text-transform: uppercase;
   }
+
+  .documentation {
+    text-align: center;
+    margin-bottom: 16px;
+    opacity: .8;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  .magento-1 {
+    .documentation a {
+      color: #fff;
+    }
+  }
+
   .badges {
     text-align: center;
     img {
