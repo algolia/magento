@@ -107,6 +107,11 @@ h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before {
     &.guides {
       border-left-color: #9EDE5B;
     }
+
+    &.troubleshooting {
+      border-left-color: #71bdf7;
+    }
+
   }
 }
 

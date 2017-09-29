@@ -2,7 +2,7 @@
 layout: m2-documentation
 title: Indexing Queue
 permalink: /doc/m2/indexing-queue/
-description: Learn how the indexing queue works in Algolia extension for Magento 2
+description: Learn how the indexing queue works in Algolia extension for Magento
 ---
 
 <div class="alert alert-warning">

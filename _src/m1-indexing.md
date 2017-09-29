@@ -5,13 +5,17 @@ permalink: /doc/m1/indexing/
 description: Learn how the indexing works in Algolia extension for Magento
 ---
 
-Before it can be searched, your data must be uploaded to Algolia. The process is called indexing and the extension will do this for you automatically.
+## Indexing in general
 
-On this page you will find information about the default indexing process and how it works for different types of data. If you need to modify the default behaviour, you can to do it programmatically by using the extension’s events. To learn more, see this guide: [Using extension’s events](https://community.algolia.com/magento/doc/m1/customize-backend/).
+In order to provide fast and relevant search, Algolia restructures your data in a special way, via Indexing. The extension does this for you - it runs through all of your data - products, categories, and pages - and indexes your data. These indexes are then uploaded to the Algolia servers, either automatically via the extension's queue, or manually via the Magento console or the command line. Once pushed to the Algolia server, the indexes go through an indexing process that transforms them into searchable data.
 
-## General information
+For more information on this process, please see [Algolia docs](http://www.algolia.com/doc/guides/indexing/indexing-overview/).
 
-The extension tries to keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. This provides the the best, most up-to-date search experience for your customers.
+<div class="alert alert-warning">
+If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m1/faq-support-data">troubleshooting guide</a>
+</div>
+
+The extension can keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. This provides the best, most up-to-date search experience for your customers.
 
 The extension provides two types of indexing mechanisms:
 
@@ -21,7 +25,7 @@ An entire section of your catalog (products, categories, etc.) is pushed to Algo
 * **Single item re-index**
 A single item is pushed to Algolia and reindexed whenever it changes (addition or deletion, update of products or categories, etc.).
 
-By default these operations happen synchronously and they shop administrator has to wait for them to finish before continuing their work. This is not very convenient and can cause unexpected issues. The indexing queue is designed to alleviate these issues by performing indexing in the background.
+By default, these operations run synchronously and the administrator has to wait for them to finish before continuing to work. This is not very convenient and can cause [unexpected issues](/magento/doc/m2/faq-support-data#my-data-is-missing-or-it-is-not-up-to-date). The indexing queue is designed to alleviate these issues by performing indexing in the background. For more on this, read about the extension's [indexing queue](/magento/doc/m2/indexing-queue)
 
 ### Indexing queue
 
