@@ -6,7 +6,7 @@ description: Learn how the indexing queue works in Algolia extension for Magento
 ---
 
 <div class="alert alert-warning">
-If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>;
+If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/faq-support-data">troubleshooting guide</a>;
 </div>
 
 The **index queue** manages all uploads to Algolia. Before your data can be searched, it must be uploaded to Algolia. This process is called indexing, which the extension does automatically - via the queue.
@@ -25,7 +25,7 @@ To enable the indexing queue, navigate to **System > Configuration > Algolia Sea
 
 All queued operations will appear in a database table called `algoliasearch_queue`. You can see your indexes here:  **System > Index Management**
 
-You can also set how many jobs will be processed at a time. The default number of jobs is 10. You can adjust this number to fit your catalog and the server your Magento store runs on.
+Additionally, you can also set how many jobs will be processed at a time. The default number of jobs is 10. You can adjust this number to fit your catalog and the server your Magento store runs on.
 
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>
@@ -68,7 +68,7 @@ All changes done by re-indexing will be visible in search results once the whole
 
 ### With the indexing queue disabled
 
-When the indexing queue is disabled, the full product re-index has to process whole catalog synchronously. Updates must be pushed to Algolia as well as deletes to remove inactive products.
+When the indexing queue is disabled, the full product re-index has to process the whole catalog synchronously. Updates must be pushed to Algolia as well as deletes to remove inactive products.
 
 This takes more time and more resources. It is also a little bit less reliable as some deleted products may not be processed and removed from Algolia’s indices.
 
@@ -79,12 +79,12 @@ This takes more time and more resources. It is also a little bit less reliable a
 
 <div class="alert alert-danger">
 	<i class="fa fa-exclamation-triangle"></i>
-	When the indexing queue is not enabled, every indexing job <i>(complete re-indexing, update/deletion/update of products or categories, etc.)</i> will run synchronously. Trying to synchronously index too many objects at a time may trigger PHP timeouts. See more about <a href="/magento/doc/m2/faq-support-data/#my-data-is-too-large">large indexes</a>.
+	When the indexing queue is disabled, every indexing job <i>(complete re-indexing, update/deletion/update of products or categories, etc.)</i> will run synchronously. Trying to synchronously index too many objects at a time may trigger PHP timeouts. See more about <a href="/magento/doc/faq-support-data/#my-data-is-too-large">large indexes</a>.
 </div>
 
 ## Automatic indexing
 
-By default, the extension indexes each change and deletion of product or category and this change is propagated to Algolia immediately. It's useful, as it keeps the data in Algolia in sync with what your Magento data. But if you want to prevent this behavior, you can do it by changing the indexer's mode to "Manual Update".
+By default, the extension indexes each change or deletion of product or category and this change is propagated to Algolia immediately. It's useful, as it keeps the data in Algolia in sync with what your Magento data. But if you want to prevent this behavior, you can do it by changing the indexer's mode to "Manual Update".
 
 This change will prevent the indexer to index every single change of a product or a category immediately.
 
@@ -118,4 +118,5 @@ If you want to clear the queue in one instance, you will need to bypass the cron
 ```sh
 EMPTY_QUEUE=1 php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
 ```
-Running this will attempt to empty the queue. However, it might not always be successful. Errors can occur - network timeouts, or more often, your data is too large for one job. In that case, the job will fail, the queue will not be empty, and therefore some of your data will not have been sent to Algolia. Please go here how to resolve [indexing errors](/magento/doc/m2/faq-support-data/#common-errors).
+
+Running this will attempt to empty the queue. However, it might not always be successful. Errors can occur - network timeouts, or more often, your data is too large for one job. In that case, the job will fail, the queue will not be empty, and therefore some of your data will not have been sent to Algolia. Please go here how to resolve [indexing errors](/magento/doc/faq-support-data/#common-errors).

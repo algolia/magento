@@ -1,7 +1,7 @@
 ---
 layout: m2-documentation
 title: Troubleshooting data, index, or queue issues
-permalink: /doc/m2/faq-support-data/
+permalink: /doc/faq-support-data/
 description: FAQ on errors linked to data, indexing, and queueing
 ---
 
@@ -66,7 +66,7 @@ Go here to see [how to start cron](/magento/doc/m2/indexing-queue/#with-cron).
 > Why do we suggest using a queue?
 
 - The queue is **asynchronous**. This means that it is non-blocking. Whether you are reindexing via code or the console, you will be able to do move around on the console, or your code can do other things, while the queue is reindexing in the background.
-- The queue is more **reliable**. For 2 reasons. (1) Because if the job fails, the next run of the queue will automatically retry. (2) Because of how the the queue breaks up your index - see [below](/magento/doc/m2/faq-support-data/#my-data-is-too-large).
+- The queue is more **reliable**. For 2 reasons. (1) Because if the job fails, the next run of the queue will automatically retry. (2) Because of how the the queue breaks up your index - see [below](/magento/doc/faq-support-data/#my-data-is-too-large).
 - **No downtime**: The queue uses an advanced technique to ensure that indexing does not cause any downtime on your site. This is achieved by the queue's use of temporary indexes.
 
 <div class="alert alert-info">
@@ -111,7 +111,7 @@ Timeouts, outages. Usually, these are the kinds of errors automatically fixed th
 Large indexes, as discussed immediately below, will commonly cause memory problems. For one, Magento has some problems with memory leaks which cause errors when memory usage increases. Secondly, with Algolia, memory usage increases when you send Algolia an index that exceeds 10K. We not only suggest, but in fact we require that all indexes be no greater than 10K. Queueing resolves this problem, because the cron job will break up large indexes into 10K chunks, ensuring success. Without the cron job, and with [EMPTY_QUEUE=1](/magento/doc/m2/indexing-queue/#emptying-the-queue), there is no check on the index size.
 
 ### Too many products
-As already stated, [Algolia only accepts 10K index sizes](/magento/doc/m2/faq-support-data/#my-data-is-too-large). If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
+As already stated, [Algolia only accepts 10K index sizes](/magento/doc/faq-support-data/#my-data-is-too-large). If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
 
 To learn more about record size limits please see the official [Algolia documentation](https://www.algolia.com/doc/guides/indexing/formatting-your-data#size-limit).
 
