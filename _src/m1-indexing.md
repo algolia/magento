@@ -25,90 +25,7 @@ An entire section of your catalog (products, categories, etc.) is pushed to Algo
 * **Single item re-index**
 A single item is pushed to Algolia and reindexed whenever it changes (addition or deletion, update of products or categories, etc.).
 
-By default, these operations run synchronously and the administrator has to wait for them to finish before continuing to work. This is not very convenient and can cause [unexpected issues](/magento/doc/m2/faq-support-data#my-data-is-missing-or-it-is-not-up-to-date). The indexing queue is designed to alleviate these issues by performing indexing in the background. For more on this, read about the extension's [indexing queue](/magento/doc/m2/indexing-queue)
-
-### Indexing queue
-
-To enable the indexing queue navigate to **System > Configuration > Algolia Search > Indexing Queue / Cron tab** in your Magento administration. Once you have enabled the queue, all queued operations will appear in a database table called `algoliasearch_queue`.
-
-Once the indexing queue is enabled, you can set how many jobs will be processed at a time. The default number of jobs is 10. You can adjust this number to fit your catalog and the server your Magento store runs on.
-
-Once the queue is enabled, you need to set up the process that will run it. There are several ways to do this.
-
-#### With cron
-
-To process queued jobs at a regular time interval, configure the following crontab entry:
-
-```sh
-*/5 * * * * php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_queue_runner
-```
-
-This will run N jobs every 5 minutes depending on your queue configuration.
-
-#### Without cron
-
-You can also process the queue manually from the command line:
-
-```sh
-php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_queue_runner
-```
-
-If you want to process the entire queue in one pass you can run:
-
-```sh
-EMPTY_QUEUE=1 php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_queue_runner
-```
-
-<div class="alert alert-warning">
-    <i class="fa fa-exclamation-triangle"></i>
-    Enabling the indexing queue is recommended for production environments.
-</div>
-
-<div class="alert alert-danger">
-	<i class="fa fa-exclamation-triangle"></i>
-	When the indexing queue is not enabled every indexing job <i>(complete re-indexing, update/deletion/update of products or categories, etc.)</i> will occur synchronously. Trying to synchronously index too many objects at a time may trigger PHP timeouts.
-</div>
-
-### Automatic indexing
-
-By default, the extension indexes each change or deletion of product or category and this change is propagated to Algolia immediately. It's usefull as it keeps the data in Algolia in sync with what is in your Magento. But if you want to prevent this behaviour, you can do it by changing the indexer's mode to "Manual Update".
-This change will prevent the indexer to index every single change of a product or a category immediately.
-
-When you switch the mode to "Manual Indexing", you'll need to run full product and category reindex on a regular basis, for example every night, to keep your data synchronized with Algolia.
-
-### Manual reindexing
-
-If you want to completely reindex your catalog, you can do it in two ways:
-
-#### Via administration interface
-
-In your Magento administration navigate to **System > Index Management** and there hit **Reindex** button right next to the indexers you want to reindex:
-
-<figure>
-    <img src="../../../img/indexers.png" class="img-responsive" alt="Indexers">
-    <figcaption>Algolia indexers</figcaption>
-</figure>
-
-#### Via command line
-
-You can run the full reindex also from command line anduse the command for example in a cron job.
-
-Command for the complete product reindex:
-
-```sh
-php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_search_indexer
-```
-
-You can use more than one indexer name in the command.
-
-Names of other Algolia indexers:
-
-- `algolia_search_indexer` - reindexes all products
-- `algolia_search_indexer_cat` - reindex all categories
-- `algolia_search_indexer_pages` - reindexes all CMS pages
-- `search_indexer_suggest` - reindexes all search query suggestions
-- `search_indexer_addsections` - reindexes all data from additional sections
-- `algolia_queue_runner` - process jobs in indexing queue
+By default, these operations run synchronously and the administrator has to wait for them to finish before continuing to work. This is not very convenient and can cause [unexpected issues](/magento/doc/m1/faq-support-data#my-data-is-missing-or-it-is-not-up-to-date). The indexing queue is designed to alleviate these issues by performing indexing in the background. For more on this, read about the extension's [indexing queue](/magento/doc/m1/indexing-queue)
 
 ## Products indexing
 
@@ -127,11 +44,13 @@ The extension indexes only products which are:
 
 If you’re ever missing a product in your Algolia index, make sure to check that it meets this requirements for indexing.
 
+Go here for more about [missing data](/magento/doc/m1/faq-support-data/#my-data-is-missing-or-it-is-not-up-to-date).
+
 ### Searchable attributes
 
 You can specify which attributes you want the search to look in. Navigate to **System > Configuration > Algolia Search > Products tab** to see the configuration.
 
-Here you can find a table of the attributes that you want to send to Algolia. For each attribute you can specify if the attribute is Searchable, Retrievable or Ordered. By default all attributes are set to be searched as Unordered. In general this value is better for relevance and we don’t recommend to change it without a specific reason. For more information about this setting and others please read [the official Algolia documentation](https://www.algolia.com/doc/?utm_medium=social-owned&utm_source=magento%20website&utm_campaign=docs).
+Here you can find a table of the attributes that you want to send to Algolia. For each attribute you can specify if the attribute is Searchable, Retrievable or Ordered. By default all attributes are set to be searched as Unordered. In general this value is better for relevance and we don’t recommend changing it without a specific reason. Go here for information about [Searchable Attributes](https://www.algolia.com/doc/guides/ranking/searchable-attributes/?utm_medium=social-owned&utm_source=magento%20website&utm_campaign=docs).
 
 For each attribute you can also specify if you want to index an empty value. Usually the right value is "No". This comes in handy for attributes to be used for faceting, because you can avoid having a useless value of “No” in the faceting list.
 
@@ -140,7 +59,7 @@ For each attribute you can also specify if you want to index an empty value. Usu
     <figcaption>Configuration of attributes to index</figcaption>
 </figure>
 
-There are 11 attributes that the extension indexes regardless of what is specified in the table above. Those attributes are:
+There are 11 attributes that the extension indexes regardless of what is specified in the table above. These attributes are not "searchable", but can be used for filtering, sorting, customizing ranking, and building your instant search results. These attributes are:
 
 <table class="table">
   <tr>
@@ -212,7 +131,7 @@ Sorting by relevancy is always available and it is the default sort. The other s
 
 The attributes you specify for sorting are automatically indexed as retrievable but not searchable. There is no need to specify them in the searchable attributes table.
 
-There are 3 sorting strategies by default in addition to relevancy - from lowest price to highest, from highest price to lowest, and from newest to oldest.
+There are 3 sorting strategies by default, in addition to relevancy - from lowest price to highest, from highest price to lowest, and from newest to oldest.
 
 <figure>
     <img src="../../../img/sorts.png" class="img-responsive" alt="Sorting strategies">
@@ -222,29 +141,6 @@ There are 3 sorting strategies by default in addition to relevancy - from lowest
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>
     Each sorting strategy will multiply the number of records that will be indexed in Algolia. This will increase the usage against your Algolia plan. For more information see <a href="https://community.algolia.com/magento/faq/#how-many-records-does-the-magento-extension-create">this FAQ entry</a>.
-</div>
-
-### Full section reindex
-
-#### With the indexing queue enabled
-
-When the indexing queue is enabled, products are reindexed by using temporary indices. Instead of being sent to the production index (which could cause temporary duplication or inconsistency), the products are uploaded to a temporary index. Then, only when all the products are pushed, the temporary index is changed to become the production index. This approach has several advantages:
-
-1. Higher re-indexing speed
-2. Avoid potential inaccuracies with deleted products
-3. Lower number of operations needed
-
-All changes done by re-indexing will be visible in search results once the whole process has completed and the production indices have been replaced.
-
-#### With the indexing queue disabled
-
-When the indexing queue is disabled, the full product re-index has to process whole catalog synchronously. Updates must be pushed to Algolia as well as deletes to remove inactive products.
-
-This takes more time and more resources. It is also a little bit less reliable as some deleted products may not be processed and removed from Algolia’s indices.
-
-<div class="alert alert-warning">
-    <i class="fa fa-exclamation-triangle"></i>
-    Enabling the indexing queue is highly recommended for doing any full reindexing on large catalogs.
 </div>
 
 ### Index settings
@@ -258,7 +154,7 @@ The index settings for products managed by the extension are:
 * maxValuesPerFacet
 * removeWordsIfNoResults
 
-Additional index settings can be managed in the Algolia dashboard or via extension’s `algolia_products_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
+Additional index settings can be managed in the Algolia dashboard or via the [extension’s custom events](/magento/doc/m1/backend/), using the `algolia_products_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
 
 ## Categories indexing
 
@@ -268,7 +164,7 @@ You can choose to index other categories if you’d like them to appear in searc
 
 <figure>
     <img src="../../../img/show_categories.png" class="img-responsive" alt="Show categories">
-    <figcaption>Show categories that are not included in navigation menu configuration</figcaption>
+    <figcaption>Show categories that are not included in the navigation menu configuration</figcaption>
 </figure>
 
 Based on this setting, the extension will either index all categories or only the categories that are configured to be included in the navigation menu.
@@ -277,15 +173,14 @@ Based on this setting, the extension will either index all categories or only th
 
 You can specify which attributes you want to be searchable in your Algolia indices. To configure searchable attributes navigate to the **System > Configuration > Algolia Search > Categories** tab.
 
-Here you can find a table of the attributes that you want to send to Algolia. For each attribute you can specify if the attribute is Searchable, Retrievable or Ordered. By default all attributes are set to be searched as Unordered. In general this value is better for relevance and we don’t recommend to change it without a specific reason. For more information about this setting and others please read [the official Algolia documentation](https://www.algolia.com/doc/?utm_medium=social-owned&utm_source=magento%20website&utm_campaign=docs).
+Here you can find a table of the attributes that you want to send to Algolia. For each attribute you can specify if the attribute is Searchable, Retrievable or Ordered. By default all attributes are set to be searched as Unordered. In general this value is better for relevance and we don’t recommend to change it without a specific reason.  Go here for information about [Searchable Attributes](https://www.algolia.com/doc/guides/ranking/searchable-attributes/?utm_medium=social-owned&utm_source=magento%20website&utm_campaign=docs).
 
 <figure>
     <img src="../../../img/categories_attributes.png" class="img-responsive" alt="Categories attributes">
     <figcaption>Configuration of categories' searchable attributes</figcaption>
 </figure>
 
-
-There are 8 attributes that the extension indexes regardless of what is specified in the table above. Those attributes are:
+There are 8 attributes that the extension indexes regardless of what is specified in the table above. These attributes are not "searchable", but can be used for filtering, sorting, customizing ranking, and building your instant search results. These attributes are:
 
 <table>
   <tr>
@@ -350,7 +245,7 @@ If you want to disable the indexing of pages, you can remove them from the Addit
 
 ### Indexed attributes
 
-The admin configuration does not support modifying indexable page attributes, but they can be changed programmatically by hooking into the `algolia_after_create_page_object` event.
+The admin configuration does not support modifying indexable page attributes, but they can be changed programmatically by hooking into the `algolia_after_create_page_object` event. See [events](/magento/doc/m1/backend).
 
 **Default indexed attributes:**
 
@@ -375,7 +270,7 @@ The admin configuration does not support modifying indexable page attributes, bu
 
 Records in Algolia must be smaller than 10 kilobytes. Therefore, if the content of the page is longer than 10,000 characters the content will not be indexed. In this case, the search will be performed only in the page’s name which could have an impact on relevance.
 
-To learn more about record size limits please see the official [Algolia documentation](https://www.algolia.com/doc/guides/indexing/formatting-your-data#kb-size-limit).
+To learn more about record size limits please see the official [Algolia documentation](http://www.algolia.com/doc/guides/indexing/formatting-your-data#size-limit).
 
 ### Index settings
 
@@ -389,11 +284,11 @@ The extension always sends the same settings to Algolia for the pages index:
 * attributesToSnippet
     * content:7
 
-Additional index settings can be managed in the Algolia dashboard or via extension’s `algolia_pages_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
+Additional index settings can be managed in the Algolia dashboard or via extension’s `algolia_pages_index_before_set_settings` custom event. See [events](/magento/doc/m1/backend). You can hook into this event and modify the settings programmatically directly from Magento.
 
 ## Suggestions indexing
 
-Data is recorded in the Magento database about each query that is processed by the Magento backend. The query, number of results, and number of searches of that query are all recorded automatically in the `catalogsearch_query` by Magento without any involvement from the extension.
+Each query processed by the Magento backend is stored in the Magento database. The query, number of results, and number of searches of that query are all recorded automatically in the `catalogsearch_query` by Magento without any involvement from the extension.
 
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>
@@ -419,7 +314,7 @@ Suggestions are not indexed automatically by the extension. You will need to tri
 
 ### Indexed attributes
 
-The extension does not offer to modify indexable attributes via the admin configuration, but they can be changed by hooking your method into to `algolia_after_create_suggestion_object` event.
+The extension does not let you modify indexable attributes via the admin configuration, but they can be changed by hooking your method into to `algolia_after_create_suggestion_object` event. See [events](/magento/doc/m1/backend).
 
 **Default indexed attributes:**
 
@@ -458,11 +353,11 @@ The extension always sends the same settings to Algolia for the suggestions inde
 * removeWordsIfNoResults
     * lastWords
 
-Additional index settings can be managed in the Algolia dashboard or via the extension’s `algolia_suggestions_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
+Additional index settings can be managed in the Algolia dashboard or via the extension’s `algolia_suggestions_index_before_set_settings` custom event. See [events](/magento/doc/m1/backend). You can hook into this event and modify the settings programmatically directly from Magento.
 
 ## Additional sections indexing
 
-In the autocomplete menu you can display other sections like color and brands. This feature requires that the instant search page has been enabled. The *Additional Sections* area requires this to work properly.
+In the autocomplete menu you can display other sections like color and brands. This feature requires the instant search page to be enabled. The *Additional Sections* area requires this to work properly.
 
 To be able to choose an attribute in the Additional Section area, you will need to set it as an attribute for faceting in Algolia.
 
@@ -473,7 +368,7 @@ To be able to choose an attribute in the Additional Section area, you will need 
 
 ### Indexed attributes
 
-The extension does not offer to modify indexable attributes via the admin configuration, but they can be changed by hooking your method into the `algolia_additional_section_items_before_index` event.
+The extension does not let you modify indexable attributes via the admin configuration, but they can be changed by hooking your method into the `algolia_additional_section_items_before_index` event.
 
 **Default indexed attributes:**
 
@@ -491,4 +386,4 @@ The extension always sends the same settings to Algolia for the additional secti
 * searchableAttributes
     * unordered(value)
 
-The extension does not offer to modify indexable attributes via the admin configuration, but they can be changed by hooking your method into the `algolia_additional_sections_index_before_set_settings` event.
+The extension does not let you modify indexable attributes via the admin configuration, but they can be changed by hooking your method into the `algolia_additional_sections_index_before_set_settings` event. See [events](/magento/doc/m1/backend).

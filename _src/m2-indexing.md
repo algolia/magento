@@ -154,7 +154,7 @@ The index settings for products managed by the extension are:
 * maxValuesPerFacet
 * removeWordsIfNoResults
 
-Additional index settings can be managed in the Algolia dashboard or via [extension’s custom events](/magento/doc/m2/backend/).
+Additional index settings can be managed in the Algolia dashboard or via the [extension’s custom events](/magento/doc/m2/backend/), using the `algolia_products_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
 
 ## Categories indexing
 
@@ -237,7 +237,7 @@ The extension supports indexing CMS pages, which will allow your customers to se
     <figcaption>Configuration of excluded pages</figcaption>
 </figure>
 
-If want to disable the indexing of pages, you can remove them in the Additional Sections configuration.
+If you want to disable the indexing of pages, you can remove them from the Additional Sections configuration:
 
 <figure>
     <img src="../../../img/m2-additional_sections.png" class="img-responsive" alt="Additional sections">
@@ -289,7 +289,7 @@ Additional index settings can be managed in the Algolia dashboard or via extensi
 
 ## Suggestions indexing
 
-Each query processed by the Magento backend is stored in the in the Magento database. The query, number of results, and number of searches of that query are all recorded automatically in the `catalogsearch_query` by Magento without any involvement from the extension.
+Each query processed by the Magento backend is stored in the Magento database. The query, number of results, and number of searches of that query are all recorded automatically in the `catalogsearch_query` by Magento without any involvement from the extension.
 
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>
