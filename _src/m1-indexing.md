@@ -21,7 +21,7 @@ An entire section of your catalog (products, categories, etc.) is pushed to Algo
 * **Single item re-index**
 A single item is pushed to Algolia and reindexed whenever it changes (addition or deletion, update of products or categories, etc.).
 
-By default these operations happen synchronously and they shop administrator has to wait for them to finish before continuing their work. This is not very convenient and can cause unexpected issues. The indexing queue is designed to alleviate these issues by performing indexing in the background.
+By default these operations happen synchronously and the shop administrator has to wait for them to finish before continuing their work. This is not very convenient and can cause unexpected issues. The indexing queue is designed to alleviate these issues by performing indexing in the background.
 
 ### Indexing queue
 
