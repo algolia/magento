@@ -3,6 +3,8 @@ layout: m2-documentation
 title: Troubleshooting data, index, or queue issues
 permalink: /doc/faq-support-data/
 description: FAQ on errors linked to data, indexing, and queueing
+redirect_from:
+  - /doc/m2/faq-support-data/
 ---
 
 Let's say you're getting an error with your data or search results. It may be an error that other Magento/Algolia users experience. We've put together here a page of solutions and background understanding to the most common problems users have.
