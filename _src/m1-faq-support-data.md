@@ -39,7 +39,7 @@ Algolia indices are created immediately when you save an Algolia configuration i
 
 > *So you might want to check your credentials. Are your **APP ID** and **API Key** correct?*
 
-Go here to see [how to set up credentials](/magento/doc/m1/getting-started/#configure-algolia-credentials).
+Go here to see [how to set up credentials](/magento/doc/m1/getting-started/#install-the-extension).
 
 If your credential are fine, can you check to see if you've set up automatic indexing (i.e. enabled the queue)? Without the queue, your changes will not take effect unless you reindex manually, which we don't normally suggest. It's always better to have a queue.
 
