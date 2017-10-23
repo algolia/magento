@@ -64,7 +64,7 @@ Yes you just need to disable indexing for the store where you do not need Algoli
 ## I hit "Reindex" button, but there are still no products in Algolia indices
 
 In case you have indexing queue enabled, the reindex button will "only" insert indexing jobs to queue database table and not really send them to Algolia. Please make sure you have set queue processing correctly and you have set reasonable number of products to be processed in one job. If you set the number od processed products too high the processing script may run out of memory and no products will be indexed.
-More information about indexing queue can be found in [documentation](/magento/doc/m1/indexing/#indexing-queue).
+More information about indexing queue can be found in [documentation](/magento/doc/m1/indexing-queue/).
 
 ## Some of my products do not come up during searching
 
@@ -184,7 +184,7 @@ Navigate to **Stores > Configuration > Advanced > Remove /pub/ from image URLs**
 
 ## My Magento generates a lot of delete operations, how can I prevent that?
 
-The solution is to enable [the indexing queue](/magento/doc/m1/indexing/#indexing-queue).
+The solution is to enable [the indexing queue](/magento/doc/m1/indexing-queue/).
 
 When the reindex is performed with disabled queue, ALL products (even disabled, invisible, ...) are processed and if the product is disabled/invisible/out-of-stock the delete operation is performed in Algolia no matter if the product is actually present in Algolia. It happens because the extension makes sure that only correct (indexable) products are present in index.
 

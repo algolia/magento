@@ -1,7 +1,7 @@
 ---
-layout: m2-documentation
+layout: m1-documentation
 title: Troubleshooting data, index, or queue issues
-permalink: /doc/m2/faq-support-data/
+permalink: /doc/faq-support-data/
 description: FAQ on errors linked to data, indexing, and queueing
 ---
 
@@ -9,9 +9,9 @@ Let's say you're getting an error with your data or search results. It may be an
 
 The types of errors vary, affecting both new and long-time users. And while many problems can be serious, they often require only a few simple steps to resolve.
 
-<div class="alert alert-info" style="white-space: pre-wrap">If you haven't yet installed the extension, or followed the steps in <a href="/magento/doc/m2/getting-started">getting started</a>, please do so before continuing.
+<div class="alert alert-info" style="white-space: pre-wrap">If you haven't yet installed the extension, or followed the steps in <a href="/magento/doc/m1/getting-started">getting started</a>, please do so before continuing.
 
-Also, if you are still having troubles after having gone through this page, please check out our <img style="display:inline-block; width:25px;" src="../../../img/algolia-logo-new.svg" class="img-responsive" alt="Algolia logo">search bar above to find more answers. You can also browse our sidebar, or check out our <a href="/magento/faq">Magento FAQ</a>, or the <a href="https://www.algolia.com/doc">Algolia docs</a>.
+Also, if you are still having troubles after having gone through this page, please check out our search bar above to find more answers. You can also browse our sidebar, or check out our <a href="/magento/faq">Magento FAQ</a>, or the <a href="https://www.algolia.com/doc">Algolia docs</a>.
 </div>
 
 ---
@@ -39,11 +39,11 @@ Algolia indices are created immediately when you save an Algolia configuration i
 
 > *So you might want to check your credentials. Are your **APP ID** and **API Key** correct?*
 
-Go here to see [how to set up credentials](/magento/doc/m2/getting-started/#configure-algolia-credentials).
+Go here to see [how to set up credentials](/magento/doc/m1/getting-started/#install-the-extension).
 
 If your credential are fine, can you check to see if you've set up automatic indexing (i.e. enabled the queue)? Without the queue, your changes will not take effect unless you reindex manually, which we don't normally suggest. It's always better to have a queue.
 
-Go here to see [how to set up the queue](/magento/doc/m2/indexing-queue/#the-indexing-queue).
+Go here to see [how to set up the queue](/magento/doc/m1/indexing-queue/#the-indexing-queue).
 
 However, if the indexing *did* occur, and you still have data problems - check to see if the reindexing failed. You'll need to check for errors.
 
@@ -61,12 +61,12 @@ The way the queue works is that:
 Note that enabling the queue doesn’t mean that you have set up the cron job. You also need to start CRON. So, if you  need your data to be sent immediately to Algolia, you will need to *first* disable the queue and then manually run the indexing process. Don't forget to re-enable the queue once that is done.!
 </div>
 
-Go here to see [how to start cron](/magento/doc/m2/indexing-queue/#with-cron).
+Go here to see [how to start cron](/magento/doc/m1/indexing-queue/#with-cron).
 
 > Why do we suggest using a queue?
 
 - The queue is **asynchronous**. This means that it is non-blocking. Whether you are reindexing via code or the console, you will be able to do move around on the console, or your code can do other things, while the queue is reindexing in the background.
-- The queue is more **reliable**. For 2 reasons. (1) Because if the job fails, the next run of the queue will automatically retry. (2) Because of how the the queue breaks up your index - see [below](/magento/doc/m2/faq-support-data/#my-data-is-too-large).
+- The queue is more **reliable**. For 2 reasons. (1) Because if the job fails, the next run of the queue will automatically retry. (2) Because of how the the queue breaks up your index - see [below](/magento/doc/faq-support-data/#my-data-is-too-large).
 - **No downtime**: The queue uses an advanced technique to ensure that indexing does not cause any downtime on your site. This is achieved by the queue's use of temporary indexes.
 
 <div class="alert alert-info">
@@ -108,10 +108,10 @@ Let's look at some possible errors.
 Timeouts, outages. Usually, these are the kinds of errors automatically fixed thanks to the queueing process. So the next run may not have the same problem. However, if this error persists, please see if there is not some kind of lmarger issue affecting your infrastructure.
 
 ### Running out of memory
-Large indexes, as discussed immediately below, will commonly cause memory problems. For one, Magento has some problems with memory leaks which cause errors when memory usage increases. Secondly, with Algolia, memory usage increases when you send Algolia an index that exceeds 10K. We not only suggest, but in fact we require that all indexes be no greater than 10K. Queueing resolves this problem, because the cron job will break up large indexes into 10K chunks, ensuring success. Without the cron job, and with [EMPTY_QUEUE=1](/magento/doc/m2/indexing-queue/#emptying-the-queue), there is no check on the index size.
+Large indexes, as discussed immediately below, will commonly cause memory problems. For one, Magento has some problems with memory leaks which cause errors when memory usage increases. Secondly, with Algolia, memory usage increases when you send Algolia an index that exceeds 10K. We not only suggest, but in fact we require that all indexes be no greater than 10K. Queueing resolves this problem, because the cron job will break up large indexes into 10K chunks, ensuring success. Without the cron job, and with [EMPTY_QUEUE=1](/magento/doc/m1/indexing-queue/#emptying-the-queue), there is no check on the index size.
 
 ### Too many products
-As already stated, [Algolia only accepts 10K index sizes](/magento/doc/m2/faq-support-data/#my-data-is-too-large). If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
+As already stated, [Algolia only accepts 10K index sizes](/magento/doc/faq-support-data/#my-data-is-too-large). If you are not using the queue, there is no check on this, and so if the size of your products index exceeds 10K, the indexing will fail. With queue enabled, the cron job will break down the index into 10K chunks, thereby ensuring success.
 
 To learn more about record size limits please see the official [Algolia documentation](https://www.algolia.com/doc/guides/indexing/formatting-your-data#size-limit).
 
@@ -120,7 +120,7 @@ So, knowing this - that a reindex will stop because you have too many products -
 How do you know if the indexing process has failed?
 
 1. You can see it from the front end - the data is not correct.
-2. or it you can check the [algoliasearch_queue table](/magento/doc/m2/indexing-queue/) and see if there are unfinished jobs.
+2. or it you can check the [algoliasearch_queue table](/magento/doc/m1/indexing-queue/) and see if there are unfinished jobs.
 
 Whenever reindexing fails, it will need to be restarted - but the good news is that all "restarts" continue where it had left off. You have 2 ways to restart an index:
 
@@ -133,13 +133,13 @@ Again, enabling the Queue is the preferred solution.
 
 > It is searching categories but not products - partial indexing - can be solved by checking for errors or setting up your queue
 
-When you [add a new attribute to your facets](/magento/doc/m2/indexing/#additional-sections-indexing), you need to reindex your products so that the new attribute is included in your Algolia data and therefore present as a facet in your search results.
+When you [add a new attribute to your facets](/magento/doc/m1/indexing/#additional-sections-indexing), you need to reindex your products so that the new attribute is included in your Algolia data and therefore present as a facet in your search results.
 
 ### Some products are invisible (not showing up)
 
 > Some products are filtered out of your indexes - Check the products attributes ...
 
-The extension comes with a product-level filter that removes all out-of-stock and disabled products from your search results.  No invisible products will be indexed either. For more information, see our discussion about [Product Indexing](/magento/doc/m2/indexing/#products-indexing).
+The extension comes with a product-level filter that removes all out-of-stock and disabled products from your search results.  No invisible products will be indexed either. For more information, see our discussion about [Product Indexing](/magento/doc/m1/indexing/#products-indexing).
 
 Can you therefore please make sure that all of your products are enabled, visible, and in stock?
 

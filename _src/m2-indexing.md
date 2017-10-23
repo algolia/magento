@@ -9,10 +9,11 @@ description: Learn about indexes in the Algolia extension for Magento 2
 
 In order to provide fast and relevant search, Algolia restructures your data in a special way, via Indexing. The extension does this for you - it runs through all of your data - products, categories, and pages - and indexes your data. These indexes are then uploaded to the Algolia servers, either automatically via the extension's queue, or manually via the Magento console or the command line. Once pushed to the Algolia server, the indexes go through an indexing process that transforms them into searchable data.
 
-For more information on this process, please see [Algolia docs](http://www.algolia.com/doc/guides/indexing/indexing-overview/).
+For more information on the Indexing process, check out [Algolia's docs](http://www.algolia.com/doc/guides/indexing/indexing-overview/).
+
 
 <div class="alert alert-warning">
-If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/m2/faq-support-data">troubleshooting guide</a>
+If you are having any issues with your data, indexes, or queue, please check our <a href="/magento/doc/faq-support-data">troubleshooting guide</a>
 </div>
 
 The extension can keep your data (products, categories, pages, etc.) synchronized with Algolia in real time. This provides the best, most up-to-date search experience for your customers.
@@ -25,7 +26,7 @@ An entire section of your catalog (products, categories, etc.) is pushed to Algo
 * **Single item re-index**
 A single item is pushed to Algolia and reindexed whenever it changes (addition or deletion, update of products or categories, etc.).
 
-By default, these operations run synchronously and the administrator has to wait for them to finish before continuing to work. This is not very convenient and can cause [unexpected issues](/magento/doc/m2/faq-support-data#my-data-is-missing-or-it-is-not-up-to-date). The indexing queue is designed to alleviate these issues by performing indexing in the background. For more on this, read about the extension's [indexing queue](/magento/doc/m2/indexing-queue)
+By default, these operations run synchronously and the administrator has to wait for them to finish before continuing to work. This is not very convenient and can cause [unexpected issues](/magento/doc/faq-support-data#my-data-is-missing-or-it-is-not-up-to-date). The **indexing queue** is designed to alleviate these issues by performing indexing in the background. For more on this, read about the extension's [indexing queue](/magento/doc/m2/indexing-queue)
 
 ## Products indexing
 
@@ -44,7 +45,7 @@ The extension indexes only products which are:
 
 If you’re ever missing a product in your Algolia index, make sure to check that it meets these requirements for indexing.
 
-Go here for more about [missing data](/magento/doc/m2/faq-support-data/#my-data-is-missing-or-it-is-not-up-to-date).
+Go here for more about [missing data](/magento/doc/faq-support-data/#my-data-is-missing-or-it-is-not-up-to-date).
 
 ### Searchable attributes
 
@@ -154,7 +155,7 @@ The index settings for products managed by the extension are:
 * maxValuesPerFacet
 * removeWordsIfNoResults
 
-Additional index settings can be managed in the Algolia dashboard or via [extension’s custom events](/magento/doc/m2/backend/).
+Additional index settings can be managed in the Algolia dashboard or via the [extension’s custom events](/magento/doc/m2/backend/), using the `algolia_products_index_before_set_settings` custom event. You can hook into this event and modify the settings programmatically directly from Magento.
 
 ## Categories indexing
 
@@ -237,7 +238,7 @@ The extension supports indexing CMS pages, which will allow your customers to se
     <figcaption>Configuration of excluded pages</figcaption>
 </figure>
 
-If want to disable the indexing of pages, you can remove them in the Additional Sections configuration.
+If you want to disable the indexing of pages, you can remove them from the Additional Sections configuration:
 
 <figure>
     <img src="../../../img/m2-additional_sections.png" class="img-responsive" alt="Additional sections">
@@ -289,7 +290,7 @@ Additional index settings can be managed in the Algolia dashboard or via extensi
 
 ## Suggestions indexing
 
-Each query processed by the Magento backend is stored in the in the Magento database. The query, number of results, and number of searches of that query are all recorded automatically in the `catalogsearch_query` by Magento without any involvement from the extension.
+Each query processed by the Magento backend is stored in the Magento database. The query, number of results, and number of searches of that query are all recorded automatically in the `catalogsearch_query` by Magento without any involvement from the extension.
 
 <div class="alert alert-warning">
     <i class="fa fa-exclamation-triangle"></i>

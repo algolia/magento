@@ -24,6 +24,9 @@ layout: default
                         <a href="{{ site.baseurl }}/doc/m1/indexing/" {% if url == '/doc/m1/indexing/' %}class="active"{% endif %}>Indexing</a>
                     </li>
                     <li>
+                        <a href="{{ site.baseurl }}/doc/m1/indexing-queue/" {% if url == '/doc/m1/indexing-queue/' %}class="active"{% endif %}>Indexing Queue / Cron</a>
+                    </li>
+                    <li>
                         <a href="{{ site.baseurl }}/doc/m1/analytics/" {% if url == '/doc/m1/analytics/' %}class="active"{% endif %}>Analytics</a>
                     </li>
                     <li>
@@ -74,6 +77,18 @@ layout: default
                         <a href="{{ site.baseurl }}/doc/m1/external-data/" {% if url == '/doc/m1/external-data/' %}class="active"{% endif %}>Index external data</a>
                     </li>
                 </ul>
+
+                <span class="header">Troubleshooting Guide</span>
+                <ul class="troubleshooting">
+                  <li>
+                    <a href="{{ site.baseurl }}/doc/faq-support-data/" class="{% if url == '/doc/faq-support-data/' %}active{% endif %}">Data, Indexes, Queues</a>
+                  </li>
+                  <li>
+                    <a href="{{ site.baseurl }}/faq/" class="{% if url == '/faq/' %}active{% endif %}">General FAQ</a>
+                  </li>
+
+                </ul>
+
             </div>
         </div>
         <div class="col-md-9 documentation-content">
