@@ -42,7 +42,6 @@ module Jekyll
 	    
 	    html << '<ul class="toc_menu">'
 	    doc.css('h4').each do |tag|
-	      print tag
 	      html << "<li><a href=\"##{tag['id']}\">#{tag.text}</a></li>"
 	    end
 	
