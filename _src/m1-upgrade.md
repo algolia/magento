@@ -9,7 +9,7 @@ It's strongly recommended to use [Modman](https://github.com/colinmollenhour/mod
 
 For upgrade to new version, do the following steps:
 
-1. If you have installed previous version of the extension, uninstall it by Modman command <code>$ modman undeploy algoliasearch-magento</code>
+1. If you have installed previous version of the extension, uninstall it by Modman command <code>$ modman remove algoliasearch-magento</code>
 2. Install the new version of the extension by Modman command <code>$ modman clone https://github.com/algolia/algoliasearch-magento</code>
 3. Go to the **System > Configuration > Catalog > Algolia Search** administration panel and save your configuration. **Even if you didn’t change anything.**
 4. Force the re-indexing of all indexers
