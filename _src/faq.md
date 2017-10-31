@@ -48,6 +48,14 @@ You can reduce the number of records by removing some sorts. This can be configu
     <figcaption>Sorting configuration</figcaption>
 </figure>
 
+## After reindexing my search doesn't work and I see _"Cannot read property 'autocomplete' of undefinded"_ error in browser's console
+
+The error means that extension's templates were not rendered.
+
+Templates are rendered to `before_bode_end` block, please make sure that your theme renders this block.
+
+If your theme renders the block, make sure you have allowed symlinks in the Magento's configuration. You can enable it in **System > Configuration > Advanced > Developer** section of Magento configuration.
+
 ## Why Magento shows "404 error page not found." in configuration?
 
 Logout and login from your Magento administration panel should fix the issue.
