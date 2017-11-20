@@ -207,3 +207,9 @@ If a product doesn't have assigned a parameter value, Magento automatically assi
 You can turn off indexing of "No" values in administration in table where you specify [attributes for indexing](/magento/doc/m1/indexing/#searchable-attributes). There in column "Index empty value" you can select "No" for attributes where you don't want to index an empty value.
 
 Don't forget to reindex your data after you save the configuration.
+
+## There is "indexer.php" in indexed URLs, how can I get rid of those?
+
+This happens when you have set configuration of **Use Web Server Rewrites** set to **No** and you reindex through console. To fix it, change the **Use Web Server Rewrites** to **Yes**.
+
+You can find the configuration in **System > Configuration > General > Web > Search Engine Optimalization**.
