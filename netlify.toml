@@ -1,7 +1,7 @@
 [build]
     base    = "site"
     publish = "public"
-    command = "make"
+    command = "jekyll build"
 
 [context.production]
     command = "make production"
