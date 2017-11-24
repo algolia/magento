@@ -6,17 +6,3 @@ dev:
 	node buildComponents.js && \
 	bundle install && \
 	JEKYLL_ENV=development bundle exec jekyll serve
-
-release:
-	rm -rf _site && \
-	rm -rf node_modules && \
-	yarn && \
-	node buildComponents.js && \
-	bundle install && \
-	JEKYLL_ENV=production bundle exec jekyll build && \
-	cd _site && \
-	git init . && \
-  git add . && \
-  git commit -m "Update documentation." && \
-  git push git@github.com:algolia/magento.git master:gh-pages --force && \
-  rm -rf .git
