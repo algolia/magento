@@ -6,13 +6,13 @@
 [context.production]
     command = "make production"
     [context.production.environment]
-        JEKYLL_ENV = production
+        JEKYLL_ENV = "production"
         ROOT_PATH = "/magento/"
 
 [context.deploy-preview.environment]
-    JEKYLL_ENV = production
+    JEKYLL_ENV = "production"
     ROOT_PATH = "/magento/"
 
 [context.branch-deploy.environment]
-    JEKYLL_ENV = production
+    JEKYLL_ENV = "production"
     ROOT_PATH = "/magento/"
