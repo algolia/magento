@@ -52,7 +52,7 @@ You can reduce the number of records by removing some sorts. This can be configu
 
 The error means that extension's templates were not rendered.
 
-Templates are rendered to `before_bode_end` block, please make sure that your theme renders this block.
+Templates are rendered to `before_body_end` block, please make sure that your theme renders this block.
 
 If your theme renders the block, make sure you have allowed symlinks in the Magento's configuration. You can enable it in **System > Configuration > Advanced > Developer** section of Magento configuration.
 
