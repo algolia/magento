@@ -6,7 +6,6 @@ title: Magento Search Extension Powered by Algolia
 magento2Title: Magento 2 Search Extension Powered by Algolia
 description: Power your Magento store search with Algolia. The fastest way to increase conversions on your site with instant search, autocomplete, and real time results.
 
-baseurl: "/magento" # the subpath of your site, e.g. /blog/
 twitter_username: algolia
 github_username: algolia
 host: 0.0.0.0

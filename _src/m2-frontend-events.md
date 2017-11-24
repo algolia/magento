@@ -11,7 +11,7 @@ You can adjust all the logic of the [autocomplete.js](https://github.com/algolia
 
 <!-- <div class="alert alert-info">
     You can learn how to add a custom JS file in a
-    <a href="{{ site.baseurl }}/doc/m1/customize-extension/#adding-a-new-javascript-file">Create a custom extension tutorial</a>.
+    <a href="doc/m1/customize-extension/#adding-a-new-javascript-file">Create a custom extension tutorial</a>.
 </div> -->
 
 If this method is defined in your code, it will be called by the extension right before it initializes the autocomplete feature.
@@ -46,7 +46,7 @@ By defining this method(s) in your JS file, you can directly modify it's paramet
 
 <!-- <div class="alert alert-info">
     You can learn how to add a custom JS file in a
-    <a href="{{ site.baseurl }}/doc/m1/customize-extension/#adding-a-new-javascript-file">Create a custom extension tutorial</a>.
+    <a href="doc/m1/customize-extension/#adding-a-new-javascript-file">Create a custom extension tutorial</a>.
 </div> -->
 
 Example of `algoliaHookBeforeInstantsearchInit(instantsearchOptions)` method:

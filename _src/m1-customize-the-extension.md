@@ -119,7 +119,7 @@ Open up the configuration file `customalgolia.xml` and add the following code bl
 ```
 <div class="alert alert-info">
     Adding a new JS file and using
-    <a href="{{ site.baseurl }}/doc/m1/frontend-events/">the front-end custom events</a>
+    <a href="doc/m1/frontend-events/">the front-end custom events</a>
     is prefered way to modify the front-end functionality before overriding JS files.
 </div>
 

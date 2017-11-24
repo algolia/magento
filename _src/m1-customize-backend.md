@@ -12,7 +12,7 @@ In this guide you’ll learn how to attach hooks to the events fired by the Algo
 <div class="alert alert-warning">
     <i>
     The following tutorial assumes that you already have created a
-    <a href="{{ site.baseurl }}/doc/m1/customize-extension/">CustomAlgolia module</a>.
+    <a href="doc/m1/customize-extension/">CustomAlgolia module</a>.
     </i>
 </div>
 
