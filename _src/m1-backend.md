@@ -72,13 +72,13 @@ _Dispatches after fetching product's attributes for indexing._
 
 Passed parameters:
 
-- `$indexedData` as data in `Varien_Object` object
+- `$product_data` as data in `Varien_Object` object
 - `$subProducts` as array of sub products
-- `$product` as `Mage_Catalog_Model_Product`
+- `$productObject` as `Mage_Catalog_Model_Product`
 
 Modifiable parameters:
 
-- `$indexedData` as data in `Varien_Object` object
+- `$product_data` as data in `Varien_Object` object
 
 ### Categories
 
