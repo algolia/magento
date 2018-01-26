@@ -7,7 +7,10 @@ description: The Algolia extension for Magento 2 provides custom events to modif
 
 For developers the extension provides custom events to hook custom code on top of Algolia Search extension.
 
-<!-- You can learn how to use events in [Using extension's events tutorial](/magento/doc/m1/customize-backend/). -->
+<div class="alert alert-info">
+    You can learn how to create a custom extension with listener methods in
+    <a href="{{ site.baseurl }}/doc/m2/customize-extension/">Create a custom extension tutorial</a>.
+</div>
 
 ### Products
 
