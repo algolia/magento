@@ -20,13 +20,9 @@ description: Learn how to get started with Algolia extension for Magento 2
 
 ## Install the extension
 
-<!-- There are two ways how to install the extension:
+There are two ways how to install the extension:
 
-### 1) Magento Marketplace
-
-Navigate to [Magento Marketplace](https://marketplace.magento.com/algolia-algoliasearch-magento-2.html) and get the extension. After that navigate to your Magento administration and install the extension by following [this awesome guide](https://www.fastcomet.com/tutorials/magento2/installing-extensions){:target="_blank"}.
-
-### 2) Composer -->
+### 1) Composer
 
 Install the extension via [Composer](https://getcomposer.org/):
 
@@ -36,6 +32,10 @@ $ php bin/magento module:enable Algolia_AlgoliaSearch
 $ php bin/magento setup:upgrade
 $ php bin/magento setup:static-content:deploy
 ```
+
+### 2) Magento Marketplace
+
+Navigate to [Magento Marketplace](https://marketplace.magento.com/algolia-algoliasearch-magento-2.html) and get the extension. After that navigate to your Magento administration and install the extension by following [this awesome guide](https://www.fastcomet.com/tutorials/magento2/installing-extensions){:target="_blank"}.
 
 ## Configure Algolia credentials
 

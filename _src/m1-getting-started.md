@@ -29,13 +29,26 @@ Or please follow those few steps to get started Algolia Search extension:
 
 ## Install the extension
 
-1. Install the extension via [modman](https://github.com/colinmollenhour/modman) by:
-`$ cd /path/to/your/magento/directory`
-`$ modman init`
-`$ modman clone https://github.com/algolia/algoliasearch-magento.git`
+There are two ways how to install the extension:
 
-2. In your Magento administration navigate to **System > Configuration > Catalog > Algolia Search** administration panel.
-3. In **Credentials & Setup** tab configure your Algolia credentials.
+### 1) Modman
+
+Install the extension via [modman](https://github.com/colinmollenhour/modman):
+
+```
+$ cd /path/to/your/magento/directory
+$ modman init
+$ modman clone https://github.com/algolia/algoliasearch-magento.git
+```
+
+### 2) Magento Marketplace
+
+Navigate to [Magento Marketplace](https://marketplace.magento.com/algolia-algoliasearch.html), get the extension and follow the instructions how to install it to your Magento.
+
+## Configure Algolia credentials
+
+1. In your Magento administration navigate to **System > Configuration > Catalog > Algolia Search** administration panel.
+2. In **Credentials & Setup** tab configure your Algolia credentials.
 
 <!-- 1. Install the extension from the [Magento Commerce](http://www.magentocommerce.com/magento-connect/search-algolia-instant-search.html) or download it from [GitHub](https://github.com/algolia/algoliasearch-magento). -->
 <figure>
