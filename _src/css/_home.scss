@@ -705,8 +705,7 @@ g#Pins g path:hover {
 // ------------------------- */
 .testimonial {
   color: #fff;
-  display: flex;
-  flex-flow: row wrap;
+
 
   .cf {
     margin-bottom: 2em;
@@ -726,8 +725,6 @@ g#Pins g path:hover {
     box-shadow: 0 0.25em 0.3em 0 rgba(0, 0, 0, 0.1);
     background: #fff;
     overflow: hidden;
-    flex: 30%;
-    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
@@ -758,6 +755,7 @@ g#Pins g path:hover {
     text-align: center;
     color: rgba(black, 0.5);
     font-size: 14px;
+    align-items: flex-end;
   }
 
   .avatar {
