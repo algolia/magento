@@ -20,6 +20,7 @@ h2 {
   text-align: center;
   font-size: 1.8em;
   margin-top: 0;
+  border-bottom: none !important;
 
   &:after {
     display: block;
@@ -663,19 +664,16 @@ g#Pins  path {
   transition: opacity 0.2s ease;
 }
 g#Pins g.fade path {
-  opacity: 0;
-  transform: scale(0);
+  // opacity: 0;
+  // transform: scale(0);
 }
 g#Pins g.highlight path,
 g#Pins g path:hover {
-  transform: scale(2.2) translateY(-35%) translateZ(99px);
-  transform-origin: 50%;
-  transform-origin: center center;
+
   transition: transform 0.2s ease;
   fill: lighten($magento-color,1);
   stroke: #ff9b5e;
   stroke-width: 1;
-  position: absolute;
   z-index: 99;
 }
 
@@ -705,8 +703,7 @@ g#Pins g path:hover {
 // ------------------------- */
 .testimonial {
   color: #fff;
-  display: flex;
-  flex-flow: row wrap;
+
 
   .cf {
     margin-bottom: 2em;
@@ -726,8 +723,6 @@ g#Pins g path:hover {
     box-shadow: 0 0.25em 0.3em 0 rgba(0, 0, 0, 0.1);
     background: #fff;
     overflow: hidden;
-    flex: 30%;
-    display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-items: center;
@@ -758,6 +753,7 @@ g#Pins g path:hover {
     text-align: center;
     color: rgba(black, 0.5);
     font-size: 14px;
+    align-items: flex-end;
   }
 
   .avatar {
