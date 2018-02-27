@@ -6,6 +6,7 @@
 @import "base";
 @import "bootstrap";
 @import "mixin";
+@import 'aerial.css';
 @import "syntax-highlighting";
 @import "header";
 @import "jumbotron";
@@ -18,6 +19,6 @@
 @import "search";
 @import "helper";
 @import "./../../node_modules/algolia-frontend-components/components/communityHeader/communityHeader";
-@import 'aerial.css';
+
 
 

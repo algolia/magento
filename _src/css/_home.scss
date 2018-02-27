@@ -20,6 +20,7 @@ h2 {
   text-align: center;
   font-size: 1.8em;
   margin-top: 0;
+  border-bottom: none !important;
 
   &:after {
     display: block;
@@ -663,19 +664,16 @@ g#Pins  path {
   transition: opacity 0.2s ease;
 }
 g#Pins g.fade path {
-  opacity: 0;
-  transform: scale(0);
+  // opacity: 0;
+  // transform: scale(0);
 }
 g#Pins g.highlight path,
 g#Pins g path:hover {
-  transform: scale(2.2) translateY(-35%) translateZ(99px);
-  transform-origin: 50%;
-  transform-origin: center center;
+
   transition: transform 0.2s ease;
   fill: lighten($magento-color,1);
   stroke: #ff9b5e;
   stroke-width: 1;
-  position: absolute;
   z-index: 99;
 }
 

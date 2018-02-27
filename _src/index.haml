@@ -281,6 +281,29 @@ permalink: /
             %li Category listings
 
         .col-sm-4
+          %a{href: 'https://www.ellisons.co.uk/'}
+            %h4 Ellisons
+          %a.showcase{href: 'https://www.ellisons.co.uk/'}
+            %img.img-responsive{src: '{{site.baseurl}}/img/ellisons-screen.png', alt:'Ellisons'}
+          %br
+          %ul
+            %li Autocomplete menu
+            %li Instant search results page
+
+        .col-sm-4
+          %a{href: 'https://www.thekooples.com/en'}
+            %h4 TheKooples
+          %a.showcase{href: 'https://www.thekooples.com/en'}
+            %img.img-responsive{src: '{{site.baseurl}}/img/thekooples-screen.png', alt:'TheKooples'}
+          %br
+          %ul
+            %li Instant search results page
+
+        .col-sm-4
+          %a{:href => "#install"}
+            .showcase.fixme You?
+
+        .col-sm-4{:style => "opacity: 0;user-select: none;pointer-events:none"}
           %a{:href => "#install"}
             .showcase.fixme You?
 
