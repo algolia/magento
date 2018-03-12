@@ -75,13 +75,13 @@ _Dispatches after fetching product's attributes for indexing._
 
 Passed parameters:
 
-- `$indexedData` as data in `Magento\Framework\DataObject` object
+- `$custom_data` as data in `Magento\Framework\DataObject` object
 - `$subProducts` as array of sub products
 - `$product` as `Magento\Catalog\Model\Product`
 
 Modifiable parameters:
 
-- `$indexedData` as data in `Magento\Framework\DataObject` object
+- `$custom_data` as data in `Magento\Framework\DataObject` object
 
 ### Categories
 
