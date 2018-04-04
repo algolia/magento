@@ -270,7 +270,7 @@ The admin configuration does not support modifying indexable page attributes, bu
 
 Records in Algolia must be smaller than 10 kilobytes. Therefore, if the content of the page is longer than 10,000 characters the content will not be indexed. In this case, the search will be performed only in the page’s name which could have an impact on relevance.
 
-To learn more about record size limits please see the official [Algolia documentation](http://www.algolia.com/doc/guides/indexing/formatting-your-data#size-limit).
+To learn more about record size limits please see the official [Algolia documentation](https://www.algolia.com/doc/guides/indexing/structuring-your-data/#size-limit).
 
 ### Index settings
 
