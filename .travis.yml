@@ -14,6 +14,12 @@ cache: bundler
 before_install:
   - rvm install 2.3.1
   - bundle install
+  # install latest node
+  - nvm install node && nvm use node
+  # install latest yarn
+  - curl -o- -L https://yarnpkg.com/install.sh | bash
+  - export PATH="$HOME/.yarn/bin:$PATH"
+  # build web
   - yarn install && node buildComponents.js
   - bundle exec jekyll build
 
