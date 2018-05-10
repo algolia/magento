@@ -63,7 +63,7 @@ const output = algoliaComponents.communityHeader({
         },
         {
           name: "Discourse (forum)",
-          url: "https://discourse.algolia.com/c/magento",
+          url: "https://discourse.algolia.com/search?q=tags%3Amagento%2Cmagento2",
           target: "_blank"
         }
       ]
