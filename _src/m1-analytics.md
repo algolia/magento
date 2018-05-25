@@ -1,6 +1,6 @@
 ---
 layout: m1-documentation
-title: Analytics
+title: Google Analytics
 permalink: /doc/m1/analytics/
 description: Learn how to track search analytics in Algolia extension for Magento
 ---
