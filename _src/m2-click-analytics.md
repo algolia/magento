@@ -7,8 +7,11 @@ description: Learn how to track Click & Conversion analytics in Algolia extensio
 
 This feature of the extension allows you to analyse how your customers are behaving on your website using [Algolia’s Click & Conversion Analytics](https://www.algolia.com/doc/guides/analytics/click-analytics/) .
  
-You can track which products are clicked more, and which search queries leads to more conversions. Note: this feature is not available on all plans, please refer to [Algolia's pricing page](https://www.algolia.com/pricing/) for more details.
+You can track which products are clicked more, and which search queries leads to more conversions. 
 
+<div class="alert alert-info">
+    This feature is not available on all plans, please refer to <a href="https://www.algolia.com/pricing/">Algolia's pricing page</a> for more details.
+</div>
 
 ## Configuration
 
