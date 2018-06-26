@@ -115,6 +115,10 @@ Facets are the attributes you want to use as filters on an instant search result
 
 For each facet you should specify the attribute, the label (what is displayed above the filter) and the type of the facet. Prices and numeric filters will be shown as a slider. Other filters will be shown as a list of checkboxes.
 
+Another option is to set facet as searchable. This option will add a search box on top of a filter box and allow a customer to search for facet values. It's very handy when a facet has a lot of values. 
+
+The last option is to create a [query rule](https://www.algolia.com/doc/guides/query-rules/query-rules-overview/) for the facet. Set this option to "Yes" when you want Algolia to [dynamically filter on a facet](https://www.algolia.com/doc/tutorials/query-rules/query-rules-how-to-add-filters-dynamically/) when a user searches for its value in query. It means when you create a Query rule for "color" facet and user is searching for query "red shorts", Algolia will internally filter results for color "red" and search only for query "shorts". It leads to more relevant results. This query rule is applied for both autocomplete and instant search results. Query rules have [a limited quota for an Algolia plan](https://www.algolia.com/pricing), check it carefully before you use it.  
+
 The attributes specified as facets are automatically indexed as retrievable but not searchable. There is no need to specify them in the searchable attributes table. They will automatically be configured in Algolia as attributes for faceting.
 
 There are 3 facets by default - **price**, **categories** and **color**.

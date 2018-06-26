@@ -213,3 +213,11 @@ Don't forget to reindex your data after you save the configuration.
 This happens when you have set configuration of **Use Web Server Rewrites** set to **No** and you reindex through console. To fix it, change the **Use Web Server Rewrites** to **Yes**.
 
 You can find the configuration in **System > Configuration > General > Web > Search Engine Optimalization**.
+
+## When I save Algolia's configuration or want to reindex products I see error "Rules quota exceeded. Please contact us if you need an extended quota.". What it means? 
+
+Depending on your [Algolia plan](https://www.algolia.com/pricing) your query rules quota might be limited to a certain number of query rules. 
+
+The extension creates query rules only when you explicitly configure it to. It can be done in [Facet's configuration](/magento/doc/m2/indexing/#facets). If you set to "create query rules" for more than 10 (or less if you defined any query rules before) facets, than it will give you this error message as Algolia forbids to create more rules than is the quota.
+
+Solution here is to lower a number of facets for which you want to create query rule in Algolia.
