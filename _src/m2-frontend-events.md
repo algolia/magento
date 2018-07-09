@@ -34,13 +34,13 @@ function algoliaHookBeforeAutocompleteStart(sources, options, algoliaClient) {
 You can adjust all the logic of the InstantSearch.js integration by couple of custom JavaScript methods:
 
 - `algoliaHookBeforeInstantsearchInit(instantsearchOptions)`
-	- can be used to modify default [instant search options](https://community.algolia.com/instantsearch.js/documentation/#initialization)
+	- can be used to modify default [instant search options](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#description)
 - `algoliaHookBeforeWidgetInitialization(allWidgetConfiguration)`
-    - can be used to add / remove / modify any [widget(s)](https://community.algolia.com/instantsearch.js/documentation/#widgets)
+    - can be used to add / remove / modify any [widget(s)](https://community.algolia.com/instantsearch.js/v2/widgets.html)
 - `algoliaHookBeforeInstantsearchStart(search)`
-    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/documentation/#initialization) before call of [`start()`](https://community.algolia.com/instantsearch.js/documentation/#start) method
+    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#description) before call of [`start()`](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#struct-start) method
 - `algoliaHookAfterInstantsearchStart(search)`
-    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/documentation/#initialization) after call of [`start()`](https://community.algolia.com/instantsearch.js/documentation/#start) method
+    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#description) after call of [`start()`](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#struct-start) method
 
 By defining this method(s) in your JS file, you can directly modify it's parameter which must be returned back from the method.
 
