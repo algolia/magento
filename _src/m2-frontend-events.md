@@ -47,13 +47,13 @@ algolia.registerHook('beforeAutocompleteOptions', function(options) {
 You can adjust all the logic of the InstantSearch.js integration by registering a couple of custom hooks:
 
 - `beforeInstantsearchInit(instantsearchOptions)`
-	- can be used to modify default [instant search options](https://community.algolia.com/instantsearch.js/documentation/#initialization)
+	- can be used to modify default [instant search options](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#description)
 - `beforeWidgetInitialization(allWidgetConfiguration)`
-    - can be used to add / remove / modify any [widget(s)](https://community.algolia.com/instantsearch.js/documentation/#widgets)
+    - can be used to add / remove / modify any [widget(s)](https://community.algolia.com/instantsearch.js/v2/widgets.html)
 - `beforeInstantsearchStart(search)`
-    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/documentation/#initialization) before call of [`start()`](https://community.algolia.com/instantsearch.js/documentation/#start) method
+    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#description) before call of [`start()`](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#struct-start) method
 - `afterInstantsearchStart(search)`
-    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/documentation/#initialization) after call of [`start()`](https://community.algolia.com/instantsearch.js/documentation/#start) method
+    - can be used to modify the [instantsearch instance](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#description) after call of [`start()`](https://community.algolia.com/instantsearch.js/v2/instantsearch.html#struct-start) method
 
 By registering this hook(s) in your JS file, you can directly modify it's parameter which must be returned back from the method.
 
