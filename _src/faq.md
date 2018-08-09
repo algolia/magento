@@ -94,6 +94,17 @@ Please, make sure you are using the latest version of the extension. It happens 
 
 This issue was resolved in version 1.6.0. Instruction how to upgrade can be found in [documentation](/magento/doc/m1/upgrade/).
 
+## I can see a spike in amount of indexing operations (like 10x the total number of records). What is the reason?
+
+The most probable reason is automatic import of products and it’s testing.
+Your store might use an automatic import extension / script to update the catalog either directly from their providers or your ERP system. It can automatically import new products, delete old products, update prices, stock availabilities and basically all information about products.
+
+This brings 2 issues to the extension:
+
+- The import “saves” all products during it’s import causing Algolia extension to propagate all those “saves” to Algolia. It basically means running a full reindex when the import runs. 
+It gets more complicated when the import doesn’t do 1 “save” per product, but multiple “saves”. It updates stock and “save”, updates price and “save”. The extensions listens only on the “save” and each “save” is propagated to Algolia costing 1 indexing operation.
+- Some imports update data directly in database bypassing the “save” mechanism. So the Algolia extension is not aware of those changes (no “save” event propagated by Magento) and therefore it doesn’t reflect the changes and customer needs to manually run a full reindex after each import.
+
 ## Why are images not showing up?
 
 Since Algolia is displaying results without going through the backend of magento, at indexing time we need to generate a link for the url. What magento give you when you are asking for this url is the url of the cached and resized image that you need to display.

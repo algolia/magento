@@ -34,7 +34,9 @@ Additionally, you can also set how many jobs will be processed at a time. The de
 
 Once the queue is enabled, you need to set up the process that will run it. There are several ways to do this.
 
-## With cron
+## Processing the queue
+
+### With cron
 
 The standard set up is to process queued jobs at a regular time interval. To do this, configure the following crontab entry:
 
@@ -44,7 +46,7 @@ The standard set up is to process queued jobs at a regular time interval. To do 
 
 This will run N jobs every 5 minutes depending on your queue configuration.
 
-## Without cron
+### Without cron
 
 You can also process the queue manually from the command line:
 
@@ -54,69 +56,36 @@ php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
 
 This will execute a single instance of a cron job. Note that this will not always empty the queue, as there might be more jobs than one instance can handle.
 
-## Full section reindexing
-
-### With the indexing queue enabled
-
-When the indexing queue is enabled, products are reindexed by using temporary indices. Instead of being sent to the production index (which could cause temporary duplication or inconsistency), the products are uploaded to a temporary index. Then, only when all the products are pushed, the temporary index is changed to become the production index. This approach has several advantages:
-
-1. Higher re-indexing speed
-2. Avoid potential inaccuracies with deleted products
-3. Lower number of operations needed
-
-All changes done by re-indexing will be visible in search results once the whole process has completed and the production indices have been replaced.
-
-### With the indexing queue disabled
-
-When the indexing queue is disabled, the full product re-index has to process the whole catalog synchronously. Updates must be pushed to Algolia as well as deletes to remove inactive products.
-
-This takes more time and more resources. It is also a little bit less reliable as some deleted products may not be processed and removed from Algolia’s indices.
-
-<div class="alert alert-warning">
-    <i class="fa fa-exclamation-triangle"></i>
-    Enabling the indexing queue is highly recommended for doing any full reindexing on large catalogs.
-</div>
-
-<div class="alert alert-danger">
-	<i class="fa fa-exclamation-triangle"></i>
-	When the indexing queue is disabled, every indexing job <i>(complete re-indexing, update/deletion/update of products or categories, etc.)</i> will run synchronously. Trying to synchronously index too many objects at a time may trigger PHP timeouts. See more about <a href="/magento/doc/faq-support-data/#my-data-is-too-large">large indexes</a>.
-</div>
-
-## Automatic indexing
-
-By default, the extension indexes each change or deletion of product or category and this change is propagated to Algolia immediately. It's useful, as it keeps the data in Algolia in sync with what your Magento data. But if you want to prevent this behavior, you can do it by changing the indexer's mode to "Manual Update".
-
-This change will prevent the indexer to index every single change of a product or a category immediately.
-
-When you switch the mode to "Manual Indexing", you'll need to run full product and category reindex on a regular basis - for example every night - to keep your data synchronized with Algolia.
-
-## Manual reindexing
-
-If you want to completely reindex your catalog, you can use the command line.
-
-For example, here is the command for a complete product reindex:
-
-```sh
-$ php path/to/magento/bin/magento indexer:reindex algolia_products
-```
-
-You can use more do the same for the other indexes.
-
-Names of other Algolia indexes:
-
-- `algolia_products` - reindexes all products
-- `algolia_categories` - reindex all categories
-- `algolia_pages` - reindexes all CMS pages
-- `algolia_suggestions` - reindexes all search query suggestions
-- `algolia_additional_sections` - reindexes all data from additional sections
-- `algolia_queue_runner` - process jobs in indexing queue
-
 ## Emptying the queue
 
-If you want to clear the queue in one instance, you will need to bypass the cron and process the entire queue in one pass. You do this with by setting the variable EMPTY_QUEUE=1:
+If you want to clear the queue in one instance, you will need to bypass the cron and process the entire queue in one pass. You do this with by setting the variable PROCESS_FULL_QUEUE=1:
 
 ```sh
-EMPTY_QUEUE=1 php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
+PROCESS_FULL_QUEUE=1 php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
 ```
 
 Running this will attempt to empty the queue. However, it might not always be successful. Errors can occur - network timeouts, or more often, your data is too large for one job. In that case, the job will fail, the queue will not be empty, and therefore some of your data will not have been sent to Algolia. Please go here how to resolve [indexing errors](/magento/doc/faq-support-data/#common-errors).
+
+## Indexing queue settings
+
+There are two settings which are taken into account while processing the queue:
+
+### Number of jobs to run each time the cron is run
+
+This number specify how many jobs should should be processed each time the queue runner is launched. The default value is 10, but for you the best value might be different.
+To figure out how many jobs can be processed during a single run, you can follow these steps:
+
+1) Turn off queue runner cron job
+2) Set the number of jobs to process to 10
+3) Manually run a queue runner indexer
+4) See how much time it takes
+5) If it’s lower than 4 minutes, increase number of jobs to process
+6) Repeat from point 3
+
+When the queue runner takes around 4 minutes to process, you have found the right number of jobs to process in a single run. Now you can set up again a cron job to trigger queue runner every 5 minutes.
+
+We are mentioning 4 minutes because it’s a good practice to have some reserve in case the queue runner will be slower (maybe because of higher load on a server or any other circumstances).
+
+### Number of times to retry processing of queued jobs
+
+When a job fails during processing the queue, it'll be re-triggered the next time the queue is processed. In order not to process failing jobs forever, this settings sets how many times the queue should try to trigger the job and then delete it.
