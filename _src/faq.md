@@ -232,3 +232,19 @@ Depending on your [Algolia plan](https://www.algolia.com/pricing) your query rul
 The extension creates query rules only when you explicitly configure it to. It can be done in [Facet's configuration](/magento/doc/m2/indexing/#facets). If you set to "create query rules" for more than 10 (or less if you defined any query rules before) facets, than it will give you this error message as Algolia forbids to create more rules than is the quota.
 
 Solution here is to lower a number of facets for which you want to create query rule in Algolia.
+
+## My website generates a huge number of indexing operations to Algolia and I don't understand where it's coming from.
+
+Most of the time, it happens when customers use a third-party extension/tool or custom code to manage their catalog.
+
+This type of extension triggers a lot of product/category saves in Magento. The Algolia's extension listens to these events and creates an indexing operation each time a product or a category is saved. That means that if the third-party extension saves X products, it will also create X indexing operations to Algolia. Sometimes they perform thousands of save during the process, that's why the number of indexing operations increases so much.
+
+What can I do in such case ?
+
+- First : Identify the source of the problem. What extension or tool can trigger those saves ?
+
+- When it's done, try to limit the number of operations on this tool : reduce the number of processes, or the number of updated products/categories.
+
+- If you can't, try to disable the indexing during the tool's process.
+
+- Make sure that you use the [the Algolia indexing queue](/magento/doc/m1/indexing-queue/) , it will merge some of the jobs and limit the number of indexing operations sent to Algolia.
