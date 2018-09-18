@@ -12,10 +12,10 @@ This feature can be accessed directly from the Magento2 back-office main menu :
 
 ## Purpose
 
-It might happens that for some reason, you may need to index one or many products to Algolia immediately, without waiting for the [the indexing queue](/magento/doc/m2/indexing-queue/).
-This tool is also useful to check if your products meets all the requirements to be indexed in the Algolia's indices. 
+It might happen that for some reason, you may need to index one or many products to Algolia immediately, without waiting for the [the indexing queue](/magento/doc/m2/indexing-queue/).
+This tool is also useful to check if your products meet all the requirements to be indexed in the Algolia's indices. And if not, the tool will tell you immediately the reason why the products are not indexed.
 
-Keep in mind that if a product can't be reindexed with this tool, it won't be reindexed throught the standard reindexing scripts neither.
+Keep in mind that if a product can't be reindexed with this tool, it won't be reindexed throught the standard reindexing scripts either.
   
 ## How to use ?
 
@@ -27,7 +27,7 @@ To reindex products, you have to copy/paste their SKUs separated by commas or ca
 
 **Note** : You can reindex up to 10 products at once.
 
-## Understand the outputted results
+## Understand the results
 
 After submitting the form, you'll get the results. If everything went fine, you'll be notified that the products have been reindexed in all the indices related to the stores of your Magento website.
 **Note** : If the products are not related to some of the stores, they won't be reindexed on those particular indices and you will be notified. 
