@@ -205,6 +205,11 @@ There are 3 sorting strategies by default, in addition to relevancy - from lowes
     Each sorting strategy will multiply the number of records that will be indexed in Algolia. This will increase the usage against your Algolia plan. For more information see <a href="https://community.algolia.com/magento/faq/#how-many-records-does-the-magento-extension-create">this FAQ entry</a>.
 </div>
 
+<div class="alert alert-info">
+    <i class="fa fa-info-circle"></i>
+    If you remove sorting strategies, this won't automatically delete the related replicas. You can delete them by hand in your <a href="https://www.algolia.com/dashboard/">Algolia dashboard</a>.
+</div>
+
 ### Index settings
 
 The index settings for products managed by the extension are:
