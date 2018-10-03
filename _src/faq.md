@@ -94,16 +94,23 @@ Please, make sure you are using the latest version of the extension. It happens 
 
 This issue was resolved in version 1.6.0. Instruction how to upgrade can be found in [documentation](/magento/doc/m1/upgrade/).
 
-## I can see a spike in amount of indexing operations (like 10x the total number of records). What is the reason?
+## My website generates a huge number of indexing operations to Algolia (or a spike like 10x the total number of records) and I don't understand where it's coming from. ##
 
-The most probable reason is automatic import of products and it’s testing.
-Your store might use an automatic import extension / script to update the catalog either directly from their providers or your ERP system. It can automatically import new products, delete old products, update prices, stock availabilities and basically all information about products.
+The most probable reason is automatic import of products and it’s testing. It happens when customers use a third-party extension/tool or custom code to manage their catalog.
 
-This brings 2 issues to the extension:
+It might use an automatic import extension / script to update the catalog either directly from their providers or your ERP system. It can automatically import new products, delete old products, update prices, stock availabilities and basically all information about products.
 
-- The import “saves” all products during it’s import causing Algolia extension to propagate all those “saves” to Algolia. It basically means running a full reindex when the import runs. 
-It gets more complicated when the import doesn’t do 1 “save” per product, but multiple “saves”. It updates stock and “save”, updates price and “save”. The extensions listens only on the “save” and each “save” is propagated to Algolia costing 1 indexing operation.
-- Some imports update data directly in database bypassing the “save” mechanism. So the Algolia extension is not aware of those changes (no “save” event propagated by Magento) and therefore it doesn’t reflect the changes and customer needs to manually run a full reindex after each import.
+It triggers a lot of product/category "saves" in Magento. The Algolia's extension listens to these events and creates an indexing operation each time a product or a category is saved. That means that if the third-party extension saves X products, it will also create X indexing operations to Algolia. It basically means running a full reindex when the import runs.
+
+It gets more complicated when the import doesn’t do 1 "save" per product, but multiple "saves". It updates stock and "save", updates price and "save". The extensions listens only on the "save" and each "save" is propagated to Algolia costing 1 indexing operation. Sometimes they perform thousands of "save" during the process, that's why the number of indexing operations increases so much.
+
+What can I do in such case ?
+- First : Identify the source of the problem. What extension or tool can trigger those saves ? 
+- When it's done, try to limit the number of operations on this tool : reduce the number of processes, or the number of updated products/categories. 
+- If you can't, try to disable the indexing during the tool's process. 
+- Make sure that you use the [the Algolia indexing queue](/magento/doc/m1/indexing-queue/) , it will merge some of the jobs and limit the number of indexing operations sent to Algolia.
+
+Note : An other issue caused by the management of catalog done by third-party extension is that some imports update data directly in database bypassing the "save" mechanism. So the Algolia extension is not aware of those changes (no "save" event propagated by Magento) and therefore it doesn’t reflect the changes and customer needs to manually run a full reindex after each import.
 
 ## Why are images not showing up?
 

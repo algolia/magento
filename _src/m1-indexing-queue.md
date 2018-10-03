@@ -124,12 +124,6 @@ Names of other Algolia indexers:
 If you want to clear the queue in one instance, you will need to bypass the cron and process the entire queue in one pass. You do this with by setting the variable EMPTY_QUEUE=1:
 
 ```sh
-EMPTY_QUEUE=1 php path/to/magento/bin/magento indexer:reindex algolia_queue_runner
-```
-
-If you want to process the entire queue in one pass you can run:
-
-```sh
 EMPTY_QUEUE=1 php -f /absolute/path/to/magento/shell/indexer.php -- -reindex algolia_queue_runner
 ```
 
