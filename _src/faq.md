@@ -239,3 +239,54 @@ Depending on your [Algolia plan](https://www.algolia.com/pricing) your query rul
 The extension creates query rules only when you explicitly configure it to. It can be done in [Facet's configuration](/magento/doc/m2/indexing/#facets). If you set to "create query rules" for more than 10 (or less if you defined any query rules before) facets, than it will give you this error message as Algolia forbids to create more rules than is the quota.
 
 Solution here is to lower a number of facets for which you want to create query rule in Algolia.
+
+## What settings are handled by the Magento dashboard vs Algolia dashboard?
+
+Each data type (products, categories, pages, ...) controls different set of settings.
+
+### Products
+
+* searchableAttributes
+* customRanking
+* unretrievableAttributes
+* attributesForFaceting
+* maxValuesPerFacet
+* removeWordsIfNoResults
+
+### Categories
+
+* searchableAttributes
+* customRanking
+* unretrievableAttributes
+
+### Pages
+
+* searchableAttributes
+    * unordered(slug)
+    * unordered(name)
+    * unordered(content)
+* attributesToSnippet
+	* content:7
+	
+### Suggestions
+
+* searchableAttributes
+    * unordered(query)
+* customRanking
+    * desc(popularity)
+    * desc(number_of_results)
+* typoTolerance
+    * false
+* attributesToRetrieve
+    * query
+* removeWordsIfNoResults
+    * lastWords
+    
+### Additional sections
+
+* searchableAttributes
+    * unordered(value)
+
+All other index settings can be managed in the Algolia dashboard or via the [extension’s custom events](/magento/doc/m2/backend/), using the `algolia_products_index_before_set_settings` custom event.
+
+Settings with values can be changed only programmatically and not via Magento UI.
