@@ -87,6 +87,10 @@ Names of other Algolia indexes:
 
 ## Products indexing
 
+<div class="center">
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/6XJ11UdgVPE" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
 Exact, up-to-date product data is essential to a successful ecommerce implementation. To accommodate many different product data scenarios, the extension provides a high degree of indexing and search configuration.
 
 ### Indexable products

@@ -5,6 +5,11 @@ permalink: /doc/m2/click-analytics/
 description: Learn how to track Click & Conversion analytics in Algolia extension for Magento
 ---
 
+<div class="center">
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qzaLrHz67U4?start=101" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<br>
+
 This feature of the extension allows you to analyse how your customers are behaving on your website using [Algolia’s Click & Conversion Analytics](https://www.algolia.com/doc/guides/analytics/click-analytics/) .
  
 In both, autocomplete and instant search page, you can track which products are clicked more, and which search queries leads to more conversions. 

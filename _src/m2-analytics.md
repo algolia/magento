@@ -5,7 +5,12 @@ permalink: /doc/m2/analytics/
 description: Learn how to track search analytics in Algolia extension for Magento 2
 ---
 
-The analytics feature of the extension is handled by the [Analytics widget](https://community.algolia.com/instantsearch.js/documentation/#analytics) of the [InstantSearch.js library](https://community.algolia.com/instantsearch.js/).
+<div class="center">
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qzaLrHz67U4?start=50" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<br>
+
+The Google Analytics feature of the extension is handled by the [Analytics widget](https://community.algolia.com/instantsearch.js/documentation/#analytics) of the [InstantSearch.js library](https://community.algolia.com/instantsearch.js/).
 
 Currently this feature only works on the full instantsearch page (it doesn’t work on the autocomplete menu) and pushes all the searches performed by the user to analytics tools like Google Analytics.
 

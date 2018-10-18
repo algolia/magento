@@ -5,6 +5,11 @@ permalink: /doc/m2/visual-category-merchandising/
 description: Learn how to merchandise products on Algolia powered category pages in Algolia extension for Magento
 ---
 
+<div class="center">
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/qzaLrHz67U4?start=141" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<br>
+
 Visual Category Merchandiser allows you to display products on Algolia powered category pages in precise order to boost your conversions.
 
 ## Merchandising
