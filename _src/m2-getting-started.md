@@ -1,12 +1,16 @@
 ---
 layout: m2-documentation
-title: Getting started
+title: Getting Started
 permalink: /doc/m2/getting-started/
 redirect_from:
   - /m2/
   - /m2/documentation/
 description: Learn how to get started with Algolia extension for Magento 2
 ---
+
+<div class="center">
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/twEj_VBWxp8" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
 
 ## Create an Algolia account
 

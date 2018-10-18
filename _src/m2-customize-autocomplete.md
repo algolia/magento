@@ -1,9 +1,15 @@
 ---
 layout: m2-documentation
-title: Autocomplete menu customization
+title: Autocomplete menu
 permalink: /doc/m2/customize-autocomplete/
 description: Learn how to customize the features and design of autocomplete menu in Algolia extension for Magento 2
 ---
+
+<div class="center">
+	<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/S6yuPl-bsFQ" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+## Customization
 
 Customize the autocomplete drop-down menu which appears underneath the search bar on your Magento site.
 
