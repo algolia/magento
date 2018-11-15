@@ -28,7 +28,7 @@ If a new version is available, it will be displayed next to Magento2 1.X.X
 If you need to update your extension, please refer to the [documentation](/magento/doc/m2/upgrade/)
 
  
-## Understand how your Magento configuration determines the number of created indices and the indexing of your data ##
+## Understand how your Magento configuration determines the number of created indices your indexing ##
 
 The first thing you need to do when installing the extension is to enter your credentials in the configuration.
 

@@ -1,8 +1,8 @@
 ---
 layout: m2-documentation
-title: Prerequisites
-permalink: /doc/m2/prerequisites/
-description: Technical troubleshooting - Prerequisites
+title: Step by step guide
+permalink: /doc/m2/technical-troubleshooting/
+description: Technical troubleshooting - Step by step guide
 ---
 
 One of the biggest goals of the extension is to handle **the indexing of your Magento data** to Algolia’s servers. As Magento is highly configurable, every website using it is unique and behaves differently.
@@ -45,3 +45,8 @@ Despite all that help, if you still have issues, it can be:
 - The reindexing queue remains full and doesn’t seem to be processed
 
 Here are now some tips you can use to dig deeper in the indexing debugging. For some of them, it would of course require some technical knowledge but nothing is impossible if you’re not afraid to dive into the specifics of Magento.
+
+## Guide ##
+
+- [Backend issues](/magento/doc/m2/backend-issues/)
+- [Frontend issues](/magento/doc/m2/frontend-issues/)
