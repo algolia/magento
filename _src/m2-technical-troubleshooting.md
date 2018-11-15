@@ -9,7 +9,11 @@ One of the biggest goals of the extension is to handle **the indexing of your Ma
 
 We created the extension and tried to make it the most adaptable it can be to meet your needs regarding your Magento configuration. Unfortunately, some custom Magento (or server) configuration, using third-party code/extensions, or simply bad practices can lead to issues during the indexing process.
 
-This tutorial aims to help you to figure out what the issue can be and to explain how you can fix it, step by step.
+<div class="alert alert-info">
+    <i class="fa fa-info-circle"></i>
+    This tutorial aims to help you to figure out what the issue can be and to explain how you can fix it, step by step.
+</div>
+
 
 ## Prerequisites ##
 
@@ -21,8 +25,11 @@ First of all, please make sure you already read our documentation related to Mag
 - [FAQ](/magento/faq/)
 - [Troubleshooting data, index or queue issues](/magento/doc/faq-support-data/)
 
-Note that the last link can be very useful to eliminate the most common issues that you can meet. 
-
+<div class="alert alert-info">
+    <i class="fa fa-info-circle"></i>
+    Note that the last link can be very useful to eliminate the most common issues that you can meet.
+</div>
+ 
 So after reading those articles, you should be familiar with:
 
 - Installing the Magento extension
@@ -34,7 +41,10 @@ So after reading those articles, you should be familiar with:
 - Understanding the benefits of using the indexing queue
 - Being aware of the most common issues related to indexing
 
-If any of those points remains blurry, we invite you to read the documentation again. If you don’t understand anything from previously mentioned documentation pages, please feel free to [let us know about it](https://github.com/algolia/magento/issues/new). We will improve the documentation.
+<div class="alert alert-warning">
+    <i class="fa fa-exclamation-triangle"></i>
+    If any of those points remains blurry, we invite you to read the documentation again. If you don’t understand anything from previously mentioned documentation pages, please feel free to <a target="_blank" href="https://github.com/algolia/magento/issues/new">let us know about it</a>. We will improve the documentation.
+</div>
 
 ## Remaining issues ##
 
@@ -44,9 +54,9 @@ Despite all that help, if you still have issues, it can be:
 - Prices, images or other attributes which don’t seem to be updated
 - The reindexing queue remains full and doesn’t seem to be processed
 
-Here are now some tips you can use to dig deeper in the indexing debugging. For some of them, it would of course require some technical knowledge but nothing is impossible if you’re not afraid to dive into the specifics of Magento.
-
 ## Guide ##
+
+Here are now some tips you can use to dig deeper in the indexing debugging. For some of them, it would of course require some technical knowledge but nothing is impossible if you’re not afraid to dive into the specifics of Magento.
 
 - [Backend issues](/magento/doc/m2/backend-issues/)
 - [Frontend issues](/magento/doc/m2/frontend-issues/)
