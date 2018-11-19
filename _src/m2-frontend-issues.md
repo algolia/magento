@@ -46,11 +46,11 @@ Some of the web browsers like [Mozilla Firefox](https://www.mozilla.org/) or [Go
 
 ### Checking the code source ###
 
-To display the code source, press **Ctrl+U** (or **command+U** on MacOS) .
+To display the code source, press **Ctrl + U** (or **Cmd + U** on MacOS) .
 
 You can:
 
-- Check if the 3 JavaScript embedded by the extension are loaded in the <head> div (**common.js, instantsearch.js and autocomplete.js**). These 3 files are mandatory for the search to work.
+- If you didn't turn on the JavaScript merging in the Magento configuration, you can check if the 3 JavaScript embedded by the extension are loaded in the <head> div (**common.js, instantsearch.js and autocomplete.js**). These 3 files are mandatory for the search to work.
 - Search if the variable **window.algoliaConfig** is defined just below. This variable fetches all the configuration related to Algolia coming from the Magento back-office.
 - Check if the native search input on the header has been replaced by the Algolia search input. For example, search for **name=”q”** in the code source, the input should have now **algolia-search-input** in its class attribute. 
 - In the products listing pages powered by [InstantSearch.js](https://community.algolia.com/instantsearch.js/), search for the **DOM selector** defined in the back-office in Stores > Algolia Search > Instant Search Results Page > DOM selector (by default, it’s **.columns**). This selector has to be on the page for the results to be injected in the page.
@@ -65,7 +65,7 @@ You can have a look at the [view/frontend/layout/algolia_search_handle.xml](http
 
 Note that this layout update has been developed to work with the native **Magento Luma Theme**, so it’s possible that if you made some customization on your frontend, you may have to override the Magento layout update as well.  
 
-Your browser offers other useful tools situated in the developer tools. To open it, press **F12** (or **fn+F12** on MacOS).
+Your browser offers other useful tools situated in the developer tools. To open it, press **F12** (or **fn + F12** on MacOS).
 
 ### Using the console ###
 In the **console tab**, you can type “**algoliaConfig**” then press Enter, you will see all the configuration contained in the object (coming from your Magento configuration). It is useful to check if your frontend is up-to-date with the latest modifications you made in the back-office and perhaps remind you to clear the cache.
