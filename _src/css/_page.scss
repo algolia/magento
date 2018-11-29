@@ -112,6 +112,10 @@ h1[id]:before, h2[id]:before, h3[id]:before, h4[id]:before {
       border-left-color: #fcfc02;
     }
 
+    &.tech-troubleshooting {
+      border-left-color: #BA2121;
+    }
+
   }
 }
 
@@ -203,4 +207,11 @@ figure {
   iframe {
     box-shadow: 0 1px 10px rgba(0, 0, 0, 0.2), 0 2px 4px 0 rgba(0, 0, 0, 0.1);
   }
+}
+
+.img-responsive {
+  margin: 0 auto;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 4px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  margin-bottom: 10px;
 }
