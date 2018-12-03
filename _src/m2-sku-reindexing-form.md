@@ -19,7 +19,7 @@ This feature can be accessed directly from the Magento2 back-office main menu:
 It might happen that for some reason, you may need to index one or many products to Algolia immediately, without waiting for the [the indexing queue](/magento/doc/m2/indexing-queue/).
 This tool is also useful to check if your products meet all the requirements to be indexed in the Algolia's indices. And if not, the tool will tell you immediately the reason why the products are not indexed.
 
-Keep in mind that if a product can't be reindexed with this tool, it won't be reindexed throught the standard reindexing scripts either.
+Keep in mind that if a product can't be reindexed with this tool, it won't be reindexed through the standard reindexing scripts either.
   
 ## How to use it
 
