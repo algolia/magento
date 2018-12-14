@@ -20,7 +20,7 @@ You can filter your analytic data by store view, index type, and date range.
 
 <div class="alert alert-info">
     <i class="fa fa-info-circle"></i>
-    Your data is aggregated and can be filtered by the date range between your rentention limit date to today.
+    Your data is aggregated and can be filtered by the date range between your retention limit date to today.
 </div>
 
 Each plan has its own designated analytics retention period which is the date from today your data is preserved. To retain additional analytics longer, you will need to switch plans. For more information, please visit our [pricing page](https://www.algolia.com/billing/overview/) or contact [sales@algolia.com](sales@algolia.com). 
