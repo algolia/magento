@@ -5,8 +5,6 @@ permalink: /doc/m2/analytics-overview/
 description: Learn about the Analytics Overview page in the Algolia extension for Magento 2
 ---
 
-The Analytics Overview feature requires the [Algolia Analytics API](https://www.algolia.com/doc/rest-api/analytics/) which is only accessible in our Business or Enterprise plans. Additionally, Click Analytics data is only available for our Business and Enterprise plans. You can still view your analytic data from the [Algolia Dashboard](https://www.algolia.com/analytics/overview/) or [upgrade your plan](https://www.algolia.com/billing/overview/) to view it from your Magento back-office. 
-
 ## Access
 
 This feature can be accessed directly from the Magento 2 back-office main menu: 
@@ -23,7 +21,7 @@ You can filter your analytic data by store view, index type, and date range.
     Your data is aggregated and can be filtered by the date range between your retention limit date to today.
 </div>
 
-Each plan has its own designated analytics retention period which is the date from today your data is preserved. To retain additional analytics longer, you will need to switch plans. For more information, please visit our [pricing page](https://www.algolia.com/billing/overview/) or contact [sales@algolia.com](sales@algolia.com). 
+Each plan has its own designated analytics retention period which is the date from today your data is preserved. To retain additional analytics longer, you will need to switch plans. For more information, please visit our [pricing page](https://www.algolia.com/billing/overview/) or contact [sales@algolia.com](mailto:sales@algolia.com). 
 
 Index types are limited to:
 
@@ -63,6 +61,6 @@ This section will contain a graph of searches per day set by your date range. Ho
 
 **Popular searches:** Searches performed the more often by your users.
 
-**Popular results:** Results the most often displayed on the results list after a search.
+**Popular results:** Results the most often displayed on the results list after a search. There are view and edit links for your to review and update the result product/category/page.  
 
 **No results searches:** Searches that retrieved 0 results, either because a word didn't match, or because some filters excluded all of the matching results. A search with no results can often be optimized by improving keywords used in the dataset, or by adding synonyms.
