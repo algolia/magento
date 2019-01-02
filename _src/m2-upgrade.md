@@ -18,5 +18,8 @@ For upgrade to new version, do the following steps:
 
 ### Extension Manager
 
-You can also upgrade to a new version through Magento's extension manager. Please read this Magento [devdoc](https://devdocs.magento.com/guides/v2.2/comp-mgr/extens-man/extensman-update.html) for more information. 
+Another option to upgrade your extension is through Magento's extension manager in your store's backoffice. You can find the manager by going to:  
 
+**Stores > Tools > Web Setup Wizard > Extension Manager**
+
+Please read this Magento [devdoc](https://devdocs.magento.com/guides/v2.3/comp-mgr/extens-man/extensman-update.html) for more information on how to update your extension. 
