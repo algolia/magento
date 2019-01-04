@@ -48,7 +48,7 @@ This method is called before initialization of autocomplete feature and accepts 
 To add a new datasource using this method, you can specify the method like:
 
 ```js
-function algoliaHookBeforeAutocompleteStart(sources, options, algoliaClient) {
+algolia.registerHook('beforeAutocompleteSources', function(sources, algoliaClient) {
     var customIndex = algoliaClient.initIndex("your_index_name");
     var customIndexOptions = {
         hitsPerPage: 4
@@ -68,8 +68,8 @@ function algoliaHookBeforeAutocompleteStart(sources, options, algoliaClient) {
         }
     });
     
-    return [sources, options];
-}
+    return sources;
+});
 ```
 
 That’s it. Now you are able to search for your external data.
