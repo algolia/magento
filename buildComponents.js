@@ -93,7 +93,7 @@ const output = algoliaComponents.communityHeader({
     { name: "Install Magento 2" ,url: "https://www.algolia.com/doc/integration/magento-2/getting-started/quick-start/", target: "_blank"},
     { name: "Magento 1 Docs", url: "https://www.algolia.com/doc/integration/magento-1/getting-started/quick-start/" },
     { name: "Magento 2 Docs", url: "https://www.algolia.com/doc/integration/magento-2/getting-started/quick-start/" },
-    { name: "Discourse", url: "https://discourse.algolia.com/c/magento", target: "_blank"},
+    { name: "Discourse", url: "https://discourse.algolia.com/search?q=tags%3Amagento%2Cmagento2", target: "_blank"},
     { name: "FAQ", url: "https://www.algolia.com/doc/integration/magento-2/troubleshooting/general-faq/" }
   ],
   docSearch: {
