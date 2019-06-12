@@ -55,11 +55,11 @@ const output = algoliaComponents.communityHeader({
       dropdownItems: [
         { 
           name: "Documentation for Magento 1",
-          url: "https://community.algolia.com/magento/doc/m1/getting-started/",
+          url: "https://www.algolia.com/doc/integration/magento-1/getting-started/quick-start/",
         },
         {
           name: "Documentation for Magento 2",
-          url: "https://community.algolia.com/magento/doc/m2/getting-started/",
+          url: "https://www.algolia.com/doc/integration/magento-2/getting-started/quick-start/",
         },
         {
           name: "Discourse (forum)",
@@ -68,7 +68,7 @@ const output = algoliaComponents.communityHeader({
         }
       ]
     },
-    { name: "FAQ", url: "/magento/faq/" },
+    { name: "FAQ", url: "https://www.algolia.com/doc/integration/magento-2/troubleshooting/general-faq/" },
     { 
       name: "Github",
       url: "#",
@@ -89,12 +89,12 @@ const output = algoliaComponents.communityHeader({
   ],
   mobileMenu: [
     { name: "Home", url: "/magento/" },
-    { name: "Install Magento 1" ,url: "https://community.algolia.com/magento/doc/m1/getting-started/", target: "_blank"},
-    { name: "Install Magento 2" ,url: "https://community.algolia.com/magento/doc/m2/getting-started/", target: "_blank"},
-    { name: "Magento 1 Docs", url: "https://community.algolia.com/magento/doc/m1/getting-started/" },
-    { name: "Magento 2 Docs", url: "https://community.algolia.com/magento/doc/m2/getting-started/" },
+    { name: "Install Magento 1" ,url: "https://www.algolia.com/doc/integration/magento-1/getting-started/quick-start/", target: "_blank"},
+    { name: "Install Magento 2" ,url: "https://www.algolia.com/doc/integration/magento-2/getting-started/quick-start/", target: "_blank"},
+    { name: "Magento 1 Docs", url: "https://www.algolia.com/doc/integration/magento-1/getting-started/quick-start/" },
+    { name: "Magento 2 Docs", url: "https://www.algolia.com/doc/integration/magento-2/getting-started/quick-start/" },
     { name: "Discourse", url: "https://discourse.algolia.com/c/magento", target: "_blank"},
-    { name: "FAQ", url: "/magento/faq/" }
+    { name: "FAQ", url: "https://www.algolia.com/doc/integration/magento-2/troubleshooting/general-faq/" }
   ],
   docSearch: {
 	input_selector_placeholder: "Search documentation ...",
