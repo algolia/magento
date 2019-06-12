@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Click & Conversion Analytics
 permalink: /doc/m2/click-analytics/
 description: Learn how to track Click & Conversion analytics in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-2/how-it-works/click-and-conversion-analytics/
 ---
 
 <div class="center">

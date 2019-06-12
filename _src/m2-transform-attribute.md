@@ -3,6 +3,7 @@ layout: m2-documentation
 title: How to index numeric variation of string attribute
 permalink: /doc/m2/transform-attribute/
 description: Learn how to index numeric variation to a string attribute
+redirect_to: https://www.algolia.com/doc/integration/magento-2/guides/transform-indexed-attribute/
 ---
 
 In some situations you want to index a numeric variation of a string attribute. For example for a sorting purposes.

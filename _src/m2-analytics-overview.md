@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Analytics Overview
 permalink: /doc/m2/analytics-overview/
 description: Learn about the Analytics Overview page in the Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/how-it-works/analytics-overview/
 ---
 
 ## Access

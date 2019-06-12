@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Frontend issues
 permalink: /doc/m2/frontend-issues/
 description: Technical troubleshooting - Frontend issues
+redirect_to: https://www.algolia.com/doc/integration/magento-2/troubleshooting/front-end-issues/
 ---
 
 Now that we covered all the different types of backend issues related to the indexing, let’s have a look at the most common issues experienced on the **frontend**.

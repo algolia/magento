@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Upgrade to new version
 permalink: /doc/m2/upgrade/
 description: Learn how to upgrade the Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/getting-started/upgrading/
 ---
 
 It's strongly recommended to use [Composer](https://getcomposer.org) to install the extension. Other installation methods are not supported.

@@ -3,6 +3,7 @@ layout: m2-documentation
 title: SKU reindexing form
 permalink: /doc/m2/sku-reindexing-form/
 description: Learn about SKU reindexing form in the Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/how-it-works/sku-reindexing-form/
 ---
 
 <div class="center">

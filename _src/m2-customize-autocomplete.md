@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Autocomplete menu
 permalink: /doc/m2/customize-autocomplete/
 description: Learn how to customize the features and design of autocomplete menu in Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/customize/autocomplete-menu/
 ---
 
 <div class="center">

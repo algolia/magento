@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Indexing
 permalink: /doc/m2/indexing/
 description: Learn about indexes in the Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/how-it-works/indexing/
 ---
 
 ## Indexing in general

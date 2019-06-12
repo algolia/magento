@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Backend issues
 permalink: /doc/m2/backend-issues/
 description: Technical troubleshooting - Backend issues
+redirect_to: https://www.algolia.com/doc/integration/magento-2/troubleshooting/back-end-issues/
 ---
 
 ## Make sure that the extension is up-to-date ##

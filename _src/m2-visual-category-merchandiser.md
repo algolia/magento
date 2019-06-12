@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Visual Category Merchandising
 permalink: /doc/m2/visual-category-merchandising/
 description: Learn how to merchandise products on Algolia powered category pages in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-2/merchandising/category-merchandising/
 ---
 
 <div class="center">

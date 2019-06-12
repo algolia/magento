@@ -3,6 +3,7 @@ layout: m2-documentation
 title: How to index data from outside of Magento
 permalink: /doc/m2/external-data/
 description: Learn how to index data from outside of Magento 2 and use it together with Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/guides/create-a-custom-extension/
 ---
 
 There are situations when you want to add external data source to your drop-down menu. For example integrate WordPress posts to you Magento’s autocomplete. In order to do that, you just need to follow a few steps:

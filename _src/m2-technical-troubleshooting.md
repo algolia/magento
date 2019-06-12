@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Step by step guide
 permalink: /doc/m2/technical-troubleshooting/
 description: Technical troubleshooting - Step by step guide
+redirect_to: https://www.algolia.com/doc/integration/magento-2/troubleshooting/technical-troubleshooting/
 ---
 
 One of the biggest goals of the extension is to handle **the indexing of your Magento data** to Algolia’s servers. As Magento is highly configurable, every website using it is unique and behaves differently.

@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Google Analytics
 permalink: /doc/m2/analytics/
 description: Learn how to track search analytics in Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/how-it-works/google-analytics/
 ---
 
 <div class="center">

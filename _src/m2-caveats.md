@@ -3,6 +3,7 @@ layout: m2-documentation
 title: Caveats
 permalink: /doc/m2/caveats/
 description: What the extension for Magento 2 relies on
+redirect_to: https://www.algolia.com/doc/integration/magento-2/how-it-works/indexing/
 ---
 
 ###  Magento hooks

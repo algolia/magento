@@ -6,6 +6,7 @@ redirect_from:
   - /m2/
   - /m2/documentation/
 description: Learn how to get started with Algolia extension for Magento 2
+redirect_to: https://www.algolia.com/doc/integration/magento-2/getting-started/quick-start/
 ---
 
 <div class="center">
