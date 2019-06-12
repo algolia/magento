@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Front-end (UI / UX)
 permalink: /doc/m1/ui-ux/
 description: Learn how the frontend code works in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/how-it-works/front-end/
 ---
 
 ## Custom theme

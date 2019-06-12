@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Indexing
 permalink: /doc/m1/indexing/
 description: Learn how the indexing works in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/how-it-works/indexing/
 ---
 
 ## Indexing in general

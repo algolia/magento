@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Indexing Queue
 permalink: /doc/m1/indexing-queue/
 description: Learn how the indexing queue works in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/how-it-works/indexing-queue/
 ---
 
 <div class="alert alert-warning">

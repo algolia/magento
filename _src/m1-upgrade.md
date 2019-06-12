@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Upgrade to new version
 permalink: /doc/m1/upgrade/
 description: Learn how to upgrade the Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/getting-started/upgrading/
 ---
 
 It's strongly recommended to use [Modman](https://github.com/colinmollenhour/modman) to install the extension. Other installation methods are not supported.

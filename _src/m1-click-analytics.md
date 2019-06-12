@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Click & Conversion Analytics
 permalink: /doc/m1/click-analytics/
 description: Learn how to track Click & Conversion analytics in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/how-it-works/click-and-conversion-analytics/
 ---
 
 This feature of the extension allows you to analyse how your customers are behaving on your website using [Algolia’s Click & Conversion Analytics](https://www.algolia.com/doc/guides/analytics/click-analytics/) .

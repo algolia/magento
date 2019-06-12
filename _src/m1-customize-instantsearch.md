@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Instant search page customization
 permalink: /doc/m1/customize-instantsearch/
 description: Learn how to customize the features and design of instant search results page in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/customize/instant-search-page/
 ---
 
 Customize the instant search results page.

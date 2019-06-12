@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Troubleshooting data, index, or queue issues
 permalink: /doc/faq-support-data/
 description: FAQ on errors linked to data, indexing, and queueing
+redirect_to: https://www.algolia.com/doc/integration/magento-1/troubleshooting/data-indexes-queues/
 ---
 
 Let's say you're getting an error with your data or search results. It may be an error that other Magento/Algolia users experience. We've put together here a page of solutions and background understanding to the most common problems users have.

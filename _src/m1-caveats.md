@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Caveats
 permalink: /doc/m1/caveats/
 description: What the extension for Magento relies on
+redirect_to: https://www.algolia.com/doc/integration/magento-1/customize/caveats/
 ---
 
 ##  Magento hooks

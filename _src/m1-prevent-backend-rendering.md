@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Prevent Backend Rendering
 permalink: /doc/m1/prevent-backend-rendering/
 description: Make your Magento store faster and more performant with Algolia by preventing category pages and search pages from backend rendering.
+redirect_to: https://www.algolia.com/doc/integration/magento-1/how-it-works/prevent-back-end-rendering/
 ---
 
 In order to save your server resources and make your store faster, you can prevent category and search result pages from backend rendering.

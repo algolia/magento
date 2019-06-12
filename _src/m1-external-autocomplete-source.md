@@ -6,6 +6,7 @@ redirect_from:
   - /external-autocomplete-source/
   - /doc/external-autocomplete-source/
 description: Learn how to plug external data source to autocomplete menu in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/guides/adding-autocomplete-source/
 ---
 
 There are situations when you want to add external data source to your drop-down menu. You may want to integrate WordPress posts into your Magento site’s autocomplete, for example. In order to do that, you just need to follow a few steps:

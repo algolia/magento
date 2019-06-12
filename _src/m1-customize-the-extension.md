@@ -3,6 +3,7 @@ layout: m1-documentation
 title: How to customize the extension
 permalink: /doc/m1/customize-extension/
 description: Learn how to create a custom Magento extension to modify behaviour of Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/guides/create-a-custom-extension/
 ---
 
 Algolia is a powerful tool that opens the door to a variety of search features.

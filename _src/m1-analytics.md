@@ -3,6 +3,7 @@ layout: m1-documentation
 title: Google Analytics
 permalink: /doc/m1/analytics/
 description: Learn how to track search analytics in Algolia extension for Magento
+redirect_to: https://www.algolia.com/doc/integration/magento-1/how-it-works/google-analytics/
 ---
 
 The analytics feature of the extension is handled by the [Analytics widget](https://community.algolia.com/instantsearch.js/documentation/#analytics) of the [InstantSearch.js library](https://community.algolia.com/instantsearch.js/).
